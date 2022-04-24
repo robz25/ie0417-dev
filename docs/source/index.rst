@@ -2,19 +2,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Bienvenido al curso IE0417 @ EIE, UCR!
-======================================
+Entregas del equipo flash: German Katharina y Robin
+===================================================
 
-Esta documentación describe el ambiente de desarrollo base para el curso IE0417
-de la Escuela de Ingeniería Eléctrica, Universidad de Costa Rica (UCR).
-
-Este ambiente busca aprovechar componentes Open Source para mejorar el desarrollo
-de proyectos de software. Este repositorio y documentación proveen un ejemplo
-funcional de múltiples tecnologías:
-
-- Un ambiente de desarrollo reproducible basado en Vagrant y Docker
-- Un sistema de documentación basado en Sphinx y ReadtheDocs
-- Un sistema de Integración Continua basado en GitHub
+En esta documentaciòn se explican las entregas de diversos laboratorios y tareas del curso IE0417 de la Escuela de Ingeniería Eléctrica, Universidad de Costa Rica (UCR).
 
 .. toctree::
    :maxdepth: 2
