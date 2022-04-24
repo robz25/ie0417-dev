@@ -8,5 +8,10 @@ Integrantes
  - Robin Gonzalez
  - German Ureña
  
- ¿Cómo plantear los releases de funcionalidad del proyecto con metodologías Agile?
+¿Cómo plantear los releases de funcionalidad del proyecto con metodologías Agile?
 ============
+
+
+Lista de requerimientos funcionales y no funcionales
+============
+
