@@ -17,9 +17,12 @@ Diagrama
 Prueba de digrama  has this result:
 
 @startuml
-.. graphviz::
-
-   digraph {
-      "From" -> "To";
-   }
+(*)  --> "check input"
+If "input is verbose" then
+--> [Yes] "turn on verbosity"
+--> "run command"
+else
+--> "run command"
+Endif
+-->(*)
 @enduml
