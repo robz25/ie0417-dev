@@ -16,9 +16,10 @@ Diagrama
 
 Prueba de digrama  has this result:
 
+@startuml
 .. graphviz::
 
    digraph {
       "From" -> "To";
    }
-
+@enduml
