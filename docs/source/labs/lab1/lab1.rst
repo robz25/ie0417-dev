@@ -25,10 +25,13 @@ Requerimientos funcionales
 --------------------------
  - El sistema deberá utilizar una API para controlar los dispositivos de la fábrica desde client, 
  con la cual es posible conectar con los diferentes computadores conectados a la fábrica. 
+
  - Como usuario (client), la app deberá mostrar siempre todos los dispositivos conectados a la fábrica y
  debe ser posible tener accesso a los comandos de control y status de estos.
+
  - El sistema deberá utilizar un protocolo de comunicación específico entre eieManager y las instancias 
  de eieDevice que corresponden a los dispositivos conectados en la fábrica basado en remote procedure calls (RPCs).
+
  - El sistema de eieManager debe recibir las respuestas de los distintos dispositivos al enviar comandos
  a un grupo de broadcast para formar la respuesta final que se entrega al usuario. 
  
@@ -36,8 +39,10 @@ Requerimientos no funcionales
 -----------------------------
  - El sistema debe ser capaz de generar una amplia variedad de comandos, se pueden agregar nuevos comandos
  y no deben implicar cambio para el API. 
+
  - La comunicación para comandos entre eieManager y eieDevice debe estar bajo un protocolo inicial basado 
  en remote procedure calls(RPCs).
+ 
  - Para la implementación del sistema se usará el lenguaje de programación Python. 
 
 Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistema
