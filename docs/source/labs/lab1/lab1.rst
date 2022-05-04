@@ -137,6 +137,7 @@ Diagramas de secuencia
 Caso 1 El cliente envía un comando a un dispositivo específico. 
 
 Asumimos que el API registró la petición de comunicarse con un eieDevice
+
 .. uml::
 
   @startuml
