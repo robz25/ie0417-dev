@@ -69,26 +69,80 @@ Requerimientos no funcionales
 Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistema
 ============
 
- - Paso 1: Confirmar que hay suficiente información de los requerimientos.
- - Paso 2: Escoger un elemento del sistema que descomponer
+Paso 1:
+""""""""""""""""""""""
+Confirmar que hay suficiente información de los requerimientos.
+
+Paso 2:
+""""""""""""""""""""""
+Escoger un elemento del sistema que descomponer
 Un “Business goal”: Generar una API (Application Programming Interface) capaz de controlar los dispositivos de la fábrica desde Client, con la cual sea posible conectarse con los diferentes computadores de la fábrica 
 Goal Refinement: El sistema debe ser capaz de generar una amplia variedad de comandos, sin implicar un cambio para el API
 Quality attribute: Performance 
 Quality attribute scenario:  La API debe proporcionar la comunicación entre el cliente y el eieManager y al ingresas más comandos a los dispositivos la API no debe verse afectada. 
- - Paso 3: Architectural drivers
+Paso 3:
+""""""""""""""""""""""
+
+Architectural drivers
 Priority: High , High 
- - Paso 4:  Escoger un concepto de diseño o patrón que satisfaga el diseño arquitectónico 
+
+Paso 4: 
+""""""""""""""""""""""
+
+Escoger un concepto de diseño o patrón que satisfaga el diseño arquitectónico 
 Para seguir nuestra idea de diseño se utilizará un patrón estructural, el cual utiliza el concepto de herencia para componer interfaces y definir formas de componer objetos para obtener nuevas funcionalidades como en nuestro caso con los comandos. Se puede usar el patrón estructural Bridge, en este patrón hay una alteración estructural en las clases principales y de implementación e interfaz sin tener ningún efecto entre ellas. Estas dos clases pueden ser desarrolladas de manera independiente y solo se conectan utilizando una interfaz como puente. 
 Paso 5: Instancias decisiones de diseño en sub-componentes y asignar responsabilidades
 La API debe ser capaz de mandar la señal de encendido y apagado del sistema dada por el cliente, al eieManager y por lo tanto a los dispositivos conectados en esta. 
-La API debe ser capaz de mandar una notificación de alarma cuando algún dispositivo tenga una falla en la fábrica y por lo tanto debe mostrarla al cliente. 
- - Paso 6: Definir las interfaces de elementos instanciados 
- - Paso 7: Verificar, afinar requerimientos  y hacer restricciones para los elementos instanciados.
+La API debe ser capaz de mandar una notificación de alarma cuando algún dispositivo tenga una falla en la fábrica y por lo tanto debe mostrarla al cliente.
+ 
+Paso 6: 
+""""""""""""""""""""""
+Definir las interfaces de elementos instanciados 
+
+Paso 7: 
+""""""""""""""""""""""
+ Verificar, afinar requerimientos  y hacer restricciones para los elementos instanciados.
 
 Justificar y priorizar al menos dos atributos de calidad relevantes para el diseño a partir de los objetivos de negocio.
 -----------------------------
 
 Con base a los requierimientos y los objetivos del negocio se han establecido los atributis de diseño que priorizan la modificabilidad, el rendimiento y la disponibilidad del sistema. Éstos atributos son el producto de las relaciones e interacciones con los "stakeholders" y al explorar las necesidades del sistema con base a su contexto de desarrollo.
+
+Para cada parte del sistema eieManager y eieDevice un ejemplo de iteración usando el método de diseño ADD.
+-----------------------------
+
+Como generalidad se tiene que para ambas partes del sistema se debe ejecutar los pasos correspondientes: Plan, Do and Check.
+
+En el caso del ``eieManager`` primero en el planeamiento de establecen los atributos de calidad y las restricciones, que corresponden a la disponibilidad y escalabilidad, así como el principio de separación de responsabilidades; para el siguiente paso se tiene segmentar los elementos que son instanciados:
+
+- ``ConfigHandler`` cuyo fin será la de incluir la lista de dispositivos soportados con su respectiva información (nombre, grupo broadcast, datos de conexión, etc).
+
+- ``APIServer`` Encagado de estar al servicio de solicitudes del cliente.
+
+- ``CommandRegistry`` Lleva el control de el registro de los comandos soportados y su información.
+
+- ``DeviceManager`` Administra el ciclo de vida de los dispositivos conectados al ``eieManager``
+
+- ``GroupManager`` Controla los dispositivos pertenecientes a grupos broadcast.
+
+- ``CommandInvoker`` Ejecuta los comandos solicitados por el cliente.
+
+- ``TransportClient`` Abstrae el protocolo de comunicación para interactuar con el dispositivo.
+
+- ``DatabaseHandler`` Wrapper de una base de datos para almacenar configuración y estado.
+
+una vez definidos los elementos dentro del bloque ``eieManager`` se procede a analizar y revisar el diseño así como la correcta integración de sus partes.
+
+En el ciclo de implementación del método de diseño ADD para el ``eieDevice`` se tienen que los atributos principales de calidad del mismo corresponden a la interoperatividad y que permita la concurrencia, de los elementos instanciados dentro del bloque se destacan:
+
+- ``TransportServer`` Responde a solicitudes de comandos provenientes del TransportClient.
+
+- ``CommandManager`` Registro y ejecución de los comandos soportados por el dispositivo.
+
+- ``Command`` Implementa la funcionalidad del comando.
+
+establecidos los elementos dentro del bloque ``eieDevice`` se procede a analizar y revisar el diseño así como el correcto funcionamiento de sus componentes.
+
 
 Patrones de diseño y su implementación en el proyecto de software
 =============
