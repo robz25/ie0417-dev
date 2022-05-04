@@ -69,8 +69,8 @@ Requerimientos no funcionales
 Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistema
 ============
 
-Paso 1:
-""""""""""""""""""""""
+ -  ``Paso 1``:
+
 Confirmar que hay suficiente información de los requerimientos.
 
 Paso 2:
