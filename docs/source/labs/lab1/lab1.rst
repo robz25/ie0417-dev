@@ -44,7 +44,42 @@ Diagramas de clases
 .. uml::
 
   @startuml
-  Bob -> Alice : hello
+  'definir clases
+  class ConfigHandler
+  class APIServer
+  Abstract CommandRegistry
+  class CommandInfo
+  abstract DeviceManager
+  abstract GroupManager
+  class Group
+  class CommandInvoker
+  class TransportClient
+  class DatabaseHandler
+  class RPCClient
+  class Device
+
+
+  'Definir relacion entre clases
+  'realization CommandRegistry es clase abstracta, interfaz de CommandInfo
+  'realization
+  GroupManager <|.. Group
+  CommandRegistry <|.. CommandInfo
+  'Asociación, no queremos que CommandRegistry accese a CommandInvoker
+  CommandRegistry --> CommandInvoker
+  'Asociación
+  TransportClient --> RPCClient
+  DeviceManager --> Device
+  APIServer --> TransportClient
+  DeviceManager -- GroupManager
+  'Composición, los grupos se forman totalmente de dispositivos
+  Group *-- Device
+  'Dependencia
+  ConfigHandler ..> DatabaseHandler
+
+
+
+  'Definir métodos y atributos
+  'CommandRegistry :
   @enduml
 
 Diagramas de secuencia
