@@ -47,7 +47,7 @@ Diagrama de clases para el programa eieManager.
 .. uml::
 
   @startuml
-'definir clases
+  'definir clases
   class ConfigHandler
   class APIServer
   Abstract CommandRegistry
@@ -105,11 +105,12 @@ Diagrama de clases para el programa eieManager.
   ConfigHandler : readConfig()
   RPCClient : send()
 
-@enduml
+  @enduml
 
 Diagrama de clases para el programa eieDevice.
 
 .. uml::
+
   @startuml
   'definir clases
   class TransportServer
@@ -132,3 +133,37 @@ Diagrama de clases para el programa eieDevice.
 
 Diagramas de secuencia
 --------------------------
+
+Caso 1 El cliente envía un comando a un dispositivo específico. 
+
+Asumimos que el API registró la petición de comunicarse con un eieDevice
+.. uml::
+
+  @startuml
+  APIserver -> eieManager : Notifica peticición de comunicación con un eieClient.
+  eieManager -> eieDevice : Envía dirección de destino
+  eieDevice --> eieManager : Confirma existencia y disposición de comunicarse
+  eieManager <-> eieDevice : Handshake y configuración de comunicación
+
+  eieManager -> eieDevice : Envía paquetes de datos
+  eieManager <-- eieDevice : Confirma recepción de datos y envía respuesta
+  eieManager -> eieDevice : Cierra comunicación
+
+  eieManager -> APIserver : Envía respuesta a petición original
+  @enduml
+
+Caso 2 El cliente envía un comando a un grupo de broadcast.
+
+.. uml::
+  @startuml
+
+  eieManager -> eieDevice : Espera canal libre y envía dirección genérica de broadcast
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager <-> eieDevice : Envía configuración de comunicación
+
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager --> eieDevice : Envía paquetes de datos
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager -> eieDevice : Cierra comunicación
+
+  @enduml
