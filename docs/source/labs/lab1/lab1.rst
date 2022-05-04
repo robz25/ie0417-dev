@@ -41,6 +41,9 @@ Diagramas UML
 
 Diagramas de clases
 -----------------------
+
+Diagrama de clases para el programa eieManager.
+
 .. uml::
 
   @startuml
@@ -80,6 +83,25 @@ Diagramas de clases
 
   'Definir métodos y atributos
   'CommandRegistry :
+  @enduml
+
+Diagrama de clases para el programa eieDevice.
+
+.. uml::
+  @startuml
+  'definir clases
+  class TransportServer
+  abstract CommandManager
+  class Command
+
+  'Definir relacion entre clases
+  'realización, CommandManager es interfaz para command
+  CommandManager <|-- Command
+  'Dependencia, TransportServer utiliza CommandManager
+  TransportServer <.. CommandManager
+
+  'Definir métodos y atributos
+  'Command:
   @enduml
 
 Diagramas de secuencia
