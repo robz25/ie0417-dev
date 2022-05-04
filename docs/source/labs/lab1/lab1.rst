@@ -20,7 +20,7 @@ permitirá la comunicación de client con eieManager, la cual es de mucha releva
 vía de comunicación con el cliente y los dispositivos de la fábrica.   
 =======
  - Katharina Alfaro Solís **B80251**
- - Robin Gonzalez
+ - Robin Gonzalez **B43011**
  - German Ureña Araya **B77809**
 
  
