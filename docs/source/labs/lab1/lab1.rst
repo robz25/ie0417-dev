@@ -49,13 +49,19 @@ Requerimientos no funcionales
 Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistema
 ============
 
-Patrones de diseño, explicarlos con el proyecto
+Patrones de diseño y su implementación en el proyecto de software
 =============
 
 ¿Cómo se puede aplicar el patrón de diseño Proxy para abstraer la interacción y comunicación con los dispositivos desde ``eieManager``?
 -----------------------------
 
-Para la estructura general del proyecto y particularmente el área encargada de la comunicación entre los dispositivos (eieDevices) y el eieManager el uso del patrón de diseño Proxy resulta fundamental ya que al implementarlo se usaría como una interface entre los datos que entran y salen del manager, filtrándose y atrapandolos de manera unificada, estandarizando y abstrayendo la comunicación entre ambos elementos del sistema; además se genera una capa de comunicación segura y privada con el tráfico de datos. Comprender mejor el uso del patrón en el proyecto de software se e
+Para la estructura general del proyecto y particularmente el área encargada de la comunicación entre los dispositivos (eieDevices) y el eieManager el uso del patrón de diseño Proxy resulta fundamental ya que al implementarlo facilita una interface entre los datos que entran y salen del manager, filtrándose y atrapandolos de manera unificada, estandarizanda y abstrayendo la comunicación entre ambos elementos del sistema; además se genera una capa de comunicación segura y privada con el tráfico de datos. Como se comentaba anteriormente la implementación de éste patrón de diseño es aplicable principalmente entre la comunicación entre el controlador principal ``eieManager`` y cada uno de los dispositivos ``eieDevices``, ya que la comunicación entre ellos radica en el tráfico de datos, por lo tanto el uso de Proxy para manipular los datos entre las partes es necesario para responder a la necesidad de desarrollo que establece que se pueda integrar al sistema cualquier dispositivo ya sea sensor u actuador, sin necesidad de reprogramar al manager, y es ahí donde el Proxy se encarga de ser éste acople para que se puedan procesar los datos en la siguiente etapa.
+
+.. note::
+    Se entiende que el patrón de diseño usando Proxy corresponde a la implementación de una clase que abstrae los mensajes entre dos componentes de software.
+
+Dentro de los componentes sugeridos en la introducción, a cuáles se les puede relacionar con este patrón?
+
 
 Diagramas UML
 =============
