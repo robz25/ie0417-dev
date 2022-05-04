@@ -47,7 +47,7 @@ Diagrama de clases para el programa eieManager.
 .. uml::
 
   @startuml
-  'definir clases
+'definir clases
   class ConfigHandler
   class APIServer
   Abstract CommandRegistry
@@ -82,8 +82,30 @@ Diagrama de clases para el programa eieManager.
 
 
   'Definir métodos y atributos
-  'CommandRegistry :
-  @enduml
+  CommandRegistry : addCommand()
+  CommandRegistry : deleteCommand()
+  CommandRegistry : modifyCommand(field, data)
+  GroupManager : createGroup()
+  GroupManager : deleteGroup()
+  GroupManager : editGroup()
+  GroupManager : editGroupMembers()
+  TransportClient : newConnection()
+  TransportClient : closeConnection()
+  TransportClient : readData()
+  TransportClient : sendData()
+  TransportClient : standby()
+  APIServer : processRequest()
+  DeviceManager : addDevice()
+  DeviceManager : removeDevice()
+  DeviceManager : editDevice()
+  DeviceManager : listDevice()
+  DeviceManager : broadCastMessage()
+  DeviceManager : sendMessage()
+  ConfigHandler : storeConfig()
+  ConfigHandler : readConfig()
+  RPCClient : send()
+
+@enduml
 
 Diagrama de clases para el programa eieDevice.
 
@@ -101,7 +123,11 @@ Diagrama de clases para el programa eieDevice.
   TransportServer <.. CommandManager
 
   'Definir métodos y atributos
-  'Command:
+  CommandManager : parseCommand()
+  CommandManager : buildCommand()
+  TransportServer : recieveData()
+  TransportServer : sendData()
+  TransportServer : standby()
   @enduml
 
 Diagramas de secuencia
