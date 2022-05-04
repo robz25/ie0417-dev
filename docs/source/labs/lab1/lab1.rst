@@ -3,6 +3,13 @@
 Laboratorio 1
 *************
 
+Integrantes
+=======
+ - Katharina Alfaro Solís **B80251**
+ - Robin Gonzalez **B43011**
+ - German Ureña Araya
+
+
 Planeamiento
 ==================
 
@@ -19,6 +26,7 @@ desarrollo del App, la implementación del framework del eieDevice además de de
 permitirá la comunicación de client con eieManager, la cual es de mucha relevancia, ya que será la 
 vía de comunicación con el cliente y los dispositivos de la fábrica.   
 
+
 Requerimientos funcionales y no funcionales 
 ============
 
@@ -30,12 +38,24 @@ Requerimientos funcionales
  - ``REQ-002`` Como usuario (client), la app deberá mostrar siempre todos los dispositivos conectados a la fábrica y
  debe ser posible tener accesso a los comandos de control y status de estos.
 
+
  - ``REQ-003`` El sistema deberá utilizar un protocolo de comunicación específico entre eieManager y las instancias 
  de eieDevice que corresponden a los dispositivos conectados en la fábrica basado en remote procedure calls (RPCs).
 
  - ``REQ-004`` El sistema de eieManager debe recibir las respuestas de los distintos dispositivos al enviar comandos
  a un grupo de broadcast para formar la respuesta final que se entrega al usuario. 
 
+Requerimientos no funcionales 
+-----------------------------
+ - ``REQ-005`` El sistema debe ser capaz de generar una amplia variedad de comandos, se pueden agregar nuevos comandos
+ y no deben implicar cambio para el API. 
+
+ - ``REQ-003`` El sistema deberá utilizar un protocolo de comunicación específico entre eieManager y las instancias 
+ de eieDevice que corresponden a los dispositivos conectados en la fábrica basado en remote procedure calls (RPCs).
+
+ - ``REQ-004`` El sistema de eieManager debe recibir las respuestas de los distintos dispositivos al enviar comandos
+ a un grupo de broadcast para formar la respuesta final que se entrega al usuario. 
+ 
 Requerimientos no funcionales 
 -----------------------------
  - ``REQ-005`` El sistema debe ser capaz de generar una amplia variedad de comandos, se pueden agregar nuevos comandos
@@ -55,7 +75,11 @@ Patrones de diseño y su implementación en el proyecto de software
 ¿Cómo se puede aplicar el patrón de diseño Proxy para abstraer la interacción y comunicación con los dispositivos desde ``eieManager``?
 -----------------------------
 
-Para la estructura general del proyecto y particularmente el área encargada de la comunicación entre los dispositivos (eieDevices) y el eieManager el uso del patrón de diseño Proxy resulta fundamental ya que al implementarlo facilita una interface entre los datos que entran y salen del manager, filtrándose y atrapandolos de manera unificada, estandarizanda y abstrayendo la comunicación entre ambos elementos del sistema; además se genera una capa de comunicación segura y privada con el tráfico de datos. Como se comentaba anteriormente la implementación de éste patrón de diseño es aplicable principalmente entre la comunicación entre el controlador principal ``eieManager`` y cada uno de los dispositivos ``eieDevices``, ya que la comunicación entre ellos radica en el tráfico de datos, por lo tanto el uso de Proxy para manipular los datos entre las partes es necesario para responder a la necesidad de desarrollo que establece que se pueda integrar al sistema cualquier dispositivo ya sea sensor u actuador, sin necesidad de reprogramar al manager, y es ahí donde el Proxy se encarga de ser éste acople para que se puedan procesar los datos en la siguiente etapa.
+Para la estructura general del proyecto y particularmente el área encargada de la comunicación entre los dispositivos (eieDevices) y el eieManager el uso del patrón de diseño Proxy resulta fundamental ya que al implementarlo facilita 
+una interface entre los datos que entran y salen del manager, filtrándose y atrapandolos de manera unificada, estandarizanda y abstrayendo 
+la comunicación entre ambos elementos del sistema; además se genera una capa de comunicación segura y privada con el tráfico de datos. 
+Como se comentaba anteriormente la implementación de éste patrón de diseño es aplicable principalmente entre la comunicación entre el 
+controlador principal ``eieManager`` y cada uno de los dispositivos ``eieDevices``, ya que la comunicación entre ellos radica en el tráfico de datos, por lo tanto el uso de Proxy para manipular los datos entre las partes es necesario para responder a la necesidad de desarrollo que establece que se pueda integrar al sistema cualquier dispositivo ya sea sensor u actuador, sin necesidad de reprogramar al manager, y es ahí donde el Proxy se encarga de ser éste acople para que se puedan procesar los datos en la siguiente etapa.
 
 .. note::
     Se entiende que el patrón de diseño usando Proxy corresponde a la implementación de una clase que abstrae los mensajes entre dos componentes de software.
@@ -65,3 +89,135 @@ Dentro de los componentes sugeridos en la introducción, a cuáles se les puede 
 
 Diagramas UML
 =============
+
+
+Diagramas de clases
+-----------------------
+
+Diagrama de clases para el programa eieManager.
+
+.. uml::
+
+  @startuml
+  'definir clases
+  class ConfigHandler
+  class APIServer
+  Abstract CommandRegistry
+  class CommandInfo
+  abstract DeviceManager
+  abstract GroupManager
+  class Group
+  class CommandInvoker
+  class TransportClient
+  class DatabaseHandler
+  class RPCClient
+  class Device
+
+
+  'Definir relacion entre clases
+  'realization CommandRegistry es clase abstracta, interfaz de CommandInfo
+  'realization
+  GroupManager <|.. Group
+  CommandRegistry <|.. CommandInfo
+  'Asociación, no queremos que CommandRegistry accese a CommandInvoker
+  CommandRegistry --> CommandInvoker
+  'Asociación
+  TransportClient --> RPCClient
+  DeviceManager --> Device
+  APIServer --> TransportClient
+  DeviceManager -- GroupManager
+  'Composición, los grupos se forman totalmente de dispositivos
+  Group *-- Device
+  'Dependencia
+  ConfigHandler ..> DatabaseHandler
+
+
+
+  'Definir métodos y atributos
+  CommandRegistry : addCommand()
+  CommandRegistry : deleteCommand()
+  CommandRegistry : modifyCommand(field, data)
+  GroupManager : createGroup()
+  GroupManager : deleteGroup()
+  GroupManager : editGroup()
+  GroupManager : editGroupMembers()
+  TransportClient : newConnection()
+  TransportClient : closeConnection()
+  TransportClient : readData()
+  TransportClient : sendData()
+  TransportClient : standby()
+  APIServer : processRequest()
+  DeviceManager : addDevice()
+  DeviceManager : removeDevice()
+  DeviceManager : editDevice()
+  DeviceManager : listDevice()
+  DeviceManager : broadCastMessage()
+  DeviceManager : sendMessage()
+  ConfigHandler : storeConfig()
+  ConfigHandler : readConfig()
+  RPCClient : send()
+
+  @enduml
+
+Diagrama de clases para el programa eieDevice.
+
+.. uml::
+
+  @startuml
+  'definir clases
+  class TransportServer
+  abstract CommandManager
+  class Command
+
+  'Definir relacion entre clases
+  'realización, CommandManager es interfaz para command
+  CommandManager <|-- Command
+  'Dependencia, TransportServer utiliza CommandManager
+  TransportServer <.. CommandManager
+
+  'Definir métodos y atributos
+  CommandManager : parseCommand()
+  CommandManager : buildCommand()
+  TransportServer : recieveData()
+  TransportServer : sendData()
+  TransportServer : standby()
+  @enduml
+
+Diagramas de secuencia
+--------------------------
+
+Caso 1 El cliente envía un comando a un dispositivo específico. 
+
+Asumimos que el API registró la petición de comunicarse con un eieDevice
+
+.. uml::
+
+  @startuml
+  APIserver -> eieManager : Notifica peticición de comunicación con un eieClient.
+  eieManager -> eieDevice : Envía dirección de destino
+  eieDevice --> eieManager : Confirma existencia y disposición de comunicarse
+  eieManager <-> eieDevice : Handshake y configuración de comunicación
+
+  eieManager -> eieDevice : Envía paquetes de datos
+  eieManager <-- eieDevice : Confirma recepción de datos y envía respuesta
+  eieManager -> eieDevice : Cierra comunicación
+
+  eieManager -> APIserver : Envía respuesta a petición original
+  @enduml
+
+Caso 2 El cliente envía un comando a un grupo de broadcast.
+
+.. uml::
+
+  @startuml
+  eieManager -> eieDevice : Espera canal libre y envía dirección genérica de broadcast
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager <-> eieDevice : Envía configuración de comunicación
+
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager --> eieDevice : Envía paquetes de datos
+  eieDevice --> eieManager : Mantiene canal libre para comunicación
+  eieManager -> eieDevice : Cierra comunicación
+  @enduml
+
+
