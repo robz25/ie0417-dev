@@ -42,9 +42,10 @@ Diagramas UML
 Diagramas de clases
 -----------------------
 .. uml::
-@startuml
-Bob -> Alice : hello
-@enduml
+
+  @startuml
+  Bob -> Alice : hello
+  @enduml
 
 Diagramas de secuencia
 --------------------------
