@@ -71,7 +71,8 @@ Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistem
 
 ``Paso 1``: Confirmar que hay suficiente información de los requerimientos.
 
- ``Paso 2``: Escoger un elemento del sistema que descomponer
+
+``Paso 2``: Escoger un elemento del sistema que descomponer
 Un “Business goal”: Generar una API (Application Programming Interface) capaz de controlar los dispositivos de la fábrica desde Client, con la cual sea posible conectarse con los diferentes computadores de la fábrica 
 Goal Refinement: El sistema debe ser capaz de generar una amplia variedad de comandos, sin implicar un cambio para el API
 Quality attribute: Performance 
