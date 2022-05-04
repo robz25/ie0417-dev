@@ -155,8 +155,8 @@ Asumimos que el API registró la petición de comunicarse con un eieDevice
 Caso 2 El cliente envía un comando a un grupo de broadcast.
 
 .. uml::
-  @startuml
 
+  @startuml
   eieManager -> eieDevice : Espera canal libre y envía dirección genérica de broadcast
   eieDevice --> eieManager : Mantiene canal libre para comunicación
   eieManager <-> eieDevice : Envía configuración de comunicación
@@ -165,5 +165,4 @@ Caso 2 El cliente envía un comando a un grupo de broadcast.
   eieManager --> eieDevice : Envía paquetes de datos
   eieDevice --> eieManager : Mantiene canal libre para comunicación
   eieManager -> eieDevice : Cierra comunicación
-
   @enduml
