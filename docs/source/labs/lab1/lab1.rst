@@ -2,8 +2,16 @@
 Laboratorio 1
 *************
 
+
+ - Katharina Alfaro Solís **B80251**
+ - Robin Gonzalez **B43011**
+ - German Ureña Araya **B77809**
+=======
+
+
 Planeamiento
 ==================
+
 
 ¿Cómo planear el proyecto con Agile?
 ------------------------------------
@@ -17,6 +25,7 @@ De manera que, para este proyecto, se puede planear como release principal para 
 desarrollo del App, la implementación del framework del eieDevice además de definir la interfaz de la API que
 permitirá la comunicación de client con eieManager, la cual es de mucha relevancia, ya que será la 
 vía de comunicación con el cliente y los dispositivos de la fábrica.   
+
  
 Requerimientos funcionales y no funcionales 
 ============
