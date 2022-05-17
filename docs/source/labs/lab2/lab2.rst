@@ -1,5 +1,5 @@
 *************
-Laboratorio 1
+Laboratorio 2
 *************
 
 Integrantes
@@ -21,3 +21,7 @@ Particularidades del diseño
 ------------------------------------
 
 En especial el código destaca por....
+
+Flake8 y mypy
+------------------------------------
+
