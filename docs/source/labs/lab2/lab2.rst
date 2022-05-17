@@ -22,6 +22,6 @@ Particularidades del diseño
 
 En especial el código destaca por....
 
-Flake8 y mypy
+Resultados de las pruebas Flake8 y mypy
 ------------------------------------
 
