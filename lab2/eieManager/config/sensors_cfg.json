@@ -1,0 +1,39 @@
+{
+    "Devices": [
+        {
+            "identifier": "Device-01",
+            "type":"Computer",
+            "commands":[
+                "Status",
+                "Set_device"
+            ],
+            "IP": "192.168.0.1:8001"
+        },
+        {
+            "identifier": "Device-03",
+            "type":"Alarm",
+            "commands":[
+                "Status",
+                "Set_device"
+            ],
+            "IP": "192.168.0.3:8001"
+        },
+        {
+            "identifier": "Device-02",
+            "type":"Cellphone",
+            "commands":[
+                "Status",
+                "Set_device"
+            ],
+            "IP": "192.168.0.2:8001"
+        },
+        {
+            "identifier": "Device-04",
+            "type":"Sensor",
+            "commands":[
+                "Read"
+            ],
+            "IP": "192.168.0.4:8001"
+        }
+    ]
+}
