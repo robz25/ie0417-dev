@@ -62,7 +62,7 @@ Requerimientos no funcionales
  y no deben implicar cambio para el API. 
 
  - ``REQ-006`` La comunicación para comandos entre eieManager y eieDevice debe estar bajo un protocolo inicial basado 
- en remote procedure calls(RPCs).
+ en remote procedure calls(RPCs). 
 
  - ``REQ-007`` Para la implementación del sistema se usará el lenguaje de programación Python. 
 
