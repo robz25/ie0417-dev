@@ -50,17 +50,6 @@ Requerimientos no funcionales
  - ``REQ-005`` El sistema debe ser capaz de generar una amplia variedad de comandos, se pueden agregar nuevos comandos
  y no deben implicar cambio para el API. 
 
- - ``REQ-003`` El sistema deberá utilizar un protocolo de comunicación específico entre eieManager y las instancias 
- de eieDevice que corresponden a los dispositivos conectados en la fábrica basado en remote procedure calls (RPCs).
-
- - ``REQ-004`` El sistema de eieManager debe recibir las respuestas de los distintos dispositivos al enviar comandos
- a un grupo de broadcast para formar la respuesta final que se entrega al usuario. 
- 
-Requerimientos no funcionales 
------------------------------
- - ``REQ-005`` El sistema debe ser capaz de generar una amplia variedad de comandos, se pueden agregar nuevos comandos
- y no deben implicar cambio para el API. 
-
  - ``REQ-006`` La comunicación para comandos entre eieManager y eieDevice debe estar bajo un protocolo inicial basado 
  en remote procedure calls(RPCs).
 
