@@ -69,7 +69,6 @@ Requerimientos no funcionales
 Aplique la metodología Attribute-Driven Design (ADD) para el diseño del sistema
 ============
 
-<<<<<<< HEAD
 ``Paso 1``: Confirmar que hay suficiente información de los requerimientos.
 
 
@@ -81,22 +80,10 @@ Quality attribute scenario:  La API debe proporcionar la comunicación entre el 
 
 ``Paso 3``:
 
-=======
- ``Paso 1``: Confirmar que hay suficiente información de los requerimientos.
-
- ``Paso 2``: Escoger un elemento del sistema que descomponer
-Un “Business goal”: Generar una API (Application Programming Interface) capaz de controlar los dispositivos de la fábrica desde Client, con la cual sea posible conectarse con los diferentes computadores de la fábrica 
-Goal Refinement: El sistema debe ser capaz de generar una amplia variedad de comandos, sin implicar un cambio para el API
-Quality attribute: Performance 
-Quality attribute scenario:  La API debe proporcionar la comunicación entre el cliente y el eieManager y al ingresas más comandos a los dispositivos la API no debe verse afectada. 
-Paso 3:
-""""""""""""""""""""""
->>>>>>> gDevBranch
 
 Architectural drivers
 Priority: High , High 
 
-<<<<<<< HEAD
 ``Paso 4``: 
 
 Escoger un concepto de diseño o patrón que satisfaga el diseño arquitectónico 
@@ -113,24 +100,6 @@ Definir las interfaces de elementos instanciados
 ``Paso 7``: 
 
 Verificar, afinar requerimientos  y hacer restricciones para los elementos instanciados.
-=======
-Paso 4: 
-""""""""""""""""""""""
-
-Escoger un concepto de diseño o patrón que satisfaga el diseño arquitectónico 
-Para seguir nuestra idea de diseño se utilizará un patrón estructural, el cual utiliza el concepto de herencia para componer interfaces y definir formas de componer objetos para obtener nuevas funcionalidades como en nuestro caso con los comandos. Se puede usar el patrón estructural Bridge, en este patrón hay una alteración estructural en las clases principales y de implementación e interfaz sin tener ningún efecto entre ellas. Estas dos clases pueden ser desarrolladas de manera independiente y solo se conectan utilizando una interfaz como puente. 
-Paso 5: Instancias decisiones de diseño en sub-componentes y asignar responsabilidades
-La API debe ser capaz de mandar la señal de encendido y apagado del sistema dada por el cliente, al eieManager y por lo tanto a los dispositivos conectados en esta. 
-La API debe ser capaz de mandar una notificación de alarma cuando algún dispositivo tenga una falla en la fábrica y por lo tanto debe mostrarla al cliente.
- 
-Paso 6: 
-""""""""""""""""""""""
-Definir las interfaces de elementos instanciados 
-
-Paso 7: 
-""""""""""""""""""""""
- Verificar, afinar requerimientos  y hacer restricciones para los elementos instanciados.
->>>>>>> gDevBranch
 
 Justificar y priorizar al menos dos atributos de calidad relevantes para el diseño a partir de los objetivos de negocio.
 -----------------------------
@@ -173,10 +142,7 @@ En el ciclo de implementación del método de diseño ADD para el ``eieDevice`` 
 establecidos los elementos dentro del bloque ``eieDevice`` se procede a analizar y revisar el diseño así como el correcto funcionamiento de sus componentes.
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> gDevBranch
 Patrones de diseño y su implementación en el proyecto de software
 =============
 
