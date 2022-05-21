@@ -97,7 +97,7 @@ setup(
     ),
     long_description=read('README.md'),
     long_description_content_type='text/x-rst',
-    url='http://ie0417.rtfd.org/',
+    url='https://ie0417-dev-b43011.readthedocs.io/en.latest/labs/lab2/lab2.html',
 
     classifiers=[
         'Intended Audience :: Developers',
@@ -110,7 +110,7 @@ setup(
     # Entry points
     entry_points={
         'console_scripts': [
-            'sensor_cmds=sensor_commands.main:main',
+            'api_eieManager=eieManager.main:main',
         ],
     }
 )
