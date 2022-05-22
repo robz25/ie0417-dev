@@ -89,10 +89,11 @@ setup(
     install_requires=find_requirements('requirements.txt'),
 
     # Metadata
-    author='Esteban Zamora Alvarado',
-    author_email='esteban.zamora.al@gmail.com',
+    author='Katharina Alfaro Solís',
+    author='Robin Gonzalez'
+    author='German Ureña'
     description=(
-        'sensor_commands is an example python package for the '
+        'eieManager is an python package for the lab 2'
         'IE0417 course @ EIE, UCR'
     ),
     long_description=read('README.md'),
