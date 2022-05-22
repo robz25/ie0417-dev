@@ -1,3 +1,0 @@
-[console_scripts]
-sensor_cmds = sensor_commands.main:main
-

@@ -1,0 +1,39 @@
+{
+    "Devices": [
+        {
+            "name": "Device-01",
+            "type":"Sensor",
+            "commands":[
+                "Read",
+                "Activate"
+            ],
+            "ip": "192.168.0.1:8001"
+        },
+        {
+            "name": "Device-03",
+            "type":"Level",
+            "commands":[
+                "Status",
+                "Set_device"
+            ],
+            "ip": "192.168.0.3:8001"
+        },
+        {
+            "name": "Device-02",
+            "type":"Temperature",
+            "commands":[
+                "Status",
+                "Set_device"
+            ],
+            "ip": "192.168.0.2:8001"
+        },
+        {
+            "name": "Device-04",
+            "type":"Actuador",
+            "commands":[
+                "Read"
+            ],
+            "ip": "192.168.0.4:8001"
+        }
+    ]
+}
