@@ -6,7 +6,7 @@ from .devices import DeviceFactory
 from .device import Device, DeviceReadCommand, DeviceAnalyzer
 
 
-class deviceManager:
+class DeviceManager:
     """
     Manager class to control device objects lifecycle.
 

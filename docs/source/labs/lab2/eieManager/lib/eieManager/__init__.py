@@ -1,5 +1,5 @@
 """
-sensor_commands module entry point.
+eieManager module entry point.
 """
 
 __author__ = 'Esteban Zamora Alvarado'

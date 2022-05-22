@@ -79,7 +79,7 @@ def find_requirements(filename):
 
 
 setup(
-    name='eieManager',
+    name='eieManagerNew',
     version=find_version('lib/eieManager/__init__.py'),
     package_dir={'': 'lib'},
     packages=find_packages('lib'),
@@ -110,7 +110,7 @@ setup(
     # Entry points
     entry_points={
         'console_scripts': [
-            'api_eieManager=eieManager.main:main',
+            'eieManagerTest=eieManager.main:main',
         ],
     }
 )

@@ -53,20 +53,20 @@ def parse_args(argv=None):
 
     parser = ArgumentParser(
         description=(
-            'sensor_commands is an example python package for the '
+            'eieManager is an example python package for the '
             'IE0417 course @ EIE, UCR'
         )
     )
 
     parser.add_argument(
         '-c', '--config',
-        default="config/sensors_cfg.json",
+        default="config/devices_cfg.json",
         help='Sensors configuration file',
     )
     parser.add_argument(
-        '-t', '--sensor_type',
+        '-t', '--device_type',
         default="temperature",
-        help='Sensor type to read',
+        help='Device type to read',
     )
 
     args = parser.parse_args(argv)

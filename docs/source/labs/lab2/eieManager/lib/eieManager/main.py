@@ -3,9 +3,9 @@ from random import choice
 
 from . import command
 from .args import parse_args
-from .device.deviceManager import deviceManager
-from .device.analyzers import avg_thresh_analyzer as avt
-
+from .deviceManager.deviceManager import DeviceManager
+#from .DeviceAvgThreshAnalyzer import DeviceAvgThreshAnalyzer as avt
+from .deviceManager.analyzers import avg_thresh_analyzer as avt
 
 log = logging.getLogger(__name__)
 
