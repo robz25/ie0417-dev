@@ -2,7 +2,7 @@ import operator
 import collections
 from typing import Optional, Callable, Deque
 
-from ..sensor import SensorAnalyzer
+from ..device import SensorAnalyzer
 from ...command import CommandRunner, MessageCommand
 
 ThreshCompareStrategy = Callable[[float, float], bool]

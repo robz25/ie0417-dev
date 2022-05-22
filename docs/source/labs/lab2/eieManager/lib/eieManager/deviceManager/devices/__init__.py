@@ -1,19 +1,19 @@
 """
-sensors module entry point.
+device module entry point.
 """
-from ..sensor import Sensor
+from ..device import Sensor
 
 from .temp import TempSensor
 from .level import LevelSensor
 
 
-class SensorFactory():
+class DeviceFactory():
     """
-    Factory that creates a sensor of a given type name.
+    Factory that creates a device of a given type name.
     """
     def __init__(self) -> None:
         # Dictionary that maps names of sensor types to classes.
-        self._sensor_type_to_cls = {
+        self._device_type_to_cls = {
             "temperature": TempSensor,
             "level": LevelSensor,
         }
@@ -21,11 +21,11 @@ class SensorFactory():
     @property
     def supported_types(self):
         """
-        Returns the list of names for the supported sensor types.
+        Returns the list of names for the supported devices types.
         """
-        return [stype for stype in self.sensor_type_to_cls.keys()]
+        return [stype for stype in self.device_type_to_cls.keys()]
 
-    def __call__(self, name: str, stype: str) -> Sensor:
+    def __call__(self, name: str, stype: str) -> Device:
         """
         Creates the sensor.
 

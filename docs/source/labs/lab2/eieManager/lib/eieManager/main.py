@@ -3,8 +3,8 @@ from random import choice
 
 from . import command
 from .args import parse_args
-from .sensor.manager import SensorManager
-from .sensor.analyzers import avg_thresh_analyzer as avt
+from .device.deviceManager import DeviceManager
+from .device.analyzers import avg_thresh_analyzer as avt
 
 
 log = logging.getLogger(__name__)
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 def main():
     """
-    Sensor commands application main function.
+    eieMananager application main function.
     """
     args = parse_args()
 
@@ -24,7 +24,7 @@ def main():
     num_read_commands = 200
 
     # Set up command runners
-    sensor_mgr = SensorManager(config_name)
+    sensor_mgr = DeviceManager(config_name)
     sensor_cmd_runner = command.CommandRunner(
         cmd_per_period=sensor_cmd_per_period,
         period_sec=sensor_period_sec)

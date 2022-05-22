@@ -1,9 +1,9 @@
 from random import randint
 
-from ..sensor import Sensor
+from ..device import Device
 
 
-class TempSensor(Sensor):
+class TempDevice(Device):
     def __init__(self, name: str) -> None:
         super().__init__(name, "temperature", "celsius")
 
