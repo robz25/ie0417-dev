@@ -38,8 +38,7 @@ def main():
     #------------- Test functions -------------
 
     print(device_mgr.get_device_names())
-    print(device_mgr.get_device_names())
-
+    device_mgr.create_device("hello")
     #------------------------------------------
 
 

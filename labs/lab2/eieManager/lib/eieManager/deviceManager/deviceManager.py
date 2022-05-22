@@ -40,6 +40,56 @@ class DeviceManager:
 
         self._init_devices_per_type()
 
+    def create_device(self, name: str, type: str, commands: List, ip: str):
+        """
+        Creates a new device.
+
+        :param str device_name: Name of the device to read.
+        :param device_name: Name of the device to read.
+        """
+        json_data = {
+        "name":name,
+        "type":type,
+        "commands":commands,
+        "ip": ip
+        }
+
+        with open(self.config_filename, 'w') as jsonFile:
+            json.dump(json_data, jsonFile)
+        jsonFile.close()
+
+        for device in self.devices.values():
+            dType = device.dType()
+            name = device.name()
+            commands = device.commands()
+            ip = device.ip()
+
+            if dType not in self.devices_per_type: 
+                self.devices_per_type[dType] = {}
+            #------------------ 
+            self.devices_per_type[dType][name] = device
+
+    def destroy_device(self, name: str):
+        """
+        Destroy a device with the name.
+
+        :param str device_name: Name of the device to read.
+        :param device_name: Name of the device to read.
+        """
+        with open(self.config_filename, 'w') as jsonFile:
+            json.dump(json_data, jsonFile)
+        jsonFile.close()
+
+        for device in self.devices.values():
+            dType = device.dType()
+            name = device.name()
+            commands = device.commands()
+            ip = device.ip()
+
+            if dType not in self.devices_per_type: 
+                self.devices_per_type[dType] = {}
+            #------------------ 
+            self.devices_per_type[dType][name] = device
 
     def _init_devices_per_type(self):
         """
@@ -55,8 +105,6 @@ class DeviceManager:
                 self.devices_per_type[dType] = {}
             #------------------ 
             self.devices_per_type[dType][name] = device
-
-    
 
     def get_device_types(self) -> List[str]:
         """
@@ -83,8 +131,7 @@ class DeviceManager:
     def create_device_read_cmd(
             self,
             device_name: str,
-            analyzer: Optional[DeviceAnalyzer] = None
-    ) -> Command:
+            analyzer: Optional[DeviceAnalyzer] = None) -> Command:
         """
         Creates a command to read a device.
 
