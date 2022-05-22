@@ -2,7 +2,7 @@ import uvicorn
 
 
 def main():
-    uvicorn.run("eieManager.eieManager:app")
+    uvicorn.run("sensor_commands.eieManager:app")
 
 
 if __name__ == "__main__":
