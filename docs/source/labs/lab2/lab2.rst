@@ -9,13 +9,13 @@ Integrantes
  - German Ureña Araya **B77809**
 
 
-Planeamiento
+Documentación 
 ==================
 
 Descripción detallada de los endpoints REST 
 ------------------------------------
 
-    Para la implementación de este laboratorio se decidió utilizar una arquitectura tipo `_REST <https://www.ibm.com/cloud/learn/rest-apis>`__
+    Para la implementación de este laboratorio se decidió utilizar una arquitectura tipo `REST <https://www.ibm.com/cloud/learn/rest-apis>`__
     con el fin de restringir el ``HTTP API`` de manera que este sea sencillo y confiable. 
     En este caso se implementó la ``REST API`` para generar la comunicación entre el client y el eieManager en nuestro caso.
     De forma que el servicio que realiza el accceso se denomina cliente y el servicio que contiene el recurso se denomina servidor.
@@ -49,13 +49,16 @@ Descripción detallada de los endpoints REST
 Particularidades del diseño
 ------------------------------------
 
-Nuestro diseño tiene la particularidad de que gracias a las funciones que permiten modificar el .json con los devices se 
+Nuestro diseño tiene la particularidad de que gracias a las funciones implementadas en el deviceManager que permiten modificar el .json con los devices se 
 logra mejorar la mantenibilidad y escalabilidad del código, ya que se pueden modificar los devices de acuerdo a lo 
 deseado por el cliente.
 
+El servidor de nuestro diseño es el eieManager (eieManager.py), el cual se comunica con el client.py el cual solicita el acceso a los devices. Por otro lado, cuando esta comunicación sucede por medio de la 
+API, el eieManager se comunica con el deviceManager el cual contiene las funciones que se aplican sobre los devices de acuerdo a lo solicitado por el client.
 
 
-Si el cliente envía un comando a un dispositivo específico., se realiza el siguiente diagrama de secuencia :
+
+Si el cliente envía un comando a un dispositivo específico, se realiza el siguiente diagrama de secuencia como el siguiente:
 
 Asumimos que el API registró la petición de comunicarse con un eieDevice
 
