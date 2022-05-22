@@ -26,75 +26,75 @@ def main():
         except json.decoder.JSONDecodeError as e:
             print(e)
 
-    print("Apioooo:")
-    wait_enter()
-    resp = requests.get(f"{url}")
-    pprint_response(resp)
+    #print("Apioooo:")
+    #wait_enter()
+    #resp = requests.get(f"{url}")
+    #pprint_response(resp)
 
     """
-    @app.post("/sensors/") listo
-    @app.patch("/sensors/") listo
-    @app.get("/sensors/") listo, param
-    @app.get("/sensors/{sensor_name}") listo
-    @app.delete("/sensors/{sensor_name}") listo
-    @app.put("/command/{sensor_name}")
+    @app.post("/devices/") listo
+    @app.patch("/devices/") listo
+    @app.get("/devices/") listo, param
+    @app.get("/devices/{device_name}") listo
+    @app.delete("/devices/{device_name}") listo
+    @app.put("/command/{device_name}")
     """
 
-    print("Get current sensors (GET basic):")
+    print("Get current devices (GET basic):")#Sirve
     wait_enter() #función definida antes, que espera enter
-    sensor_name = "humidity"
-    resp = requests.get(f"{url}/sensors/{sensor_name}")# le añadimos al host name este path, y hace una llamada HTTP get, guarda resultado
+    device_name = "humidity"
+    resp = requests.get(f"{url}/devices/{device_name}")# le añadimos al host name este path, y hace una llamada HTTP get, guarda resultado
     #en json en resp
     #equivalente a str.format(), simplemente más simplificado, reemplaza valor de variable
     #entre {} en un string
     pprint_response(resp) # función previamente definida, imprimir contenido de json
 
-    print("Get current sensors with filter (GET with query):")
+    print("Get current devices with filter (GET with query):")#Sirve
     wait_enter()
-    query = {'first': 1, 'limit': 3} # definirmos un diccionario, cuenta empieza en 0
-    resp = requests.get(f"{url}/sensors/", params=query)# me va a filtar entre resultado en pos 1 (segundo) y pos 3 (cuarto)
+    query = {'first': 2, 'limit': 4} # definirmos un diccionario, cuenta empieza en 0
+    resp = requests.get(f"{url}/devices/", params=query)# me va a filtar entre resultado en pos 1 (segundo) y pos 3 (cuarto)
     #poner param para un query
     pprint_response(resp)
 
-    print("Create new sensor (POST):")
+    print("Create new device (POST):")
     wait_enter()
-    new_sensor = { # deifnir un diccionario de un nuevo objeto, no lo pone en orden, xq no es necesario
+    new_device = { # deifnir un diccionario de un nuevo objeto, no lo pone en orden, xq no es necesario
         'name': "monitor",
         'description': "LED 4K monitor",
         'price': 1500,
     }
-    resp = requests.post(f"{url}/sensors/", json=new_sensor)# va a guardar nuevo objeto, poner json
+    resp = requests.post(f"{url}/devices/", json=new_device)# va a guardar nuevo objeto, poner json
     pprint_response(resp)# resp es lo que uno envio en json
 
-    #print("Get created sensor (GET with path param):")
+    #print("Get created device (GET with path param):")
     #wait_enter()
-    #resp = requests.get(f"{url}/sensors/monitor")#pide path particular
+    #resp = requests.get(f"{url}/devices/monitor")#pide path particular
     #pprint_response(resp)
 
-    print("Get current sensors again:")
+    print("Get current devices again:")
     wait_enter()
-    resp = requests.get(f"{url}/sensors/")
+    resp = requests.get(f"{url}/devices/")
     pprint_response(resp)
 
-    print("Destroy created sensor (DELETE with path param):")
+    print("Destroy created device (DELETE with path param):")
     wait_enter()
-    resp = requests.delete(f"{url}/sensors/{sensor_name}")# poner path de archivo que quiero borrar
+    resp = requests.delete(f"{url}/devices/{device_name}")# poner path de archivo que quiero borrar
     # me retorna nada, por eso imprime un None tras borrarlo
     pprint_response(resp)
 
-    print("Try to get deleted sensor again:")
+    print("Try to get deleted device again:")
     wait_enter()
-    resp = requests.get(f"{url}/sensors/{sensor_name}")# el códido se cae ya que ese path no existe
+    resp = requests.get(f"{url}/devices/{device_name}")# el códido se cae ya que ese path no existe
     pprint_response(resp)
 
-    print("Modify sensor:")
+    print("Modify device PATCH:")# da 422???
     wait_enter()
-    resp = requests.patch(f"{url}/sensors/")# el códido se cae ya que ese path no existe
+    resp = requests.patch(f"{url}/devices/", json=new_device)# el códido se cae ya que ese path no existe
     pprint_response(resp)
 
-    print("Send command:")
+    print("Send command PUT:")# da 405???
     wait_enter()
-    resp = requests.put(f"{url}/sensors/{sensor_name}")# el códido se cae ya que ese path no existe
+    resp = requests.put(f"{url}/devices/{device_name}")# el códido se cae ya que ese path no existe
     pprint_response(resp)
 
 
