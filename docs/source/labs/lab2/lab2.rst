@@ -15,7 +15,7 @@ Planeamiento
 Descripción detallada de los endpoints REST 
 ------------------------------------
 
-    Para la implementación de este laboratorio se decidió utilizar una arquitectura tipo _`REST <https://www.ibm.com/cloud/learn/rest-apis>`__
+    Para la implementación de este laboratorio se decidió utilizar una arquitectura tipo `_REST <https://www.ibm.com/cloud/learn/rest-apis>`__
     con el fin de restringir el ``HTTP API`` de manera que este sea sencillo y confiable. 
     En este caso se implementó la ``REST API`` para generar la comunicación entre el client y el eieManager en nuestro caso.
     De forma que el servicio que realiza el accceso se denomina cliente y el servicio que contiene el recurso se denomina servidor.
@@ -29,27 +29,21 @@ Descripción detallada de los endpoints REST
 
     **Operaciones que soporta el prototipo (métodos de la HTTP API):**
 
-    * `def`create_device(): En esta función se utiliza el método POST ``@app.post("/devices/")``, el cual debe crear 
-    y registrar un nuevo device. Este llama la función de deviceManager para crear un nuevo device, debe recibir un divice del Json en 
-    el body y retornar el resultado de ejecición, sucess, failed ...
+    * *def* create_device(): En esta función se utiliza el método ``POST`` @app.post("/devices/"), el cual debe crear y registrar un nuevo device. Este llama la función de deviceManager para crear un nuevo device, debe recibir un divice del Json en el body y retornar el resultado de ejecición, sucess, failed ...
 
-    * `def`update_device(): Se utiliza el método PATCH ``@app.patch("/devices/")``, este actualiza la información de un device
-    específico previamente registrado. LLama a la función de deviceManager que actualiza atributos de un nuevo device,
+    * *def* update_device(): Se utiliza el método ``PATCH`` @app.patch("/devices/"), este actualiza la información de un device específico previamente registrado. LLama a la función de deviceManager que actualiza atributos de un nuevo device,
     debe recibir un device del Json o ID del device y adicionalmente el diccionario de atributos a cambiar
 
-    * `def`get_devices(): Se utiliza el método GET ``@app.get("/devices/")``, información de todos los device registrados.
-    Llama a la función de deviceManager que retorne todos los devices, en json, no recibe nada.
+    * *def* get_devices(): Se utiliza el método ``GET`` @app.get("/devices/"), información de todos los device registrados. Llama a la función de deviceManager que retorne todos los devices, en json, no recibe nada.
 
-    * `def`get_device(): Se utiliza el método GET ``@app.get("/devices/{device_name}")``, obtiene la informacion de un device
+    * *def* get_device(): Se utiliza el método ``GET`` @app.get("/devices/{device_name}"), obtiene la informacion de un device
     específico registrado. Llama la función de deviceManager que retorne un device, en json, debe recibir el ID del device.
 
-    * `def`delete_device(): Se utiliza el método DELETE ``@app.delete("/devices/{device_name}")`` , elimina un device específico
-    previamente registrado. Llama la función de deviceManager que borre un device existente, debe recibir el ID del device y 
+    * *def* delete_device(): Se utiliza el método ``DELETE`` @app.delete("/devices/{device_name}"), elimina un device específico previamente registrado. Llama la función de deviceManager que borre un device existente, debe recibir el ID del device y 
     retornar un estado de ejecución: success, failed, no such device...
 
-    * `def`send_command (): Se utiliza el método PUT ``@app.put("/devices/{device_name}")`` , envia un comando de administración a un device
-    y obtiene su respuesta. Llama la función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando
-    en el body, o toda la información en el body, tanto ID del device como el comando
+    * *def* send_command (): Se utiliza el método ``PUT`` @app.put("/devices/{device_name}"), envia un comando de administración a un device y obtiene su respuesta. Llama la función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando
+    en el body, o toda la información en el body, tanto ID del device como el comando.
 
 
 Particularidades del diseño
