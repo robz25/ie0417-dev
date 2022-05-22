@@ -87,7 +87,7 @@ def main():
     resp = requests.get(f"{url}/devices/{device_name}")# el códido se cae ya que ese path no existe
     pprint_response(resp)
 
-    print("Modify device PATCH:")# da 422???
+    print("Modify device PATCH:")#sirve
     wait_enter()
     resp = requests.patch(f"{url}/devices/", json=new_device)# el códido se cae ya que ese path no existe
     pprint_response(resp)

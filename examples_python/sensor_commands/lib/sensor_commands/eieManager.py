@@ -93,7 +93,7 @@ def create_device(device: device):
     """ 
     
     """
-    Todo: Llamar función de deviceManager que cree un nuevo device, debe recibir debice en Json en el body, y
+    Todo: Llamar función de deviceManager que cree un nuevo device, debe recibir debice en Json, el device, en el body, y
     retornar el resultado de ejecución, sucess, failed...
     """
     #new_device = device_mgr.create_device() #aún no implementada
@@ -116,9 +116,7 @@ def update_device(device: device):
     o ID del device y adicionalmente el diccionario de atributos a cambiar, tal vez es más fácil lo primero
     """
     #update = device_mgr.update_devices()
-    print(f"updated device: {device_name}")
-    #return update 
-    #return "holi"
+    print(f"updated device: {device_name}")    
     return device
     
 @app.get("/devices/")# la segunda parte del path la ponemos en la variable device_name
@@ -130,7 +128,7 @@ def get_devices(first: int = 0, limit: int = 20):# hay 2 parámetros por defecto
     :param int limit: Maximum number of elements to get (optional).
     """
     """
-    Todo: Llamar función de deviceManager que retorne todos los devices existentes, en json, no recibe nada
+    Todo: Llamar función de deviceManager que retorne todos los devices existentes, en json(texto), no recibe nada
     """
     temp_device_names = device_mgr.get_sensor_names()
     return temp_device_names[first : first + limit ]
@@ -143,7 +141,7 @@ def get_device(device_name: str):
     :param str device_name: Name of the device to get.
     """
     """
-    Todo: Llamar función de deviceManager que retorne un device, en json, debei recibir el ID del device
+    Todo: Llamar función de deviceManager que retorne un device, en json, deberi recibir el ID del device
     """
     #llamar aquí función que muestra un device, implementarla en manager futuro deviceManager
     print(f"read device: {device_name}")
@@ -158,7 +156,7 @@ def delete_device(device_name: str, status_code=204):
     :param int status_code: Default HTTP status code to return.
     """
     """
-    Todo: Llamar función de deviceManager que borre un devices existente, debe recibir el ID del device y retornar un estado
+    Todo: Llamar función de deviceManager que borre un device existente, debe recibir el ID del device y retornar un estado
     de ejecución ejemplo: success, failed, no such device...
     """
     
@@ -174,7 +172,7 @@ def send_command(device_name: str):
     """
     """
     Todo: Llamar función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando 
-    en el body, o toda la información en el body, tanto ID del device como Comando, el body es formato json
+    en el body, tanto ID del device como Comando, el body es formato json
     """
     #llamar aquí función que da un commando a un device y retorna resultado, implementarla en manager futuro deviceManager
     print(f"command executed for device: {device_name}") 
