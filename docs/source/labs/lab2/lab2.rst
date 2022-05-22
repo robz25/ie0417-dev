@@ -31,19 +31,15 @@ Descripción detallada de los endpoints REST
 
     * *def* create_device(): En esta función se utiliza el método ``POST`` @app.post("/devices/"), el cual debe crear y registrar un nuevo device. Este llama la función de deviceManager para crear un nuevo device, debe recibir un divice del Json en el body y retornar el resultado de ejecición, sucess, failed ...
 
-    * *def* update_device(): Se utiliza el método ``PATCH`` @app.patch("/devices/"), este actualiza la información de un device específico previamente registrado. LLama a la función de deviceManager que actualiza atributos de un nuevo device,
-    debe recibir un device del Json o ID del device y adicionalmente el diccionario de atributos a cambiar
+    * *def* update_device(): Se utiliza el método ``PATCH`` @app.patch("/devices/"), este actualiza la información de un device específico previamente registrado. LLama a la función de deviceManager que actualiza atributos de un nuevo device, debe recibir un device del Json o ID del device y adicionalmente el diccionario de atributos a cambiar
 
     * *def* get_devices(): Se utiliza el método ``GET`` @app.get("/devices/"), información de todos los device registrados. Llama a la función de deviceManager que retorne todos los devices, en json, no recibe nada.
 
-    * *def* get_device(): Se utiliza el método ``GET`` @app.get("/devices/{device_name}"), obtiene la informacion de un device
-    específico registrado. Llama la función de deviceManager que retorne un device, en json, debe recibir el ID del device.
+    * *def* get_device(): Se utiliza el método ``GET`` @app.get("/devices/{device_name}"), obtiene la informacion de un device específico registrado. Llama la función de deviceManager que retorne un device, en json, debe recibir el ID del device.
 
-    * *def* delete_device(): Se utiliza el método ``DELETE`` @app.delete("/devices/{device_name}"), elimina un device específico previamente registrado. Llama la función de deviceManager que borre un device existente, debe recibir el ID del device y 
-    retornar un estado de ejecución: success, failed, no such device...
+    * *def* delete_device(): Se utiliza el método ``DELETE`` @app.delete("/devices/{device_name}"), elimina un device específico previamente registrado. Llama la función de deviceManager que borre un device existente, debe recibir el ID del device y retornar un estado de ejecución: success, failed, no such device...
 
-    * *def* send_command (): Se utiliza el método ``PUT`` @app.put("/devices/{device_name}"), envia un comando de administración a un device y obtiene su respuesta. Llama la función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando
-    en el body, o toda la información en el body, tanto ID del device como el comando.
+    * *def* send_command (): Se utiliza el método ``PUT`` @app.put("/devices/{device_name}"), envia un comando de administración a un device y obtiene su respuesta. Llama la función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando en el body, o toda la información en el body, tanto ID del device como el comando.
 
 
 Particularidades del diseño
