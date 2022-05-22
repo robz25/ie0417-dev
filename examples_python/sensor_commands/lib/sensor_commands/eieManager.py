@@ -26,7 +26,7 @@ class device(BaseModel): # qué es sBaseModel y pydantic?
     #conveción en Python
     price: int
 
-devices = {# diccionario de objetos Item, key, nombre del item : value, objeto Item
+devices = {# diccionario de objetos Item, key, nombre del item : value, objeto Item, para pruebas
     "sensor_humedad": device(
         name="sensor_humedad",
         description="sensor de humedad",
@@ -52,13 +52,13 @@ devices = {# diccionario de objetos Item, key, nombre del item : value, objeto I
     delete_device DELETE
     Eliminar un Device específico previamente registrado.
 
-    send_command PU
+    send_command PUT
     Enviar un comando de administración a un Device específico y obtener su respuesta. La información 
     requerida para ejecutar el comando debe pasarse por medio del Body del API request y no como parte del URL.
     To send data, you should use one of: POST (the more common), PUT, DELETE or PATCH.
     https://fastapi.tiangolo.com/tutorial/body/
 
-    Algunos métodos se implementarán dentrode manager.py en folder device, futuro deviceManager
+    Métodos se implementarán dentrode manager.py en folder device, futuro deviceManager
 """
 #------------------------------------------------------------------------------------------------
 args = parse_args()#crear devicees
@@ -91,7 +91,11 @@ def create_device(device: device):
 
     :param device device: device to register.
     """ 
-    #llamar aquí función que crea un device, implementarla en manager futuro deviceManager
+    
+    """
+    Todo: Llamar función de deviceManager que cree un nuevo device, debe recibir debice en Json en el body, y
+    retornar el resultado de ejecución, sucess, failed...
+    """
     #new_device = device_mgr.create_device() #aún no implementada
     #que acabo de pasar, creo el key con el valor device.name y guardo el objeto device con nombre device ahí
     devices[device.name] = device # en el diccionario de objetos items, guarar en la posición item.name el objeto item
@@ -107,6 +111,10 @@ def update_device(device: device):
 
     :param device device: device to update
     """
+    """
+    Todo: Llamar función de deviceManager que actualice atributos de un nuevo device, debe recibir o device en Json,
+    o ID del device y adicionalmente el diccionario de atributos a cambiar, tal vez es más fácil lo primero
+    """
     #update = device_mgr.update_devices()
     print(f"updated device: {device_name}")
     #return update 
@@ -121,6 +129,9 @@ def get_devices(first: int = 0, limit: int = 20):# hay 2 parámetros por defecto
     :param int first: First list element to get (optional).
     :param int limit: Maximum number of elements to get (optional).
     """
+    """
+    Todo: Llamar función de deviceManager que retorne todos los devices existentes, en json, no recibe nada
+    """
     temp_device_names = device_mgr.get_sensor_names()
     return temp_device_names[first : first + limit ]
 
@@ -130,6 +141,9 @@ def get_device(device_name: str):
     Get specific device from name.
 
     :param str device_name: Name of the device to get.
+    """
+    """
+    Todo: Llamar función de deviceManager que retorne un device, en json, debei recibir el ID del device
     """
     #llamar aquí función que muestra un device, implementarla en manager futuro deviceManager
     print(f"read device: {device_name}")
@@ -143,68 +157,25 @@ def delete_device(device_name: str, status_code=204):
     :param str device_name: Name of the device to delete.
     :param int status_code: Default HTTP status code to return.
     """
-    #llamar aquí función que borra un device, implementarla en manager futuro deviceManager
+    """
+    Todo: Llamar función de deviceManager que borre un devices existente, debe recibir el ID del device y retornar un estado
+    de ejecución ejemplo: success, failed, no such device...
+    """
+    
     print(f"deleted device: {device_name}")
 
 
 @app.put("/command/{device_name}")# la segunda parte del path la ponemos en la variable device_name
 def send_command(device_name: str):
-    #recibe la información del comando en el bodym la recibiría con json desde el client
     """
     Get specific device from name.
 
     :param str device_name: Name of the device to get.
     """
+    """
+    Todo: Llamar función de deviceManager que envíe un comando a un device, debe recibir el ID del device y el comando 
+    en el body, o toda la información en el body, tanto ID del device como Comando, el body es formato json
+    """
     #llamar aquí función que da un commando a un device y retorna resultado, implementarla en manager futuro deviceManager
     print(f"command executed for device: {device_name}") 
     return ""
-
-"""
-def main():#vamos a poner lo que tiene que correr de fijo apenas empieza el código
-#si no es necesario nada, se deja vacio
-   
-   # Eie Manager application main function.
-
-    #args = parse_args()#crear devicees
-
-    #config_name = args.config
-    #device_type_name = args.device_type
-    #device_cmd_per_period, device_period_sec = (100, 5)
-    #alert_cmd_per_period, alert_period_sec = (2, 1)
-    #analyzer_avg_thresh = 10
-    #num_read_commands = 200
-
-    # Set up command runners
-#    device_mgr = deviceManager(config_name)# se crea instancia clase deviceManager, se dispara cracion de devicees
-    #de config.json
-    device_cmd_runner = command.CommandRunner(
-        cmd_per_period=device_cmd_per_period,
-        period_sec=device_period_sec)
-    alert_cmd_runner = command.CommandRunner(
-        cmd_per_period=alert_cmd_per_period,
-        period_sec=alert_period_sec)
-    device_cmd_runner.start()
-    alert_cmd_runner.start()
-
-    # Set up device analyzer with "above average threshold alert" strategy
-    analyzer = avt.deviceAvgThreshAnalyzer(avg_thresh=analyzer_avg_thresh)
-    avt.set_alert_handle_strategy(analyzer, alert_cmd_runner)
-    avt.set_above_compare_strategy(analyzer)
-
-    # Generate read commands for temp devices
-    temp_device_names = device_mgr.get_device_names_per_type(device_type_name)
-    for _ in range(num_read_commands):
-        rand_device_name = choice(temp_device_names)
-        read_cmd = device_mgr.create_device_read_cmd(rand_device_name,
-                                                     analyzer)
-        device_cmd_runner.send(read_cmd)
-
-    # Teardown command runners
-    device_cmd_runner.stop()
-    alert_cmd_runner.stop()
-
-
-if __name__ == "__main__":
-    main()
-
-"""
