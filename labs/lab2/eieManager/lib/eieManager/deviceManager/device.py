@@ -1,4 +1,5 @@
-from typing import Optional
+from typing import Optional, List
+
 from abc import ABC, abstractmethod
 
 from ..command import Command
@@ -13,7 +14,7 @@ class Device(ABC):
     :param str commands: List of commands supported by the device.
     :param str ip: Connection info. Format -> host:port
     """
-    def __init__(self, name: str, dType: str, commands: str, ip: str) -> None:
+    def __init__(self, name: str, dType: str, commands: List, ip: str) -> None:
         self._name = name
         self._dType = type
         self._commands = commands
@@ -31,7 +32,7 @@ class Device(ABC):
         """
         return self._dType
 
-    def commands(self) -> str:
+    def commands(self) -> List:
         """
         Gets the list of commands for the Device.
         """
