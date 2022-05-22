@@ -5,7 +5,7 @@ from ratelimiter import RateLimiter  # type: ignore
 from typing import Optional
 
 
-class Command(ABC): # Se ocupa en el lab 2
+class Command(ABC):
     """
     Generic command representation.
     """
@@ -33,7 +33,7 @@ class MessageCommand(Command):
         print(f"MessageCommand: {self.msg}")
 
 
-class CommandRunner:  # Se ocupa en el lab 2
+class CommandRunner:
     """
     Executes commands in a thread using a rate limiter.
 

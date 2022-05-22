@@ -1,8 +1,7 @@
 """
-Device manager module entry point.
+sensor_commands module entry point.
 """
 
-__author__ = 'Katharina Alfaro Solís B80251'
-__author__ = 'Robin González Ricz B43011'
-__author__ = 'German Ureña Araya B77809'
+__author__ = 'Esteban Zamora Alvarado'
+__email__ = 'esteban.zamora.al@gmail.com'
 __version__ = '0.0.1'
