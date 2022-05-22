@@ -3,7 +3,7 @@ from random import choice
 
 from . import command
 from .args import parse_args
-from .device.deviceManager import DeviceManager
+from .device.deviceManager import deviceManager
 from .device.analyzers import avg_thresh_analyzer as avt
 
 

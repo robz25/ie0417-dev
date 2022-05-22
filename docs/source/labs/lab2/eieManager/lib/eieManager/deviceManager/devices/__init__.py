@@ -5,6 +5,7 @@ from ..device import Device
 
 from .temp import TempDevice
 from .level import LevelDevice
+from .lux import LuxDevice
 
 
 class DeviceFactory():
@@ -16,6 +17,7 @@ class DeviceFactory():
         self._device_type_to_cls = {
             "temperature": TempDevice,
             "level": LevelDevice,
+            "lux": LuxDevice,
         }
 
     @property

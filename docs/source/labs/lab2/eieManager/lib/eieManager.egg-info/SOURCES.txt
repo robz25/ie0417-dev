@@ -3,7 +3,7 @@ MANIFEST.in
 README.md
 requirements.txt
 setup.py
-config/sensors_cfg.json
+config/devices_cfg.json
 lib/ServerAPI/ServerAPI.py
 lib/ServerAPI/__init__.py
 lib/ServerAPI/command.py
@@ -19,10 +19,10 @@ lib/eieManager.egg-info/entry_points.txt
 lib/eieManager.egg-info/requires.txt
 lib/eieManager.egg-info/top_level.txt
 lib/eieManager/deviceManager/__init__.py
-lib/eieManager/deviceManager/manager.py
-lib/eieManager/deviceManager/sensor.py
+lib/eieManager/deviceManager/device.py
+lib/eieManager/deviceManager/deviceManager.py
 lib/eieManager/deviceManager/analyzers/__init__.py
 lib/eieManager/deviceManager/analyzers/avg_thresh_analyzer.py
-lib/eieManager/deviceManager/sensors/__init__.py
-lib/eieManager/deviceManager/sensors/level.py
-lib/eieManager/deviceManager/sensors/temp.py
+lib/eieManager/deviceManager/devices/__init__.py
+lib/eieManager/deviceManager/devices/level.py
+lib/eieManager/deviceManager/devices/temp.py
