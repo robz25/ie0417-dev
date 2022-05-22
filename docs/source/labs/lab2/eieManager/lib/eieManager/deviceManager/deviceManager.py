@@ -49,7 +49,7 @@ class DeviceManager:
                 commands = device_info["commands"]
                 ip = device_info["ip"]
                 #Add more types
-    
+
                 #Call deviceFactory
                 self.devices[name] = self.device_factory(name, dType, commands, ip)
 

@@ -91,7 +91,7 @@ class DeviceReadCommand(Command):
         dType = self.Device.dType()
         commands = self.Device.commands()
         value = self.Device.read()
-        
+
         if self.analyzer is not None:
             self.analyzer.update(value)
-        print(f"DeviceReadCommand: [{stype}] {name}: {value} {unit}")
+        print(f"DeviceReadCommand: [{dType}] {name}: {value} {ip}")
