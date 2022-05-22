@@ -10,17 +10,6 @@ from ..args import parse_args
 from ..DevManager import DevMan 
 
 
-class Device(BaseModel):
-    identifier: str
-    tipo: str           # type is a reserved word 
-    commands : List[str]
-    IP : str
-
-class Commands(BaseModel):
-    device_identifier: str 
-    command: str
-    arguments : Optional[List[str]] = None 
-
 app = FastAPI()
 
 arguments = parse_args()
