@@ -13,8 +13,7 @@ from .sensor import SensorDevice
 """
 Type of devices:
 
-    -Light {ON, OFF}
-    -Alarm {}
+
     -Sensor {READ, ON, OFF}
     -Actuador {ACTIVATE, ON, OFF}
 
