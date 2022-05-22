@@ -36,13 +36,13 @@ class Device(ABC):
         """
         Gets the list of commands for the Device.
         """
-        return self._unit
+        return self._commands
 
     def ip(self) -> str:
         """
         Gets the ip of the Device.
         """
-        return self._unit
+        return self._ip
 
     @abstractmethod
     def read(self) -> float:

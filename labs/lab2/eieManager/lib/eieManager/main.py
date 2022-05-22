@@ -39,12 +39,12 @@ def main():
     avt.set_above_compare_strategy(analyzer)
 
     # Generate read commands for temp devices
-    temp_device_names = device_mgr.get_device_names_per_type(device_type_name)
-    for _ in range(num_read_commands):
-        rand_device_name = choice(temp_device_names)
-        read_cmd = device_mgr.create_device_read_cmd(rand_device_name,
-                                                     analyzer)
-        device_cmd_runner.send(read_cmd)
+    #temp_device_names = device_mgr.get_device_names_per_type(device_type_name)
+    #for _ in range(num_read_commands):
+    #    rand_device_name = choice(temp_device_names)
+    #   read_cmd = device_mgr.create_device_read_cmd(rand_device_name,
+    #                                                 analyzer)
+    #    device_cmd_runner.send(read_cmd)
 
     # Teardown command runners
     device_cmd_runner.stop()

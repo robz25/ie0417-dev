@@ -1,3 +1,5 @@
+from typing import Optional, List
+
 """
 device module entry point.
 """
@@ -5,7 +7,18 @@ from ..device import Device
 
 from .temp import TempDevice
 from .level import LevelDevice
-from .lux import LuxDevice
+from .actuador import ActuadorDevice
+from .sensor import SensorDevice
+
+"""
+Type of devices:
+
+    -Light {ON, OFF}
+    -Alarm {}
+    -Sensor {READ, ON, OFF}
+    -Actuador {ACTIVATE, ON, OFF}
+
+"""
 
 
 class DeviceFactory():
@@ -15,9 +28,10 @@ class DeviceFactory():
     def __init__(self) -> None:
         # Dictionary that maps names of sensor types to classes.
         self._device_type_to_cls = {
-            "temperature": TempDevice,
-            "level": LevelDevice,
-            "lux": LuxDevice,
+            "Temperature": TempDevice,
+            "Level": LevelDevice,
+            "Actuador": ActuadorDevice,
+            "Sensor": SensorDevice
         }
 
     @property
@@ -27,7 +41,7 @@ class DeviceFactory():
         """
         return [dType for dType in self.device_type_to_cls.keys()]
 
-    def __call__(self, name: str, dType: str, commands: str, ip: str)-> Device:
+    def __call__(self, name: str, dType: str, commands: List, ip: str)-> Device:
         """
         Creates the Device.
 

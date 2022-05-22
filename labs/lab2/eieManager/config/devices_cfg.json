@@ -2,16 +2,16 @@
     "Devices": [
         {
             "name": "Device-01",
-            "type":"Computer",
+            "type":"Sensor",
             "commands":[
-                "Status",
-                "Set_device"
+                "Read",
+                "Activate"
             ],
             "ip": "192.168.0.1:8001"
         },
         {
             "name": "Device-03",
-            "type":"Alarm",
+            "type":"Level",
             "commands":[
                 "Status",
                 "Set_device"
@@ -20,7 +20,7 @@
         },
         {
             "name": "Device-02",
-            "type":"Cellphone",
+            "type":"Temperature",
             "commands":[
                 "Status",
                 "Set_device"
@@ -29,7 +29,7 @@
         },
         {
             "name": "Device-04",
-            "type":"Sensor",
+            "type":"Actuador",
             "commands":[
                 "Read"
             ],
