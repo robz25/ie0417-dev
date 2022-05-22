@@ -79,8 +79,8 @@ def find_requirements(filename):
 
 
 setup(
-    name='sensor_commands',
-    version=find_version('lib/sensor_commands/__init__.py'),
+    name='eieManager',
+    version=find_version('lib/eieManager/__init__.py'),
     package_dir={'': 'lib'},
     packages=find_packages('lib'),
     include_package_data = True,
@@ -92,7 +92,7 @@ setup(
     author='Esteban Zamora Alvarado',
     author_email='esteban.zamora.al@gmail.com',
     description=(
-        'sensor_commands is an example python package for the '
+        'eieManager to API implementation - lab2 '
         'IE0417 course @ EIE, UCR'
     ),
     long_description=read('README.md'),
