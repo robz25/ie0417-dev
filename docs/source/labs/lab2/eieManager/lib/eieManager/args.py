@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2015-2020 Hewlett Packard Enterprise Development LP
+# Copyright (C) 2015-2                   020 Hewlett Packard Enterprise Development LP
 # Copyright (C) 2022 Universidad de Costa Rica (UCR)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,7 +61,7 @@ def parse_args(argv=None):
     parser.add_argument(
         '-c', '--config',
         default="config/devices_cfg.json",
-        help='Sensors configuration file',
+        help='Devices configuration file',
     )
     parser.add_argument(
         '-t', '--device_type',
