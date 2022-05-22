@@ -89,8 +89,8 @@ setup(
     install_requires=find_requirements('requirements.txt'),
 
     # Metadata
-    author='Esteban Zamora Alvarado',
-    author_email='esteban.zamora.al@gmail.com',
+    author='',
+    author_email='',
     description=(
         'eieManager to API implementation - lab2 '
         'IE0417 course @ EIE, UCR'

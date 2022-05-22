@@ -41,7 +41,7 @@ class DeviceManager:
         # Parse config file
         with open(self.config_filename) as config_file:
             config_info = json.load(config_file)
-            devices_info = config_info["devices"]
+            devices_info = config_info["Devices"]
             # Create devices
             for device_info in devices_info:
                 name = device_info["name"]

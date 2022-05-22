@@ -33,7 +33,11 @@ class DeviceFactory():
 
         :param str name: Name of the device to create.
         :param str dType: Device type.
+        :param str commands: Device list of commands.
+        :param str ip: Device ip reference.
+
         """
+        
         device_cls = self._device_type_to_cls[dType]
 
         return device_cls(name)
