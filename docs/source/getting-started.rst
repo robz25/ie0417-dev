@@ -1,6 +1,19 @@
-Primeros pasos
-==============
+Informacion
+============
 
+Este ambiente de desarrollo está orientado a correr en cualquier plataforma
+en donde contenedores de Linux sean soportados, pero ha sido principalmente
+probado en hosts de Ubuntu.
+
+Codigo fuente
+-------------
+  Codigo en el `Repositorio fuente  <https://github.com/robz25/ie0417-dev>`_.
+
+
+Diagrama
+--------
+
+Prueba de digrama  has this result:
 Este ambiente de desarrollo está orientado a correr en cualquier plataforma
 en donde contenedores de Linux sean soportados, pero ha sido principalmente
 probado en hosts de Ubuntu.
@@ -95,3 +108,4 @@ Para abrir Jupyter Notebook desde el vagrant, puede ejecutar el siguiente script
 Posteriormente, desde su navegador acceda a alguno de los URLs indicados por la salida del script. Desde la página web desplegada, puede acceder a las presentaciones del curso que se encuentran en el directorio `presentations/`, utilizando el navegador de archivos.
 
 Para más información sobre los Jupyter Notebooks y como ejecutarlos, refierase a la `documentación oficial de Jupyter <https://docs.jupyter.org/en/latest/>`_.
+
