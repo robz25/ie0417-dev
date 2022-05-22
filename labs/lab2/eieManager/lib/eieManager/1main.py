@@ -22,7 +22,6 @@ def main():
     analyzer_avg_thresh = 10
     num_read_commands = 200
 
-
     # Set up command runners
     device_mgr = DeviceManager(config_name)
     device_cmd_runner = command.CommandRunner(
@@ -33,16 +32,6 @@ def main():
         period_sec=alert_period_sec)
     device_cmd_runner.start()
     alert_cmd_runner.start()
-
-
-    #------------- Test functions -------------
-
-    print(device_mgr.get_device_names())
-    print(device_mgr.get_device_names())
-
-    #------------------------------------------
-
-
 
     # Set up device analyzer with "above average threshold alert" strategy
     analyzer = avt.DeviceAvgThreshAnalyzer(avg_thresh=analyzer_avg_thresh)
