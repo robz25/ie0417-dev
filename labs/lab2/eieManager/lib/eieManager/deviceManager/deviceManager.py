@@ -69,8 +69,8 @@ class DeviceManager:
             #------------------ 
             self.devices_per_type[dType][name] = device
 
-    def delete_device(self, name|: str):
-        Destroy a device with the name.
+    def delete_device(self, name: str):
+        """Destroy a device with the name.
 
         :param str device_name: Name of the device to read.
         :param device_name: Name of the device to read.
@@ -90,7 +90,8 @@ class DeviceManager:
             #------------------ 
             self.devices_per_type[dType][name] = device
 
-    def update_device()
+    def update_device():
+        pass
 
     def _init_devices_per_type(self):
         """
