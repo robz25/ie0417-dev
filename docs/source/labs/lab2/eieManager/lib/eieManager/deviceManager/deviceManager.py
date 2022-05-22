@@ -24,11 +24,15 @@ class deviceManager:
         Initializes a devices per-type mapping dictionary.
         """
         for device in self.devices.values():
-            stype = device.type()
+            dType = device.dType()
             name = device.name()
-            if stype not in self.devices_per_type:
-                self.devices_per_type[stype] = {}
-            self.devices_per_type[stype][name] = device
+            commands = device.commands()
+            ip = device.ip()
+
+            if dType not in self.devices_per_type:
+                self.devices_per_type[dType] = {}
+            #------------------ 
+            self.devices_per_type[dType][name] = device
 
     def init_config(self) -> None:
         """
@@ -41,13 +45,15 @@ class deviceManager:
             # Create devices
             for device_info in devices_info:
                 name = device_info["name"]
-                dtype = sensor_info["type"]
+                dType = device_info["type"]
+                commands = device_info["commands"]
+                ip = device_info["ip"]
                 #Add more types
 
                 #Call deviceFactory
-                self.sensors[name] = self.sensor_factory(name, stype)
+                self.devices[name] = self.device_factory(name, dType, commands, ip)
 
-        self._init_sensors_per_type()
+        self._init_devices_per_type()
 
     def get_device_types(self) -> List[str]:
         """

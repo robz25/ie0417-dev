@@ -17,38 +17,38 @@ def main():
     args = parse_args()
 
     config_name = args.config
-    sensor_type_name = args.sensor_type
-    sensor_cmd_per_period, sensor_period_sec = (100, 5)
+    device_type_name = args.device_type
+    device_cmd_per_period, device_period_sec = (100, 5)
     alert_cmd_per_period, alert_period_sec = (2, 1)
     analyzer_avg_thresh = 10
     num_read_commands = 200
 
     # Set up command runners
-    sensor_mgr = DeviceManager(config_name)
-    sensor_cmd_runner = command.CommandRunner(
-        cmd_per_period=sensor_cmd_per_period,
-        period_sec=sensor_period_sec)
+    device_mgr = DeviceManager(config_name)
+    device_cmd_runner = command.CommandRunner(
+        cmd_per_period=device_cmd_per_period,
+        period_sec=device_period_sec)
     alert_cmd_runner = command.CommandRunner(
         cmd_per_period=alert_cmd_per_period,
         period_sec=alert_period_sec)
-    sensor_cmd_runner.start()
+    device_cmd_runner.start()
     alert_cmd_runner.start()
 
-    # Set up sensor analyzer with "above average threshold alert" strategy
-    analyzer = avt.SensorAvgThreshAnalyzer(avg_thresh=analyzer_avg_thresh)
+    # Set up device analyzer with "above average threshold alert" strategy
+    analyzer = avt.DeviceAvgThreshAnalyzer(avg_thresh=analyzer_avg_thresh)
     avt.set_alert_handle_strategy(analyzer, alert_cmd_runner)
     avt.set_above_compare_strategy(analyzer)
 
-    # Generate read commands for temp sensors
-    temp_sensor_names = sensor_mgr.get_sensor_names_per_type(sensor_type_name)
+    # Generate read commands for temp devices
+    temp_device_names = device_mgr.get_device_names_per_type(device_type_name)
     for _ in range(num_read_commands):
-        rand_sensor_name = choice(temp_sensor_names)
-        read_cmd = sensor_mgr.create_sensor_read_cmd(rand_sensor_name,
+        rand_device_name = choice(temp_device_names)
+        read_cmd = device_mgr.create_device_read_cmd(rand_device_name,
                                                      analyzer)
-        sensor_cmd_runner.send(read_cmd)
+        device_cmd_runner.send(read_cmd)
 
     # Teardown command runners
-    sensor_cmd_runner.stop()
+    device_cmd_runner.stop()
     alert_cmd_runner.stop()
 
 

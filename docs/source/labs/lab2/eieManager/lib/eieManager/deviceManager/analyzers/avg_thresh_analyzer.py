@@ -2,16 +2,16 @@ import operator
 import collections
 from typing import Optional, Callable, Deque
 
-from ..device import SensorAnalyzer
+from ..device import DeviceAnalyzer
 from ...command import CommandRunner, MessageCommand
 
 ThreshCompareStrategy = Callable[[float, float], bool]
 ThreshHandleStrategy = Callable[[float, float], None]
 
 
-class SensorAvgThreshAnalyzer(SensorAnalyzer):
+class DeviceAvgThreshAnalyzer(DeviceAnalyzer):
     """
-    Sensor analyzer that triggers an action according to a running average
+    Device analyzer that triggers an action according to a running average
     threshold.
 
     :param float avg_thresh: Threshold value for running average.
@@ -97,13 +97,13 @@ class SensorAvgThreshAnalyzer(SensorAnalyzer):
             self.avg_current = 0.0
 
 
-def set_alert_handle_strategy(analyzer: SensorAvgThreshAnalyzer,
+def set_alert_handle_strategy(analyzer: DeviceAvgThreshAnalyzer,
                               cmd_runner: CommandRunner):
     """
     Sets the analyzer's handle strategy as to send an alert
     command to a command runner.
 
-    :param analyzer: Sensor analyzer to set the strategy to.
+    :param analyzer: Device analyzer to set the strategy to.
     :param cmd_runner: Command runner to send the alert commands to.
     """
     def send_alert_cmd(avg_current: float, avg_thresh: float):
@@ -113,19 +113,19 @@ def set_alert_handle_strategy(analyzer: SensorAvgThreshAnalyzer,
     analyzer.set_handle_strategy(send_alert_cmd)
 
 
-def set_above_compare_strategy(analyzer: SensorAvgThreshAnalyzer):
+def set_above_compare_strategy(analyzer: DeviceAvgThreshAnalyzer):
     """
     Sets the analyzer's compare strategy as a "greater than" comparison.
 
-    :param analyzer: Sensor analyzer to set the strategy to.
+    :param analyzer: Device analyzer to set the strategy to.
     """
     analyzer.set_compare_strategy(operator.gt)
 
 
-def set_below_compare_strategy(analyzer: SensorAvgThreshAnalyzer):
+def set_below_compare_strategy(analyzer: DeviceAvgThreshAnalyzer):
     """
     Sets the analyzer's compare strategy as a "lower than" comparison.
 
-    :param analyzer: Sensor analyzer to set the strategy to.
+    :param analyzer: Device analyzer to set the strategy to.
     """
     analyzer.set_compare_strategy(operator.lt)
