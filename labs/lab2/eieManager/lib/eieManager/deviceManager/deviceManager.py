@@ -19,21 +19,6 @@ class DeviceManager:
         self.devices_per_type: Dict[str, Dict[str, Device]] = {}
         self.init_config()
 
-    def _init_devices_per_type(self):
-        """
-        Initializes a devices per-type mapping dictionary.
-        """
-        for device in self.devices.values():
-            dType = device.dType()
-            name = device.name()
-            commands = device.commands()
-            ip = device.ip()
-
-            if dType not in self.devices_per_type:
-                self.devices_per_type[dType] = {}
-            #------------------ 
-            self.devices_per_type[dType][name] = device
-
     def init_config(self) -> None:
         """
         Initializes the manager configuration.
@@ -54,6 +39,24 @@ class DeviceManager:
                 self.devices[name] = self.device_factory(name, dType, commands, ip)
 
         self._init_devices_per_type()
+
+
+    def _init_devices_per_type(self):
+        """
+        Initializes a devices per-type mapping dictionary.
+        """
+        for device in self.devices.values():
+            dType = device.dType()
+            name = device.name()
+            commands = device.commands()
+            ip = device.ip()
+
+            if dType not in self.devices_per_type: 
+                self.devices_per_type[dType] = {}
+            #------------------ 
+            self.devices_per_type[dType][name] = device
+
+    
 
     def get_device_types(self) -> List[str]:
         """
