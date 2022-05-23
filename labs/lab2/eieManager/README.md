@@ -2,6 +2,12 @@
 ## Implementación de la funcionalidad básica del API para client
 __________
 
+<<<<<<< HEAD
+Se creó un paquete con la jerarquía de módulos para implementar el prototipo del API.
+
+
+pip install -i https://test.pypi.org/simple/ eieManagerNew==0.0.1
+=======
 ### Integrantes:
 
 * Katharina Alfaro Solís **B80251**
@@ -30,3 +36,4 @@ Para implementar el prototipo del API se debe crear un paquete de la siguiente m
     `
 
 De esta manera generamos la comunicación entre el cliente y el servidor que en este caso es el eieManager. 
+>>>>>>> main
