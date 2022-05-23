@@ -121,17 +121,25 @@ def create_device(device: device):
     # que acabo de pasar, creo el key con el valor device.name y guardo el
     # objeto device con nombre device ahí
     # devices[device.name] = device  # en el diccionario de objetos items,
-    #res = device_mgr.create_device(device["name"],device["type"],device["commands"],device["ip"])
+    # res = device_mgr.create_device(device["name"],device["type"],device["commands"],device["ip"])
     # guardar en la posición item.name el objeto item
     # que acabo de pasar, creo el key con el valor item.name y guardo el
     # objeto Item con nombre item ahí
-    return res
+
+    print(device_mgr.create_device(device.name, device.type, device.commands, device.ip))
+
+    # new_device = device_mgr.create_device() #aún no implementada
+    # que acabo de pasar, creo el key con el valor device.name y guardo el objeto device con nombre device ahí
+    # devices[device.name] = device # en el diccionario de objetos items, guarar en la posición item.name el objeto item
+    # que acabo de pasar, creo el key con el valor item.name y guardo el objeto Item con nombre item ahí
+    return device
 
 
 @app.get("/devices/")  # la segunda parte del path la ponemos en la variable
 # device_name
 def get_devices(first: int = 0, limit: int = 20):  # hay 2 parámetros por
     # defecto, first con valor 0 y limit con valor 20, por defecto
+
     """
     Get a list of the current devices.
 
@@ -158,9 +166,10 @@ def get_device(device_name: str):
     Todo: Llamar función de deviceManager que retorne un device, en json,
     deberia recibir el ID del device
     """
-    # llamar aquí función que muestra un device, implementarla en manager
-    # futuro deviceManager
-    device = device_mgr.get_device()
+    device_info = device_mgr.get_device(device_name)
+    print(device_info)
+
+    #llamar aquí función que muestra un device, implementarla en manager futuro deviceManager
     print(f"read device: {device_name}")
     return device  # Pasar a formato json
 
@@ -179,9 +188,11 @@ def delete_device(device_name: str, status_code=204):
     recibir el ID del device y retornar un estado
     de ejecución ejemplo: success, failed, no such device...
     """
-    #res = device_mgr.delete_device(device_name)
+    # res = device_mgr.delete_device(device_name)
+
+    print(device_mgr.delete_device(device_name))  
     print(f"deleted device: {device_name}")
-    return res
+    # return res
 
 
 @app.patch("/devices/")
@@ -200,6 +211,10 @@ def update_device(device: device):
     o ID del device y adicionalmente el diccionario de atributos a cambiar,
     tal vez es más fácil lo primero
     """
+    device_mgr.update_device(device.name, device.type, device.commands, device.ip)
+    print(f"updated device: {device_name}")    
+    return device
+    """
     print(type(device))
     print(device)
     print("Device.name")
@@ -208,6 +223,7 @@ def update_device(device: device):
     # update = device_mgr.update_devices()
     print(f"updated device: {device_name}")
     return res
+    """
 
 
 @app.put("/command/")  # la segunda parte del path la ponemos en
