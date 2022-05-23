@@ -39,8 +39,8 @@ def main():
 
     print("Get current devices (GET basic):")  # Sirve
     wait_enter()  # función definida antes, que espera enter
-    device_name = "humidity"
-    resp = requests.get(f"{url}/devices/{device_name}")  # le añadimos al host
+    device_name = "Device-03"
+    resp = requests.get(f"{url}/devices/")  # le añadimos al host
     # name este path, y hace una llamada HTTP get, guarda resultado en json
     # en resp equivalente a str.format(), simplemente más simplificado,
     # reemplaza valor de variable entre {} en un string
@@ -49,7 +49,7 @@ def main():
 
     print("Get current devices with filter (GET with query):")  # Sirve
     wait_enter()
-    query = {'first': 2, 'limit': 4}  # definirmos un diccionario, cuenta
+    query = {'first': 1, 'limit': 3}  # definirmos un diccionario, cuenta
     # empieza en 0
     resp = requests.get(f"{url}/devices/", params=query)  # me va a filtar
     # entre resultado en pos 1 (segundo) y pos 3 (cuarto)
@@ -69,10 +69,18 @@ def main():
     # nuevo objeto, poner json
     pprint_response(resp)
 
-    # print("Get created device (GET with path param):")
-    # wait_enter()
-    # resp = requests.get(f"{url}/devices/monitor")#pide path particular
-    # pprint_response(resp)
+    print("Create another new device (POST):")
+    wait_enter()
+    new_device = {  # deifnir un diccionario de un nuevo device, no lo pone en
+            # orden, xq no es necesario
+            "name": "Device-08",
+            "type": "Sensor",
+            "commands": "Measure",  # can't send lists, but a str with a list
+            "ip": "192.123.0.333:8333",
+        }
+    resp = requests.post(f"{url}/devices/", json=new_device)  # va a guardar
+    # nuevo objeto, poner json
+    pprint_response(resp)
 
     print("Get current devices again:")
     wait_enter()
@@ -81,25 +89,38 @@ def main():
 
     print("Destroy created device (DELETE with path param):")
     wait_enter()
-    resp = requests.delete(f"{url}/devices/{device_name}")  # poner path de
+    device_to_destroy = "Device-08"
+    resp = requests.delete(f"{url}/devices/{device_to_destroy}")  # poner path de
     # archivo que quiero borrar me retorna nada, por eso imprime un None tras
     # # borrarlo
     pprint_response(resp)
 
-    print("Try to get deleted device again:")
+    print("Try to get deleted device will get 500:")
     wait_enter()
-    resp = requests.get(f"{url}/devices/{device_name}")  # el códido se cae ya
+    resp = requests.get(f"{url}/devices/{device_to_destroy}")  # el códido se cae ya
     # que ese path no existe
     pprint_response(resp)
 
     print("Modify device PATCH:")  # sirve
     wait_enter()
-    resp = requests.patch(f"{url}/devices/", json=new_device)  # el códido se
+    patch_device = {  # deifnir un diccionario de un nuevo device, no lo pone en
+            # orden, xq no es necesario
+            "name": "Device-07",
+            "type": "Level",
+            "commands": "Hola",  # can't send lists, but a str with a list
+            "ip": "172.180.0.111:5555",
+        }
+    resp = requests.patch(f"{url}/devices/", json=patch_device)  # el códido se
     # cae ya que ese path no existe
     pprint_response(resp)
 
+    print("Get current devices again:")
+    wait_enter()
+    resp = requests.get(f"{url}/devices/")
+    pprint_response(resp)
+
     # (command, device, arg1=val1, ..., argN=valN)
-    print("Send command PUT:")  # da 405???
+    print("Send command PUT:")
     wait_enter()
     new_command = {
             "device_name": "Device-07",

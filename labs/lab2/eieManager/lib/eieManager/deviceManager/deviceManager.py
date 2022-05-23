@@ -113,6 +113,7 @@ class DeviceManager:
         :param str device_name: Name of the device to read.
         :param device_name: Name of the device to read.
         """
+        json_data = {}
 
         tmpName = ""
         tmpType = ""
@@ -129,21 +130,17 @@ class DeviceManager:
                         tmpName = device_info["name"]
                         tmpType = device_info["type"]
                         tmpCommands = device_info["commands"]
-                        tmpIP = device_info["ip"]
+                        tmpIP = device_info["ip"]                    
+                except:
+                    print("Not able to retrieve device")
+                #Add more types
 
-                    json_data = {
+            json_data = {
                     "name":tmpName,
                     "type":tmpType,
                     "commands": tmpCommands,
                     "ip": tmpIP
-                    }
-                except:
-                    print("")
-                #Add more types
-
-
-        #print(json_data)
-
+                }
         return json_data
 
     def update_device(self, name: str, type: str, commands: List, ip: str):
@@ -228,3 +225,7 @@ class DeviceManager:
         """
         device = self.devices[device_name]
         return DeviceReadCommand(device, analyzer)
+
+    def send_command(self, name: str, command: str, args: str) -> str:
+        execution = "Command: " + command + " executed on device: " + name
+        return execution

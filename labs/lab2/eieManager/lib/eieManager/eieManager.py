@@ -151,7 +151,10 @@ def get_devices(first: int = 0, limit: int = 20):  # hay 2 parámetros por
     existentes, en json(texto), no recibe nada
     """
     device_list = device_mgr.get_device_names()
-    return device_list[first: first + limit]
+    if (limit != 20 or first != 0):
+        return device_list[first: first + limit]
+    else:
+        return device_list
 
 
 @app.get("/devices/{device_name}")  # la segunda parte del path la ponemos en
@@ -243,6 +246,6 @@ def send_command(command: command):
     print("command.args")
     print(command.args)
     print(command)
-    # res = device_mgr.send_command(command[device_name], command[command], command[args])
+    res = device_mgr.send_command(command.device_name, command.command, command.args)
     print(f"command executed for device: {command.device_name}")
-    # return res
+    return res
