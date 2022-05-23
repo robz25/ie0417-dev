@@ -131,15 +131,15 @@ class DeviceManager:
                         tmpCommands = device_info["commands"]
                         tmpIP = device_info["ip"]
 
-                    json_data = {
-                    "name":tmpName,
-                    "type":tmpType,
-                    "commands": tmpCommands,
-                    "ip": tmpIP
-                    }
                 except:
                     print("")
                 #Add more types
+            json_data = {
+                "name":tmpName,
+                "type":tmpType,
+                "commands": tmpCommands,
+                "ip": tmpIP
+            }
 
 
         #print(json_data)
