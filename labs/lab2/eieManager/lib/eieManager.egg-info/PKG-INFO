@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: eieManager
+Version: 0.0.1
+Summary: eieManager to API implementation - lab2 IE0417 course @ EIE, UCR
+Home-page: https://ie0417-dev-b43011.readthedocs.io/en.latest/labs/lab2/lab2.html
+Author: Esteban Zamora Alvarado
+Author-email: esteban.zamora.al@gmail.com
+License: UNKNOWN
+Description: # Laboratorio 2: EieManager
+        ## Implementación de la funcionalidad básica del API para client
+        
+        Se creó un paquete con la jerarquía de módulos para implementar el prototipo del API.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/x-rst

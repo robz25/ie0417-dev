@@ -1,0 +1,40 @@
+{
+    "Devices": [
+        {
+            "name": "Device-01",
+            "type": "Sensor",
+            "commands": [
+                "Read",
+                "Activate"
+            ],
+            "ip": "192.168.0.1:8001"
+        },
+        {
+            "name": "Device-03",
+            "type": "Level",
+            "commands": [
+                "Status",
+                "Set_device"
+            ],
+            "ip": "192.168.0.3:8001"
+        },
+        {
+            "name": "Device-02",
+            "type": "Sensor",
+            "commands": [
+                "K",
+                "A"
+            ],
+            "ip": "192.168.0.3:9000"
+        },
+        {
+            "name": "device01",
+            "type": "Sensor",
+            "commands": [
+                "X",
+                "Y"
+            ],
+            "ip": "8080"
+        }
+    ]
+}
