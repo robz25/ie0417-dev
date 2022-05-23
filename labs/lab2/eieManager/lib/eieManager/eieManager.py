@@ -96,6 +96,10 @@ def create_device(device: device):
     Todo: Llamar función de deviceManager que cree un nuevo device, debe recibir debice en Json, el device, en el body, y
     retornar el resultado de ejecución, sucess, failed...
     """
+    device_mgr.write_json("device01", "Sensor",["X","Y"], "8080")
+    device_mgr.write_json("newDevice", "Actuador",["Z","Y"], "8081")
+    print("IM HERE!")
+
     #new_device = device_mgr.create_device() #aún no implementada
     #que acabo de pasar, creo el key con el valor device.name y guardo el objeto device con nombre device ahí
     devices[device.name] = device # en el diccionario de objetos items, guarar en la posición item.name el objeto item

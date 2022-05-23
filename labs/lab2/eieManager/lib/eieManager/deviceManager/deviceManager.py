@@ -54,20 +54,56 @@ class DeviceManager:
         "ip": ip
         }
 
-        with open(self.config_filename, 'w') as jsonFile:
-            json.dump(json_data, jsonFile)
-        jsonFile.close()
 
-        for device in self.devices.values():
-            dType = device.dType()
-            name = device.name()
-            commands = device.commands()
-            ip = device.ip()
 
-            if dType not in self.devices_per_type: 
-                self.devices_per_type[dType] = {}
-            #------------------ 
-            self.devices_per_type[dType][name] = device
+
+        #with open(self.config_filename) as config_file:
+        #    config_info = json.load(config_file)
+        #    devices_info = config_info["Devices"]
+        #    #devices_info.append(json_data)
+        #    devices_info["namek"] = "jue"
+        #data = json.load(jsonFile) # Read the JSON into the buffer
+        #jsonFile = open(self.config_filename, "r") # Open the JSON file for reading
+        #devices_info = data["Devices"]
+
+
+
+        #jsonFile.close() # Close the JSON file
+        #var = 2.4
+        #data['name']=json_data
+        #data[0] = var
+        ## Save our changes to JSON file
+        #jsonFile = open(self.config_filename, "w+")
+        #jsonFile.write(json.dumps(data))
+        #jsonFile.close()
+
+        return 0
+
+        #------------------------------------
+
+    # function to add to JSON
+    def write_json(self, name: str, type: str, commands: List, ip: str):
+
+        json_data = {
+        "name":name,
+        "type":type,
+        "commands":commands,
+        "ip": ip
+        }
+
+        with open(self.config_filename,'r+') as file:
+            # First we load existing data into a dict.
+            file_data = json.load(file)
+            # Join new_data with file_data inside emp_details
+            file_data["Devices"].append(json_data)
+            # Sets file's current position at offset.
+            file.seek(0)
+            # convert back to json.
+            json.dump(file_data, file, indent = 4)
+ 
+        return 0
+
+        #------------------------------------
 
     def delete_device(self, name: str):
         """Destroy a device with the name.
