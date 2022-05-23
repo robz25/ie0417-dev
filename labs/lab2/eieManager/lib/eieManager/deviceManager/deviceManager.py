@@ -82,12 +82,26 @@ class DeviceManager:
         :param str device_name: Name of the device to read.
         :param device_name: Name of the device to read.
         """
-        with open(self.config_filename,'r+') as file:
-            # First we load existing data into a dict.
-            file_data = json.load(file)
-            # Join new_data with file_data inside emp_details
-            #file_data["Devices"].pop("name",name)
-            # Sets file's current position at offset.
+
+        return_book_input = name
+        with open (self.config_filename) as f:  
+            file_data = json.load(f)
+
+        for customer in file_data['Devices']:
+            keys_to_delete = []
+            for key, value in customer.items(): 
+              if return_book_input == value:
+                keys_to_delete.append("name")
+                keys_to_delete.append("type")
+                keys_to_delete.append("commands")
+                keys_to_delete.append("ip")
+
+            for key in keys_to_delete:
+                del customer[key]
+
+        with open(self.config_filename, "w") as outfile:
+            json.dump(file_data, outfile, indent = 4)
+
 
         status = "Success! Device deleted!"
 
@@ -110,19 +124,23 @@ class DeviceManager:
             devices_info = config_info["Devices"]
             # Create devices
             for device_info in devices_info:
-                if(device_info["name"] == name):
-                    tmpName = device_info["name"]
-                    tmpType = device_info["type"]
-                    tmpCommands = device_info["commands"]
-                    tmpIP = device_info["ip"]
+                try:
+                    if(device_info["name"] == name):
+                        tmpName = device_info["name"]
+                        tmpType = device_info["type"]
+                        tmpCommands = device_info["commands"]
+                        tmpIP = device_info["ip"]
+
+                    json_data = {
+                    "name":tmpName,
+                    "type":tmpType,
+                    "commands": tmpCommands,
+                    "ip": tmpIP
+                    }
+                except:
+                    print("")
                 #Add more types
 
-        json_data = {
-        "name":tmpName,
-        "type":tmpType,
-        "commands": tmpCommands,
-        "ip": tmpIP
-        }
 
         #print(json_data)
 
@@ -144,12 +162,18 @@ class DeviceManager:
             devices_info = config_info["Devices"]
             # Create devices
             for device_info in devices_info:
-                if(device_info["name"] == name):
-                    #device_info["name"] = tmpName
-                    device_info["type"] = tmpType
-                    device_info["commands"] = tmpCommands
-                    device_info["ip"] = tmpIP
+                try:
+                    if(device_info["name"] == name):
+                        #device_info["name"] = tmpName
+                        device_info["type"] = tmpType
+                        device_info["commands"] = tmpCommands
+                        device_info["ip"] = tmpIP
+                except:
+                    print("")
                 #Add more types
+
+        with open(self.config_filename, "w") as outfile:
+            json.dump(config_info, outfile, indent = 4)
 
         return 0
 
