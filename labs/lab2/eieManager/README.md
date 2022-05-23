@@ -2,7 +2,6 @@
 ## Implementación de la funcionalidad básica del API para client
 __________
 
-<<<<<<< HEAD
 Se creó un paquete con la jerarquía de módulos para implementar el prototipo del API.
 
 
