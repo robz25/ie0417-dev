@@ -1,3 +1,4 @@
+from ast import If
 import json
 from typing import Optional, List, Dict
 
@@ -40,49 +41,16 @@ class DeviceManager:
 
         self._init_devices_per_type()
 
-    def create_device(self, name: str, type: str, commands: List, ip: str):
-        """
-        Creates a new device.
-
-        :param str device_name: Name of the device to read.
-        :param device_name: Name of the device to read.
-        """
-        json_data = {
-        "name":name,
-        "type":type,
-        "commands":commands,
-        "ip": ip
-        }
-
-
-
-
-        #with open(self.config_filename) as config_file:
-        #    config_info = json.load(config_file)
-        #    devices_info = config_info["Devices"]
-        #    #devices_info.append(json_data)
-        #    devices_info["namek"] = "jue"
-        #data = json.load(jsonFile) # Read the JSON into the buffer
-        #jsonFile = open(self.config_filename, "r") # Open the JSON file for reading
-        #devices_info = data["Devices"]
-
-
-
-        #jsonFile.close() # Close the JSON file
-        #var = 2.4
-        #data['name']=json_data
-        #data[0] = var
-        ## Save our changes to JSON file
-        #jsonFile = open(self.config_filename, "w+")
-        #jsonFile.write(json.dumps(data))
-        #jsonFile.close()
-
-        return 0
-
-        #------------------------------------
 
     # function to add to JSON
-    def write_json(self, name: str, type: str, commands: List, ip: str):
+    def create_device(self, name: str, type: str, commands: List, ip: str):
+        """Create a device with the name, type, commands and ip.
+
+        :param str device_name: Name of the device to read.
+        :param str type: Name of the device to read.
+        :param List commands: list of device commands.
+        :param str ip: Device IP.
+        """
 
         json_data = {
         "name":name,
@@ -100,8 +68,11 @@ class DeviceManager:
             file.seek(0)
             # convert back to json.
             json.dump(file_data, file, indent = 4)
+            self.devices[name] = self.device_factory(name, type, commands, ip)
  
-        return 0
+        status = "Success! New device created!"
+
+        return status
 
         #------------------------------------
 
@@ -111,23 +82,76 @@ class DeviceManager:
         :param str device_name: Name of the device to read.
         :param device_name: Name of the device to read.
         """
-        with open(self.config_filename, 'w') as jsonFile:
-            json.dump(json_data, jsonFile)
-        jsonFile.close()
+        with open(self.config_filename,'r+') as file:
+            # First we load existing data into a dict.
+            file_data = json.load(file)
+            # Join new_data with file_data inside emp_details
+            #file_data["Devices"].pop("name",name)
+            # Sets file's current position at offset.
 
-        for device in self.devices.values():
-            dType = device.dType()
-            name = device.name()
-            commands = device.commands()
-            ip = device.ip()
+        status = "Success! Device deleted!"
 
-            if dType not in self.devices_per_type: 
-                self.devices_per_type[dType] = {}
-            #------------------ 
-            self.devices_per_type[dType][name] = device
+        return status
+       
+    def get_device(self, name: str):
+        """Get a device with the name.
 
-    def update_device():
-        pass
+        :param str device_name: Name of the device to read.
+        :param device_name: Name of the device to read.
+        """
+
+        tmpName = ""
+        tmpType = ""
+        tmpCommands = ["",""]
+        tmpIP = ""
+
+        with open(self.config_filename) as config_file:
+            config_info = json.load(config_file)
+            devices_info = config_info["Devices"]
+            # Create devices
+            for device_info in devices_info:
+                if(device_info["name"] == name):
+                    tmpName = device_info["name"]
+                    tmpType = device_info["type"]
+                    tmpCommands = device_info["commands"]
+                    tmpIP = device_info["ip"]
+                #Add more types
+
+        json_data = {
+        "name":tmpName,
+        "type":tmpType,
+        "commands": tmpCommands,
+        "ip": tmpIP
+        }
+
+        #print(json_data)
+
+        return json_data
+
+    def update_device(self, name: str):
+        """Update a device with the name.
+
+        :param str device_name: Name of the device to read.
+        :param device_name: Name of the device to read.
+        """
+        tmpName = "NewNameDev"
+        tmpType = "Sensor"
+        tmpCommands = ["X","C"]
+        tmpIP = "2810"
+
+        with open(self.config_filename) as config_file:
+            config_info = json.load(config_file)
+            devices_info = config_info["Devices"]
+            # Create devices
+            for device_info in devices_info:
+                if(device_info["name"] == name):
+                    #device_info["name"] = tmpName
+                    device_info["type"] = tmpType
+                    device_info["commands"] = tmpCommands
+                    device_info["ip"] = tmpIP
+                #Add more types
+
+        return 0
 
     def _init_devices_per_type(self):
         """
