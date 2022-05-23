@@ -10,7 +10,6 @@ Integrantes
  - German Ureña Araya **B77809**
 ======= 
 
-
 Planeamiento
 ==================
 

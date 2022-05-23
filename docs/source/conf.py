@@ -19,7 +19,9 @@
 
 project = 'IE0417'
 copyright = '2022, Universidad de Costa Rica.'
-author = 'Esteban Zamora'
+author = 'Robin Gonzalez'
+author = 'Katharina Alfaro'
+author = 'German Ureña'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
