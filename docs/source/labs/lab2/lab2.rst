@@ -20,8 +20,8 @@ Descripción detallada de los endpoints REST
 Particularidades del diseño
 ------------------------------------
 
-En especial el código destaca por....
+Nuestro diseño tiene la particularidad de que hay funciones que permiten modificar el .json que tiene los devices que permite mejorar la mantenibilidad y escalabilidad del código, por medio de poder modificar los devices de acuerdo a lo deseado por el cliente.
 
-Flake8 y mypy
+Resultados de las pruebas Flake8 y mypy
 ------------------------------------
 
