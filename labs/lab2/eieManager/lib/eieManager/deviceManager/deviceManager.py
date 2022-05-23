@@ -30,17 +30,19 @@ class DeviceManager:
             devices_info = config_info["Devices"]
             # Create devices
             for device_info in devices_info:
-                name = device_info["name"]
-                dType = device_info["type"]
-                commands = device_info["commands"]
-                ip = device_info["ip"]
+                try:
+                    name = device_info["name"]
+                    dType = device_info["type"]
+                    commands = device_info["commands"]
+                    ip = device_info["ip"]
+                except:
+                    pass
                 #Add more types
 
                 #Call deviceFactory
                 self.devices[name] = self.device_factory(name, dType, commands, ip)
 
         self._init_devices_per_type()
-
 
     # function to add to JSON
     def create_device(self, name: str, type: str, commands: List, ip: str):
@@ -73,8 +75,6 @@ class DeviceManager:
         status = "Success! New device created!"
 
         return status
-
-        #------------------------------------
 
     def delete_device(self, name: str):
         """Destroy a device with the name.
@@ -146,16 +146,16 @@ class DeviceManager:
 
         return json_data
 
-    def update_device(self, name: str):
+    def update_device(self, name: str, type: str, commands: List, ip: str):
         """Update a device with the name.
 
         :param str device_name: Name of the device to read.
         :param device_name: Name of the device to read.
         """
-        tmpName = "NewNameDev"
-        tmpType = "Sensor"
-        tmpCommands = ["X","C"]
-        tmpIP = "2810"
+        tmpName = name
+        tmpType = type
+        tmpCommands = commands
+        tmpIP = ip
 
         with open(self.config_filename) as config_file:
             config_info = json.load(config_file)

@@ -96,7 +96,7 @@ def create_device(device: device):
     Todo: Llamar función de deviceManager que cree un nuevo device, debe recibir debice en Json, el device, en el body, y
     retornar el resultado de ejecución, sucess, failed...
     """
-    print(device_mgr.create_device("device01", "Sensor",["X","Y"], "8080"))
+    print(device_mgr.create_device("devicito", "Sensor",["E","E"], "8080"))
 
     #new_device = device_mgr.create_device() #aún no implementada
     #que acabo de pasar, creo el key con el valor device.name y guardo el objeto device con nombre device ahí
@@ -117,7 +117,7 @@ def update_device(device: device):
     Todo: Llamar función de deviceManager que actualice atributos de un nuevo device, debe recibir o device en Json,
     o ID del device y adicionalmente el diccionario de atributos a cambiar, tal vez es más fácil lo primero
     """
-    device_mgr.update_device("Device-02")
+    device_mgr.update_device("deviceUpdate", "Sensor",["E","E"], "8080")
     print(f"updated device: {device_name}")    
     return device
     
@@ -164,7 +164,7 @@ def delete_device(device_name: str, status_code=204):
     Todo: Llamar función de deviceManager que borre un device existente, debe recibir el ID del device y retornar un estado
     de ejecución ejemplo: success, failed, no such device...
     """
-    print(device_mgr.delete_device("Device-04"))
+    print(device_mgr.delete_device("device01"))
     
     print(f"deleted device: {device_name}")
 
