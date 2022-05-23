@@ -54,9 +54,8 @@ API, el eieManager se comunica con el deviceManager el cual contiene las funcion
 
 
 
-Si el cliente envía un comando a un dispositivo específico, se realiza el siguiente diagrama de secuencia como el siguiente:
 
-Asumimos que el API registró la petición de comunicarse con un eieDevice
+Asumimos que la API registró la petición del cliente de comunicarse con un eieDevice, de forma que la comunicación se ve como a continuación.
 
 .. uml::
 

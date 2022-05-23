@@ -2,6 +2,7 @@
 eieManager module entry point.
 """
 
-__author__ = 'Esteban Zamora Alvarado'
-__email__ = 'esteban.zamora.al@gmail.com'
+__author__ = 'Katharina Alfaro Solís B80251'
+__author__ = 'Robin González B43011'
+__author__ = 'German Ureña Araya B77809'
 __version__ = '0.0.1'
