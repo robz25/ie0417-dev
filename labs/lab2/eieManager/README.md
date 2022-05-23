@@ -39,17 +39,3 @@ Para implementar el prototipo del API se debe crear un paquete de la siguiente m
 
 De esta manera generamos la comunicación entre el cliente y el servidor que en este caso es el eieManager. 
 
-.. uml::
-
-  @startuml
-  APIserver -> eieManager : Notifica peticición de comunicación con un eieClient.
-  eieManager -> eieDevice : Envía dirección de destino
-  eieDevice --> eieManager : Confirma existencia y disposición de comunicarse
-  eieManager <-> eieDevice : Handshake y configuración de comunicación
-
-  eieManager -> eieDevice : Envía paquetes de datos
-  eieManager <-- eieDevice : Confirma recepción de datos y envía respuesta
-  eieManager -> eieDevice : Cierra comunicación
-
-  eieManager -> APIserver : Envía respuesta a petición original
-  @enduml
