@@ -132,10 +132,6 @@ class DeviceManager:
                         tmpCommands = device_info["commands"]
                         tmpIP = device_info["ip"]                    
                 except:
-                    print("Not able to retrieve device")
-                #Add more types
-
-                except:
                     print("")
                 #Add more types
             json_data = {
