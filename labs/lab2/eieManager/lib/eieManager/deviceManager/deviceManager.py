@@ -135,12 +135,19 @@ class DeviceManager:
                     print("Not able to retrieve device")
                 #Add more types
 
+                except:
+                    print("")
+                #Add more types
             json_data = {
-                    "name":tmpName,
-                    "type":tmpType,
-                    "commands": tmpCommands,
-                    "ip": tmpIP
-                }
+                "name":tmpName,
+                "type":tmpType,
+                "commands": tmpCommands,
+                "ip": tmpIP
+            }
+
+
+        #print(json_data)
+
         return json_data
 
     def update_device(self, name: str, type: str, commands: List, ip: str):
