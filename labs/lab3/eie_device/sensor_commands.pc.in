@@ -3,7 +3,7 @@ libdir=${prefix}/lib
 includedir=${prefix}/include
 
 Name: @LIB_NAME@
-Description: Eie Device 
+Description: eie_device 
 Version: @VERSION@
 Requires: @REQUIRED_PACKAGES@
 Libs: -L${libdir} -l@LIB_NAME@
