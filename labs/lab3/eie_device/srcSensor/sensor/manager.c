@@ -86,30 +86,30 @@ static void cjson_handle_destroy(cJSON* cjson)
 }
 
 /** Add sensor to the manager's sensor hash table */
-static int sensor_ht_add(struct SensorManager *smgr, struct Sensor *ssr)
+static int command_ht_add(struct CommandManager *smgr, struct Command *ssr)
 {
-    struct SensorHashEntry *entry =
-        malloc(sizeof(struct SensorHashEntry));
+    struct CommandHashEntry *entry =
+        malloc(sizeof(struct CommandHashEntry));
     if (entry == NULL) {
-        fprintf(stderr, "Failed to allocate sensor hash entry\n");
+        fprintf(stderr, "Failed to allocate command hash entry\n");
         return -ENOMEM;
     }
-    printf("%s: sensor name=%s, type=%s\n", __func__, ssr->info.name, ssr->info.type);
+    printf("%s: command name=%s, type=%s\n", __func__, ssr->info.name, ssr->info.type);
     entry->ssr = ssr;
     HASH_ADD_KEYPTR(hh, smgr->sensor_ht, ssr->info.name, strlen(ssr->info.name), entry);
     return 0;
 }
 
 /** Creates the manager's sensor hash table and populates it with cJSON */
-static int sensor_ht_create(struct SensorManager *smgr)
+static int command_ht_create(struct CommandManager *smgr)
 {
     int ret;
-    cJSON *sensors = NULL;
-    int num_sensors = 0;
+    cJSON *commands = NULL;
+    int num_commands = 0;
 
-    sensors = cJSON_GetObjectItem(smgr->cfg_cjson, "sensors");
-    if (sensors == NULL) {
-        fprintf(stderr, "Failed to read sensors array: %s\n", cJSON_GetErrorPtr());
+    commands = cJSON_GetObjectItem(smgr->cfg_cjson, "sensors");
+    if (commands == NULL) {
+        fprintf(stderr, "Failed to read commands array: %s\n", cJSON_GetErrorPtr());
         return -1;
     }
 
