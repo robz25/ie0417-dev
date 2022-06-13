@@ -1,0 +1,3 @@
+/home/dev/ws/labs/lab3/zmq/build/CMakeFiles/rebuild_cache.dir
+/home/dev/ws/labs/lab3/zmq/build/CMakeFiles/edit_cache.dir
+/home/dev/ws/labs/lab3/zmq/build/CMakeFiles/zmq_server_rep_pthread.dir
