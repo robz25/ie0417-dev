@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=gnu11 -Wall -Wstrict-prototypes -Wshadow -Werror -O3 -DNDEBUG   CMakeFiles/zmq_server_rep_pthread.dir/src/zmq_server_rep_pthread.c.o  -o zmq_server_rep_pthread   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib -lpthread -lczmq 
