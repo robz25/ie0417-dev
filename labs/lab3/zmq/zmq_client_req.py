@@ -18,7 +18,7 @@ def sendMessage(client, command_name, payload):
     payload_size = len(payload_json)
     payload_json = payload_json.encode('utf-8')
     req = struct.pack("%dsI%ds" %(len(command_name),len(payload_json)), command_name, payload_size, payload_json) # I para entero sin signo de 32 bits
-    print("Sending: ",req)
+    print("\nSending: ",req)
     client.send(req)
 
 def main():
@@ -27,11 +27,11 @@ def main():
     print("Connecting to server...")
     client = context.socket(zmq.REQ)
     with client.connect(f"tcp://localhost:{port}"):
-        for i in range(10):
+        for i in range(1):
             # Send request
             # Assuming little-endian in C side
             
-            command_name = "43hola yeah sirve" # \00 para terminar el mensaje
+            command_name = "Ping pong" # \00 para terminar el mensaje
             # command_name = command_name.ljust(100)
             # req_type = req_type.encode('utf-8')
             # command_name = command_name.encode('utf-8')
@@ -60,15 +60,20 @@ def main():
             # Receive response
             rep = client.recv()
             print("\nResponse: ",rep)
-            print("Response 0: ",rep[0])
-            print("Response 1: ",rep[1])
-            print("Response 1: ",rep[2])
+            # print("Response 0: ",rep[0])
+            # print("Response 1: ",rep[1])
+            # print("Response 1: ",rep[2])
             # rep_val_a, rep_val_b = struct.unpack('<QB', rep)
             # rep_val_a, rep_val_b = struct.unpack('<QQ', rep)
-            rep_val_a, rep_val_b = struct.unpack('<100sI', rep)
+            # rep_val_a, rep_val_b = struct.unpack('<100sI', rep)
+            print("\nlargo del rep: ", str(len(rep)))
+            command_name, payload_size, payload = struct.unpack("<100sI%ds" %(len(rep)-104), rep)
+
+            # rep_val_a = struct.unpack('<100s', rep)
+            # rep_val_b = struct.unpack('<I', rep)
             # rep_val_a = struct.unpack('<c', rep[0])
             # rep_val_b = struct.unpack('<c', rep[1])
-            print(f"Received response [val_a: {rep_val_a}, val_b: {rep_val_b}]")
+            print(f"\nReceived response [Command name: {command_name}, payload size: {payload_size}, payload: {payload}]")
 
 
 if __name__ == "__main__":

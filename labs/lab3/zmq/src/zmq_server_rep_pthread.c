@@ -42,6 +42,7 @@ struct test_msg_rep1 {
 struct test_msg_rep {
     char command_name_rep[100];
     u_int32_t payload_size_rep;
+    char *payload;
 } __attribute__((packed));
 
 /* Server thread data */
@@ -76,9 +77,9 @@ void* msg_server_fn(void *arg)
 
         //printf("Received request [payload_size: %hhu, command_name: %u]\n",
         //       req->payload_size, req->command_name);
-        printf("Request received");
+        printf("\nRequest received");
 
-        printf("String received [ command_name: %s, payload_size: %d, Payload: %s]\n",
+        printf("\nString received [ command_name: %s, payload_size: %d, Payload: %s]\n",
                req->command_name, req->payload_size, payload+104);
 
         // printf("Payload %s\n", (payload+104));
@@ -88,13 +89,25 @@ void* msg_server_fn(void *arg)
         // el entero es de 100 a 103
         // el payload empieza en 104
 
-        rep_frame = zframe_new(NULL, sizeof(struct test_msg_rep));
-        rep = (struct test_msg_rep *)zframe_data(rep_frame);
+        //Original
+        //rep_frame = zframe_new(NULL, sizeof(struct test_msg_rep));
+        //rep = (struct test_msg_rep *)zframe_data(rep_frame);
+        //Original
+        rep = (struct test_msg_rep *)calloc(1, sizeof(struct test_msg_rep));
 
-        char * hola = "String ";
+        char * hola = payload+104;
         // char * hola2 = req->command_name;
         // Write response data
-        strcpy(rep->command_name_rep, hola);
+        // strcpy(rep->command_name_rep, req->command_name);
+
+       
+        rep->payload = (char *)malloc(req->payload_size);
+        memcpy(rep->command_name_rep, req->command_name, strlen(req->command_name));
+        // printf("\nPayload tras malloc: %s", rep->payload);
+        memcpy(rep->payload, hola, strlen(hola));
+        printf("\nPayload tras memcpy: %s", rep->payload);
+
+        // strcpy(rep->payload, hola);
         //test_msg_rep mensaje_prueba = {req->command_name,sizeof(req->command_name)};
         // rep->command_name_rep = req->command_name;
         // rep->command_name_rep = "cc";//req->command_name;// + 10;
@@ -103,9 +116,14 @@ void* msg_server_fn(void *arg)
 
         // No longer need request frame
         zframe_destroy(&req_frame);
-
+        printf("\nTamaño de lo enviado %ld", sizeof(rep->command_name_rep) + strlen(hola) + sizeof(rep->payload_size_rep));
+        rep_frame = zframe_new(rep, sizeof(rep->command_name_rep) + strlen(hola) + sizeof(rep->payload_size_rep));
+        rep = (struct test_msg_rep *)zframe_data(rep_frame);
+        
         // Sending destroys the response frame
         ret = zframe_send(&rep_frame, rdata->server, 0);
+        printf("\nString sent [ command_name: %s, payload_size: %d, Payload: %s]\n",
+               rep->command_name_rep, rep->payload_size_rep, rep->payload);
         if (ret) {
             fprintf(stderr, "Failed to send msg with: %d\n", ret);
             goto out;
