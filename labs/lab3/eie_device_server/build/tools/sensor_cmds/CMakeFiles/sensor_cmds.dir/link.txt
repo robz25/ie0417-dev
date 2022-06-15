@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=gnu11 -Wall -Wstrict-prototypes -Wshadow -Werror -O3 -DNDEBUG   CMakeFiles/sensor_cmds.dir/main.c.o  -o sensor_cmds   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib:/home/arkantos/Desktop/Diseno_Software/ie0417-dev/labs/lab3/sensor_commands/build: ../../libsensor_commands.so.0.0.1 -lpthread -latomic -lcjson 

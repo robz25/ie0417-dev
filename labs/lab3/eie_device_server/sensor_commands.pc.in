@@ -3,7 +3,7 @@ libdir=${prefix}/lib
 includedir=${prefix}/include
 
 Name: @LIB_NAME@
-Description: eie_device 
+Description: Sensor Commands example
 Version: @VERSION@
 Requires: @REQUIRED_PACKAGES@
 Libs: -L${libdir} -l@LIB_NAME@
