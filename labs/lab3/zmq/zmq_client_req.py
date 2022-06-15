@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 
-"""
-PyZMQ REQ socket client example module.
 
-This is the client script for the zmq_server_rep_pthread program (@ examples/c/zmq_demo).
-"""
 
 import time
 import zmq
@@ -21,6 +17,13 @@ def sendMessage(client, command_name, payload):
     print("\nSending: ",req)
     client.send(req)
 
+def recieveMessage(client):
+    rep = client.recv()
+    print("\nResponse: ",rep)
+    print("\nlargo del rep: ", str(len(rep)))
+    command_name, payload_size, payload = struct.unpack("<100sI%ds" %(len(rep)-104), rep)
+    print(f"\nReceived response [Command name: {command_name}, payload size: {payload_size}, payload: {payload}]")
+
 def main():
     port = 5555;
     context = zmq.Context()
@@ -32,48 +35,30 @@ def main():
             # Assuming little-endian in C side
             
             command_name = "Ping pong" # \00 para terminar el mensaje
-            # command_name = command_name.ljust(100)
-            # req_type = req_type.encode('utf-8')
-            # command_name = command_name.encode('utf-8')
-            # s = "holi\00"
-            # s = s.encode('utf-8')
+            
             payload = {
                 "i": "i ",
                 "var1": "100pci",
                 "var2": "109var ",
             }
-            # payload_json = json.dumps(payload)
-            # req_type = len(payload_json)
-            # payload_json = payload_json.encode('utf-8')
+            
             sendMessage(client, command_name,payload)
-            # req = struct.pack('<cs', req_type, command_name)
-            # req = struct.pack("I%ds" % (len(s),), len(s), s)
-            #req = struct.pack("B%ds" %(len(s)), len(s), s) # working
-            # req = struct.pack("%dsI%ds" %(len(command_name),len(payload_json)), command_name, req_type, payload_json) # I para entero sin signo de 32 bits
-            # print("Sending: ",req)
-            # client.send(req)
 
+            recieveMessage(client)
             """
-            s = bytes(s, 'utf-8')    # Or other appropriate encoding
-            struct.pack("I%ds" % (len(s),), len(s), s)
-            """
-            # Receive response
-            rep = client.recv()
-            print("\nResponse: ",rep)
-            # print("Response 0: ",rep[0])
-            # print("Response 1: ",rep[1])
-            # print("Response 1: ",rep[2])
-            # rep_val_a, rep_val_b = struct.unpack('<QB', rep)
-            # rep_val_a, rep_val_b = struct.unpack('<QQ', rep)
-            # rep_val_a, rep_val_b = struct.unpack('<100sI', rep)
-            print("\nlargo del rep: ", str(len(rep)))
-            command_name, payload_size, payload = struct.unpack("<100sI%ds" %(len(rep)-104), rep)
+            command_name = "Message" # \00 para terminar el mensaje
+            
+            payload = {
+                "1": "Este es el commando message ",
+                "2": "Message2",
+                "3": "Message3",
+            }
+            
+            
+            sendMessage(client, command_name,payload)
 
-            # rep_val_a = struct.unpack('<100s', rep)
-            # rep_val_b = struct.unpack('<I', rep)
-            # rep_val_a = struct.unpack('<c', rep[0])
-            # rep_val_b = struct.unpack('<c', rep[1])
-            print(f"\nReceived response [Command name: {command_name}, payload size: {payload_size}, payload: {payload}]")
+            recieveMessage(client)
+            """
 
 
 if __name__ == "__main__":

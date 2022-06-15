@@ -105,7 +105,7 @@ void* msg_server_fn(void *arg)
         memcpy(rep->command_name_rep, req->command_name, strlen(req->command_name));
         // printf("\nPayload tras malloc: %s", rep->payload);
         memcpy(rep->payload, hola, strlen(hola));
-        printf("\nPayload tras memcpy: %s", rep->payload);
+        printf("\nPayload tras memcpy: %sfinal del payload", rep->payload);
 
         // strcpy(rep->payload, hola);
         //test_msg_rep mensaje_prueba = {req->command_name,sizeof(req->command_name)};
@@ -117,7 +117,8 @@ void* msg_server_fn(void *arg)
         // No longer need request frame
         zframe_destroy(&req_frame);
         printf("\nTamaño de lo enviado %ld", sizeof(rep->command_name_rep) + strlen(hola) + sizeof(rep->payload_size_rep));
-        rep_frame = zframe_new(rep, sizeof(rep->command_name_rep) + strlen(hola) + sizeof(rep->payload_size_rep));
+        rep_frame = zframe_new(rep, sizeof(rep->command_name_rep) + strlen(hola) + sizeof(rep->payload_size_rep)); //INvestigar
+        //printf(rep_frame);
         rep = (struct test_msg_rep *)zframe_data(rep_frame);
         
         // Sending destroys the response frame
@@ -128,6 +129,7 @@ void* msg_server_fn(void *arg)
             fprintf(stderr, "Failed to send msg with: %d\n", ret);
             goto out;
         }
+
     }
 
 out:
