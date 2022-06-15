@@ -8,8 +8,6 @@ Se creó un paquete con la jerarquía de módulos para implementar el prototipo 
 pip install -i https://test.pypi.org/simple/ eieManagerNew==0.0.1
 `
 
-
-
 ### Integrantes:
 
 * Katharina Alfaro Solís **B80251**
