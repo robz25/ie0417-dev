@@ -35,6 +35,15 @@
                 "Y"
             ],
             "ip": "8080"
+        },
+        {
+            "name": "devicito",
+            "type": "Sensor",
+            "commands": [
+                "E",
+                "E"
+            ],
+            "ip": "8080"
         }
     ]
 }

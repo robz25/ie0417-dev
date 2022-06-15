@@ -4,7 +4,6 @@ README.md
 requirements.txt
 setup.py
 config/devices_cfg.json
-lib/eieManager/1main.py
 lib/eieManager/__init__.py
 lib/eieManager/args.py
 lib/eieManager/client.py
