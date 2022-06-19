@@ -4,7 +4,7 @@
 #include <testutil/rand_gen.hpp>
 
 /** Example fixture class for demo API tests */
-class demo_api_fixture : public testing::Test
+class command_runner : public testing::Test
 {
  protected:
     /* Fixture class members, accesible from test functions */
@@ -14,7 +14,7 @@ class demo_api_fixture : public testing::Test
     /* Fixture class constructor */
     /* NOTE: Using reproducible random value for seed, check
      * explanation in unittest_main.cpp for more details */
-    demo_api_fixture()
+    command_runner()
         : value(2), rng(rand())
     {
         std::cout << "Test fixture constructor! "<< std::endl;
