@@ -1,7 +1,7 @@
-from pytest import fixture
+# from pytest import fixture
 from utils import rand_gen
-import logging
-import demo_api
+# import logging
+# import demo_api
 
 
 class DemoFixtureContext:
@@ -10,6 +10,7 @@ class DemoFixtureContext:
         self.rng = rand_gen.RandomGenerator()
 
 
+"""
 @fixture
 def demo_ctx_1(example_mod_fixt, example_func_fixt):
     logging.info("Fixture 1 setup!")
@@ -58,3 +59,4 @@ def test_demo_api_mult_random(demo_ctx_2):
     logging.info(f"Mult result: {r}")
 
     assert r == num_a * (num_b + demo_ctx_2.value), "Multiplication failed"
+"""

@@ -1,7 +1,22 @@
-import logging
-import pytest
+# import logging
+# import pytest
 
-import demo_api
+# import sensor_commands
+# from sensor_commands.lib.sensor_commands.sensor.sensor import MockSensor
+# from sensor_commands.lib.sensor_commands.args import parse_args
+
+
+def test1():
+    assert 1 + 1 == 2, "Math is wrong"
+
+
+"""
+def test_sensor_manager_mock_type_register_unregister():
+    args = parse_args()
+    config_name = args.config
+    sensor_mgr_tester = SensorManager(config_name)
+    sensor_mgr_tester.register_sensor_type("mock",MockSensor)
+    sensor_mgr_tester.get_supported_sensor_types()
 
 
 def test_demo_api_add_op():
@@ -25,3 +40,4 @@ def test_demo_api_double_if_pos_op():
 def test_demo_api_double_if_pos_sanity():
     with pytest.raises(AssertionError):
         demo_api.double_if_pos(-4)
+"""
