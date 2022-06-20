@@ -9,7 +9,6 @@ class command_runner : public testing::Test
 {
  protected:
     /* Fixture class members, accesible from test functions */
-    commandRunner cmdR  ;
     testutil::rand_gen rng;
 
     /* Fixture class constructor */
@@ -22,69 +21,95 @@ class command_runner : public testing::Test
         std::cout << "  RNG seed " << rng.get_seed() << std::endl;
     }
 
-    virtual void SetUp() override{
-        command_runner::SetUp();
-        std::cout << "Test fixture SetUp! "<< std::endl;
-        /*Create CommandRunner i SetUp    */
-        commandRunnerCOnfig = CommandRunnerConfig(rand()*999+1);
-        cmdR =command_runner_create(cfg);
-        
+    virtual void SetUp() {
+        std::cout << "Command Runner fixture SetUp! "<< std::endl;
+
+        /*Create CommandRunner in SetUp*/
+        struct CommandRunnerConfig cmdR  ;  /* Calling struct from command_runner.h*/
+        cmdR.q_max_size = rand()*999+1;  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
+        CommandRunner* commandRunner = command_runner_create(&cmdR);
 
         /* NOTE: Both the constructor and SetUp methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
     }
 
-    virtual void TearDown() override{
+    virtual void TearDown() {
         std::cout << "Test fixture TearDown! "<< std::endl;
 
-        command_runner::TearDown(); 
+        void command_runner_destroy(CommandRunner)
+
+
         /* NOTE: Both the destructor and TearDown methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
     }
 };
 
-/** Test the addition operation of two random values using a fixture */
+/** Test create_destroy using a fixture */
 TEST_F(command_runner, create_destroy)
 {
     int ret = 0;
-    int out = 0;
-    int num_a = (int)rng.get_rnd_u64();
-    int num_b = (int)rng.get_rnd_u64();
-    std::cout << "  Num A: " << num_a << std::endl;
-    std::cout << "  Num B: " << num_b << std::endl;
+    int ret2 = 0;
+    
 
-    ret = demo_api_add(num_a + value, num_b, &out);
+    struct command_runner_create (NULL cfg);
+        if (command_runner_create.cmd_runner != 0){
+            ret = demo_api_result(NULL);
+        }    
+
+    void command_runner_destroy(CommandRunner);  /* Should be with NULL cmd_runner */
+        if (command_runner_destroy != 0){
+            ret2 = demo_api_result('-1');
+        } 
+
     ASSERT_EQ(ret, DEMO_API_OK);
-    ASSERT_EQ(out, num_a + value + num_b);
+    ASSERT_EQ(ret2, DEMO_API_OK);
+    
+    
 }
-
-/** Test the multiplication operation of two random values using a fixture */
+/** Test start_stop using a fixture */
 TEST_F(command_runner, start_stop)
 {
     int ret = 0;
-    int out = 0;
-    int num_a = (int)rng.get_rnd_u64();
-    int num_b = (int)rng.get_rnd_u64();
-    std::cout << "  Num A: " << num_a << std::endl;
-    std::cout << "  Num B: " << num_b << std::endl;
+    int ret2 = 0;
+    int command_runner_start(CommandRunner NULL);
+        if (command_runner_start != 0){
+        ret = demo_api_result('-1');
+        } 
+    int command_runner_stop(CommandRunner NULL);
+        if (command_runner_stop != 0){
+        ret2 = demo_api_result('-1');
+        } 
 
-    ret = demo_api_mult(num_a, num_b + value, &out);
     ASSERT_EQ(ret, DEMO_API_OK);
-    ASSERT_EQ(out, num_a * (num_b + value));
+    ASSERT_EQ(ret2, DEMO_API_OK);
 }
 
 TEST_F(command_runner, command_send_single)
 {
     int ret = 0;
-    int out = 0;
-    int num_a = (int)rng.get_rnd_u64();
-    int num_b = (int)rng.get_rnd_u64();
-    std::cout << "  Num A: " << num_a << std::endl;
-    std::cout << "  Num B: " << num_b << std::endl;
+    int ret2 = 0;
+    int ret3 = 0;
+    int command_runner_send(CommandRunner NULL);
+        if (command_runner_start != 0){
+        ret = demo_api_result('-1');
+        } 
+    int command_runner_send(CommandRunner msg_command);
+        if (command_runner_stop != 0){
+        ret2 = demo_api_result('-1');
+        } 
+        else {
+             ret2 = demo_api_result('Is correct!');
+        }
+    int command_runner_stop(CommandRunner NULL);
+        if (command_runner_stop != 0){
+        ret3 = demo_api_result('-1');
+        } 
+        else {
+             ret3 = demo_api_result('Is correct!');
+        }
 
-    ret = demo_api_mult(num_a, num_b + value, &out);
     ASSERT_EQ(ret, DEMO_API_OK);
-    ASSERT_EQ(out, num_a * (num_b + value));
-}
+    ASSERT_EQ(ret2, DEMO_API_OK);
+    ASSERT_EQ(ret3, DEMO_API_OK);
