@@ -29,6 +29,7 @@ class command_runner : public testing::Test
         cmdR.q_max_size = rand()*999+1;  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
         CommandRunner* commandRunner = command_runner_create(&cmdR);
 
+        ASSERT_NE(commandRunner, NULL);
         /* NOTE: Both the constructor and SetUp methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
@@ -113,3 +114,4 @@ TEST_F(command_runner, command_send_single)
     ASSERT_EQ(ret, DEMO_API_OK);
     ASSERT_EQ(ret2, DEMO_API_OK);
     ASSERT_EQ(ret3, DEMO_API_OK);
+}
