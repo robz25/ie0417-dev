@@ -33,6 +33,9 @@ include_directories(${CJSON_INCLUDE_DIRS})
 
 # Shared library
 ADD_LIB_DIRS(src)
+add_library(${LIB_NAME} SHARED ${LIB_SOURCES})
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 set(VERSION_SOURCE ${CMAKE_BINARY_DIR}/src/version.c)
 configure_file(
@@ -41,8 +44,6 @@ configure_file(
   @ONLY
 )
 list(APPEND LIB_SOURCES ${VERSION_SOURCE})
-
-add_library(${LIB_NAME} SHARED ${LIB_SOURCES})
 
 target_link_libraries(${LIB_NAME} pthread atomic ${CJSON_LIBRARIES})
 
@@ -98,3 +99,4 @@ add_custom_command(
 add_custom_target(deploy_tmp_sysroot DEPENDS ${TMP_SYSROOT_PATH})
 
 add_subdirectory(tools)
+add_subdirectory(test EXCLUDE_FROM_ALL)
