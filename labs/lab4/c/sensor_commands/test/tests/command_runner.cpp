@@ -1,10 +1,9 @@
 #include "gtest/gtest.h"
-#include "include/sensor_commands/command_runner.h"
-#include "include/sensor_commands/command.h"
-#include <demo_api.h>
+#include "sensor_commands/command_runner.h"
+#include "sensor_commands/command.h"
 #include <testutil/rand_gen.hpp>
 
-/** Example fixture class for demo API tests */
+/** Example fixture class for command_runner tests */
 class command_runner_fixture : public testing::Test
 {
  protected:
