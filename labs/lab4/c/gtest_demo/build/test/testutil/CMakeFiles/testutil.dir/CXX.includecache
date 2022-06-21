@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../test/testutil/include/testutil/rand_gen.hpp
+cstdlib
+-
+random
+-
+
+/home/dev/ws/labs/lab4/c/gtest_demo/test/testutil/rand_gen.cpp
+stdexcept
+-
+testutil/rand_gen.hpp
+-
+
