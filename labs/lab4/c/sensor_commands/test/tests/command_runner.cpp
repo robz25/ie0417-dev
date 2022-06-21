@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "sensor_commands/command_runner.h"
-#include "sensor_commands/command.h"
+#include <sensor_commands/command_runner.h>
+#include <sensor_commands/command.h>
 #include <testutil/rand_gen.hpp>
 
 /** Example fixture class for command_runner tests */
