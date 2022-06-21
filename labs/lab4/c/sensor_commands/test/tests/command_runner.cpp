@@ -1,36 +1,27 @@
 #include "gtest/gtest.h"
-#include "include/sensor_commands/command_runner.h"
-#include "include/sensor_commands/command.h"
 #include <demo_api.h>
 #include <testutil/rand_gen.hpp>
 
 /** Example fixture class for demo API tests */
-class command_runner_fixture : public testing::Test
+class command_runner : public testing::Test
 {
  protected:
     /* Fixture class members, accesible from test functions */
+    int value;
     testutil::rand_gen rng;
-    CommandRunner* commandRunner;
 
     /* Fixture class constructor */
     /* NOTE: Using reproducible random value for seed, check
      * explanation in unittest_main.cpp for more details */
-    command_runner_fixture()
-        : rng(rand())
+    command_runner()
+        : value(2), rng(rand())
     {
-        std::cout << "Command Runner fixture constructor! "<< std::endl;
+        std::cout << "Test fixture constructor! "<< std::endl;
         std::cout << "  RNG seed " << rng.get_seed() << std::endl;
     }
 
     virtual void SetUp() {
-        std::cout << "Command Runner fixture SetUp! "<< std::endl;
-
-        /*Create CommandRunner in SetUp*/
-        CommandRunnerConfig cnf;  /* Calling struct from command_runner.h*/
-        cnf.q_max_size = rand()*999+1;  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
-        commandRunner = command_runner_create(&cnf);
-
-        ASSERT_NE(commandRunner, NULL);
+        std::cout << "Test fixture SetUp! "<< std::endl;
         /* NOTE: Both the constructor and SetUp methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
@@ -38,69 +29,38 @@ class command_runner_fixture : public testing::Test
 
     virtual void TearDown() {
         std::cout << "Test fixture TearDown! "<< std::endl;
-
-        int ret = command_runner_destroy(commandRunner);
-        commandRunner = NULL;
-
-        ASSERT_EQ(ret, 0);
-
         /* NOTE: Both the destructor and TearDown methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
     }
 };
 
-/** Test create_destroy using a fixture */
-TEST_F(command_runner_fixture, create_destroy)
+/** Test the addition operation of two random values using a fixture */
+TEST_F(demo_api_fixture, add_random)
 {
-    // Verify wrong creation of CommandRunner
-    CommandRunner* cmdRunner = command_runner_create(NULL);
-    ASSERT_EQ(cmdRunner, NULL);
+    int ret = 0;
+    int out = 0;
+    int num_a = (int)rng.get_rnd_u64();
+    int num_b = (int)rng.get_rnd_u64();
+    std::cout << "  Num A: " << num_a << std::endl;
+    std::cout << "  Num B: " << num_b << std::endl;
 
-    // Verify wrong destroy of CommandRunner
-    int ret = command_runner_destroy(NULL);
-    ASSERT_EQ(ret, -1);
-    
-    
-}
-/** Test start_stop using a fixture */
-TEST_F(command_runner_fixture, start_stop)
-{
-    // Verify wrong way to start the CommandRunner
-    int ret = command_runner_start(NULL);
-    ASSERT_EQ(ret, -1);
-
-    // Verify the right way to call the command_runner_start
-    int ret = command_runner_start(command_runner_fixture::commandRunner);
-    ASSERT_EQ(ret, 0);
-
-    // Verify wrong way to call the stop CommandRunner
-    int ret2 = command_runner_stop(NULL);
-    ASSERT_EQ(ret2, -1);
-
-    // Verify the right way to call the command_runner_stop
-    int ret2 = command_runner_stop(command_runner_fixture::commandRunner);
+    ret = demo_api_add(num_a + value, num_b, &out);
+    ASSERT_EQ(ret, DEMO_API_OK);
+    ASSERT_EQ(out, num_a + value + num_b);
 }
 
-TEST_F(command_runner_fixture, command_send_single)
+/** Test the multiplication operation of two random values using a fixture */
+TEST_F(demo_api_fixture, mult_random)
 {
-    Command* msgCmd = msg_command_create("Test message command");
+    int ret = 0;
+    int out = 0;
+    int num_a = (int)rng.get_rnd_u64();
+    int num_b = (int)rng.get_rnd_u64();
+    std::cout << "  Num A: " << num_a << std::endl;
+    std::cout << "  Num B: " << num_b << std::endl;
 
-    // verify right way to start the CommandRunner
-    int ret = command_runner_start(command_runner_fixture::commandRunner);
-    ASSERT_EQ(ret, 0);
-
-    // Wrong way to send command to CommandRunner
-    int ret1 = command_runner_send(NULL, msgCmd);
-    ASSERT_EQ(ret1, -1);
-    
-    int ret2 = command_runner_send(command_runner_fixture::commandRunner, NULL);
-    ASSERT_EQ(ret2, -1);
-
-    // Right way to call the command_runner_send
-    int ret3 = command_runner_send(command_runner_fixture::commandRunner, msgCmd);
-    ASSERT_EQ(ret3, 0);
-
-    // Verify the right way to call the command_runner_stop
-    int ret2 = command_runner_stop(command_runner_fixture::commandRunner);
+    ret = demo_api_mult(num_a, num_b + value, &out);
+    ASSERT_EQ(ret, DEMO_API_OK);
+    ASSERT_EQ(out, num_a * (num_b + value));
 }

@@ -1,13 +1,39 @@
-from pytest import fixture
+# from pytest import fixture
 from utils import rand_gen
-import logging
-import demo_api
+# import logging
+# import demo_api
+# from sensor_commands.sensor import Sensor
 
 
 class DemoFixtureContext:
     def __init__(self):
         self.value = 2
         self.rng = rand_gen.RandomGenerator()
+
+# Cuando llamo el sensor manager creo el objeto de esta clase
+
+
+"""
+
+
+class MockSensor(Sensor):  # no tengo que instanciarla
+
+    def assert_read(self) -> bool:
+        assert self.read_counter is True  # asi se pone no ==
+        self.read_counter = False
+
+    # @abstractmethod
+    def read(self) -> float:
+        Reads the sensor.
+        :return: Sensor reading.
+        self.read_counter = True
+
+        return 0.1234  # self.read_counter
+"""
+
+"""
+aca creo instancia de sensor manager
+y creo fixture que retorne sensor manager
 
 
 @fixture
@@ -58,3 +84,4 @@ def test_demo_api_mult_random(demo_ctx_2):
     logging.info(f"Mult result: {r}")
 
     assert r == num_a * (num_b + demo_ctx_2.value), "Multiplication failed"
+"""

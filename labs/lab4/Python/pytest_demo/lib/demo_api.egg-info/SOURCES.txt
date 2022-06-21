@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+lib/demo_api/__init__.py
+lib/demo_api.egg-info/PKG-INFO
+lib/demo_api.egg-info/SOURCES.txt
+lib/demo_api.egg-info/dependency_links.txt
+lib/demo_api.egg-info/requires.txt
+lib/demo_api.egg-info/top_level.txt

@@ -58,3 +58,4 @@ dkms.conf
 .vagrant
 .Trash*
 .ipynb_checkpoints/
+labs/lab2/eieManager/dist/eieManagerNew-0.0.1-py3-none-any.whl
