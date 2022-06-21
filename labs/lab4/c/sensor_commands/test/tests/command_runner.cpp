@@ -30,7 +30,7 @@ class command_runner_fixture : public testing::Test
         cnf.q_max_size = rand()*999+1;  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
         commandRunner = command_runner_create(&cnf);
 
-        ASSERT_NE(commandRunner, NULL);
+        ASSERT_NE(commandRunner, nullptr);
         /* NOTE: Both the constructor and SetUp methods are called for each test.
          * Check Googletest FAQ for more details on when to use each one:
          * https://github.com/google/googletest/blob/main/docs/faq.md#should-i-use-the-constructordestructor-of-the-test-fixture-or-setupteardown-ctorvssetup */
@@ -55,7 +55,7 @@ TEST_F(command_runner_fixture, create_destroy)
 {
     // Verify wrong creation of CommandRunner
     CommandRunner* cmdRunner = command_runner_create(NULL);
-    ASSERT_EQ(cmdRunner, NULL);
+    ASSERT_EQ(cmdRunner, nullptr);
 
     // Verify wrong destroy of CommandRunner
     int ret = command_runner_destroy(NULL);
@@ -71,7 +71,7 @@ TEST_F(command_runner_fixture, start_stop)
     ASSERT_EQ(ret, -1);
 
     // Verify the right way to call the command_runner_start
-    int ret = command_runner_start(command_runner_fixture::commandRunner);
+    ret = command_runner_start(commandRunner);
     ASSERT_EQ(ret, 0);
 
     // Verify wrong way to call the stop CommandRunner
@@ -79,7 +79,8 @@ TEST_F(command_runner_fixture, start_stop)
     ASSERT_EQ(ret2, -1);
 
     // Verify the right way to call the command_runner_stop
-    int ret2 = command_runner_stop(command_runner_fixture::commandRunner);
+    ret2 = command_runner_stop(commandRunner);
+    ASSERT_EQ(ret2, 0);
 }
 
 TEST_F(command_runner_fixture, command_send_single)
@@ -87,20 +88,21 @@ TEST_F(command_runner_fixture, command_send_single)
     Command* msgCmd = msg_command_create("Test message command");
 
     // verify right way to start the CommandRunner
-    int ret = command_runner_start(command_runner_fixture::commandRunner);
+    int ret = command_runner_start(commandRunner);
     ASSERT_EQ(ret, 0);
 
     // Wrong way to send command to CommandRunner
     int ret1 = command_runner_send(NULL, msgCmd);
     ASSERT_EQ(ret1, -1);
     
-    int ret2 = command_runner_send(command_runner_fixture::commandRunner, NULL);
+    int ret2 = command_runner_send(commandRunner, NULL);
     ASSERT_EQ(ret2, -1);
 
     // Right way to call the command_runner_send
-    int ret3 = command_runner_send(command_runner_fixture::commandRunner, msgCmd);
+    int ret3 = command_runner_send(commandRunner, msgCmd);
     ASSERT_EQ(ret3, 0);
 
     // Verify the right way to call the command_runner_stop
-    int ret2 = command_runner_stop(command_runner_fixture::commandRunner);
+    int ret4 = command_runner_stop(commandRunner);
+    ASSERT_EQ(ret4, 0);
 }
