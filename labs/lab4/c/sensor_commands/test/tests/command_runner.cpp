@@ -26,7 +26,7 @@ class command_runner_fixture : public testing::Test
 
         /*Create CommandRunner in SetUp*/
         CommandRunnerConfig cnf;  /* Calling struct from command_runner.h*/
-        cnf.q_max_size = rand()*999+1;  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
+        cnf.q_max_size = rng.get_rnd_u64_range(1, 1000);  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
         commandRunner = command_runner_create(&cnf);
 
         ASSERT_NE(commandRunner, nullptr);
