@@ -4,52 +4,6 @@ from abc import ABC, abstractmethod
 from ..command import Command
 
 
-class MockSensor(ABC):
-    """
-    Generic sensor representation.
-
-    :param str name: Name of the sensor.
-    :param str stype: Type of the sensor.
-    :param str unit: Measurement unit of the sensor.
-    """
-    def __init__(self, name: str, stype: str, unit: str) -> None:
-        self._name = name
-        self._type = stype
-        self._unit = unit
-        self.read_counter = False
-
-    def name(self) -> str:
-        """
-        Gets the name of the sensor.
-        """
-        return self._name
-
-    def type(self) -> str:
-        """
-        Gets the type of the sensor.
-        """
-        return self._type
-
-    def unit(self) -> str:
-        """
-        Gets the unit of the sensor.
-        """
-        return self._unit
-
-    def assert_read(self) -> bool:
-        assert self.read_counter is True  # asi se pone no ==
-        self.read_counter = False
-
-    @abstractmethod
-    def read(self) -> float:
-        """
-        Reads the sensor.
-        :return: Sensor reading.
-        """
-        self.read_counter = True
-        return self.read_counter
-
-
 class Sensor(ABC):
     """
     Generic sensor representation.
