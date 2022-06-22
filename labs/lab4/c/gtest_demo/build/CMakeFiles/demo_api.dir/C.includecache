@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/demo_api.h
+
+/home/dev/ws/labs/lab4/c/gtest_demo/src/demo_api.c
+stdio.h
+-
+stdbool.h
+-
+stdlib.h
+-
+demo_api.h
+-
+

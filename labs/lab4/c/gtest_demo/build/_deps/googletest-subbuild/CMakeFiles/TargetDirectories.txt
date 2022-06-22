@@ -1,0 +1,3 @@
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir

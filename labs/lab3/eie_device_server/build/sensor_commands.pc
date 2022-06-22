@@ -1,0 +1,10 @@
+prefix=/usr/local
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: sensor_commands
+Description: Sensor Commands example
+Version: 0.0.1
+Requires: 
+Libs: -L${libdir} -lsensor_commands
+Cflags: -I${includedir}

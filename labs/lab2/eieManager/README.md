@@ -10,6 +10,9 @@ pip install -i https://test.pypi.org/simple/ eieManagerNew==0.0.1
 
 
 
+
+=======
+
 ### Integrantes:
 
 * Katharina Alfaro Solís **B80251**
