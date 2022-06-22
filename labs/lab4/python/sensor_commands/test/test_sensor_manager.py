@@ -7,8 +7,7 @@ import demo_api
 
 @fixture
 def sensor_mgr():
-    config_name = "../config/sensors_cfg.json" #test test se debe quitar los ..
-    sensor_man = SensorManager(config_name)
+    config_name = "../config/sensors_cfg.json" # Definir path absoluto con respecto al contenedor
     return sensor_man
 
 def test_sensor_manager_supported_types(sensor_mgr):
