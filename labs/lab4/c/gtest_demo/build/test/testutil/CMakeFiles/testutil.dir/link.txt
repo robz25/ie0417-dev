@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtestutil.a  CMakeFiles/testutil.dir/rand_gen.cpp.o
+/usr/bin/ranlib libtestutil.a

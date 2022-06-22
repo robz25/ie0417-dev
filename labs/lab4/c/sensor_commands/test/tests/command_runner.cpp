@@ -4,6 +4,7 @@
 #include <testutil/rand_gen.hpp>
 
 /** Example fixture class for command_runner tests */
+
 class command_runner_fixture : public testing::Test
 {
  protected:
@@ -26,7 +27,8 @@ class command_runner_fixture : public testing::Test
 
         /*Create CommandRunner in SetUp*/
         CommandRunnerConfig cnf;  /* Calling struct from command_runner.h*/
-        cnf.q_max_size = rng.get_rnd_u64_range(1, 1000);  /*Randomize the q_max_size configuration parameter between 1 and 1000*/
+        cnf.q_max_size = rng.get_rnd_u64_range(1,1000); /*Randomize the q_max_size configuration parameter between 1 and 1000*/
+
         commandRunner = command_runner_create(&cnf);
 
         ASSERT_NE(commandRunner, nullptr);
@@ -105,3 +107,4 @@ TEST_F(command_runner_fixture, command_send_single)
     int ret4 = command_runner_stop(commandRunner);
     ASSERT_EQ(ret4, 0);
 }
+

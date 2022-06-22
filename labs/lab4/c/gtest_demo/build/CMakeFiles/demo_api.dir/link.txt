@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -std=gnu11 -Wall -Wstrict-prototypes -Wshadow -Werror -O3 -DNDEBUG  -shared -Wl,-soname,libdemo_api.so -o libdemo_api.so CMakeFiles/demo_api.dir/src/demo_api.c.o  -lpthread -latomic 
