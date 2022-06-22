@@ -98,5 +98,5 @@ add_custom_command(
 )
 add_custom_target(deploy_tmp_sysroot DEPENDS ${TMP_SYSROOT_PATH})
 
-# add_subdirectory(tools)
+
 add_subdirectory(test EXCLUDE_FROM_ALL)

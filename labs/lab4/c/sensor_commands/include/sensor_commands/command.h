@@ -1,6 +1,11 @@
 #ifndef COMMAND_H_
 #define COMMAND_H_
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Type of the function that a command can execute */
 typedef int (*cmd_exec_fn)(void *data);
 
@@ -54,5 +59,11 @@ int command_destroy(struct Command *cmd);
  * @return Pointer to a command structure.
  */
 struct Command *msg_command_create(const char *msg);
+
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // COMMAND_H_

@@ -21,7 +21,9 @@ $ cmake ..
 $ make install
 ```
 
-Desde el contenedor de desarrollo en el directorio base del ejemplo (`examples/c/sensor_commands/`) ejecute los siguiente comandos:
+
+Desde el contenedor de desarrollo en el directorio base del ejemplo (`c/sensor_commands/`) ejecute los siguiente comandos:
+
 
 ```console
 $ mkdir build
@@ -29,6 +31,14 @@ $ cd build
 $ cmake ..
 $ make
 ```
+
+Para correr las pruebas realizar ejecute los siguientes comandos en (`c/sensor_commands/build`), adicionales a los anteriores:
+
+```console
+$ make unittest
+$ make test
+```
+
 
 ## Diagrama de clases
 ![scmds_uml_class](../../python/sensor_commands/uml/sensor_commands_class.png)
