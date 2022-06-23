@@ -1,6 +1,7 @@
 
 # from distutils.command.config import config
 # import pytest
+# from defer import return_value
 from sensor_commands.sensor import sensor
 from pytest import fixture
 # from pytest import fixture
@@ -25,15 +26,26 @@ def sensor_mgr():
 
 
 class MockSensor(sensor.Sensor):  # no tengo que instanciarla
+    def __init__(self, name: str) -> None:
+        super().__init__(name, "mock", "porUnidad")
+        self.read_counter = 0
+
     def assert_read(self) -> bool:
-        assert self.read_counter is True  # asi se pone no ==
-        self.read_counter = False
+        # assert self.read_counter is True  # asi se pone no ==
+        # assert self.read_counter == 1, "Sensor was not read"
+        if (self.read_counter):
+            return_val = 1
+        else:
+            return_val = 0
+        self.read_counter = 0
+        return return_val
     # @abstractmethod
 
     def read(self) -> float:
         # Reads the sensor.
         # :return: Sensor reading.
-        self.read_counter = True
+        self.read_counter = 1
+        print("Sensor was read in read function")
         return 0.1234  # self.read_counter
 
 
@@ -50,8 +62,9 @@ def test_sensor_manager_single_sensor_read_command():
 
 
 def test_sensor_manager_mock_type_register_unregister(sensor_mgr):
-    mock = MockSensor("mock", "mocksensor", "porunidad")
-    sensor_mgr.register_sensor_type(mock.type(), mock)
+    # mock = MockSensor("mockSensor", "mock", "porunidad")
+    mock = MockSensor("mockSensor")
+    sensor_mgr.register_sensor_type(mock.type(), MockSensor)
     print("Supported sensor types:", sensor_mgr.get_supported_sensor_types())
     sensor_mgr.unregister_sensor_type(mock.type())
     assert 1 + 1 == 2, "Math is wrong"
@@ -70,33 +83,40 @@ def __init__(self, name: str, stype: str, unit: str) -> None:
 
 
 def test_sensor_manager_mock_sensor_create_destroy(sensor_mgr):
-    mock = MockSensor("mock", "mocksensor", "porunidad")
-    sensor_mgr.register_sensor_type(mock.type(), mock)
-    sensor_mgr.create_sensor(mock.name(), mock.type())
-    sensor_mgr.get_sensor_info()
+    mock = MockSensor("mockSensor")  # , "mock", "porunidad")
+    sensor_mgr.register_sensor_type(mock.type(), MockSensor)
+    print("Supported sensor types:", sensor_mgr.get_supported_sensor_types())
+    sensor_mgr.create_sensor(mock.name(), 'mock')  # level y temperature
+    logging.info("\nGetting sensor info:")
+    sensors_info = sensor_mgr.get_sensors_info()
+    logging.info(f"\n{sensors_info}")
     sensor_mgr.destroy_sensor(mock.name())
     sensor_mgr.unregister_sensor_type(mock.type())
     # def destroy_sensor(self, name: str) -> None:
     # def create_sensor(self, name: str, stype: str) -> None:
     # def get_sensors_info(self) -> Dict[str, Dict[str, Any]]:
     # def create_sensor(self, name: str, stype: str) -> None:
-    assert 1 * 9 == 9, "Math is ok"
 
 
 def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
-    mock = MockSensor("mock", "mocksensor", "porunidad")
-    sensor_mgr.register_sensor_type(mock.type(), mock)
+    mock = MockSensor("mockSensor")  # , "mock", "porunidad")
+    sensor_mgr.register_sensor_type(mock.type(), MockSensor)
     sensor_mgr.create_sensor(mock.name(), mock.type())
-    sensor_mgr.get_sensor_info()
-    sensor_mgr.create_sensor_read_cmd(mock.name())
-    # missing
-    mock.assert_read()
+    sensor_mgr.get_sensors_info()
+    sensor_read = sensor_mgr.create_sensor_read_cmd(mock.name())
+    sensor_read.execute()
+    # missing execute command
+    sensor_was_read = mock.assert_read()
+    if(sensor_was_read):
+        print("Sensor was read")
+    else:
+        print("Sensor was not read")
+    # assert sensor_was_read == 1, "Sensor was not read"
     # missing
     sensor_mgr.destroy_sensor(mock.name())
     sensor_mgr.unregister_sensor_type(mock.type())
     # def create_sensor_read_cmd(self, sensor_name: str,
     # analyzer: Optional[SensorAnalyzer] = None) -> Command:
-    assert 1 + 1 != 0, "Math is ok"
 
 
 """
