@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/CMakeFiles/progress.marks
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles /home/dev/ws/labs/lab4/c/gtest_demo/build/test/CMakeFiles/progress.marks
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/run_unittest.dir/rule:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/run_unittest.dir/rule
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/run_unittest.dir/rule
 .PHONY : test/CMakeFiles/run_unittest.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ run_unittest: test/CMakeFiles/run_unittest.dir/rule
 
 # fast build rule for target.
 run_unittest/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/run_unittest.dir/build.make test/CMakeFiles/run_unittest.dir/build
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/run_unittest.dir/build.make test/CMakeFiles/run_unittest.dir/build
 .PHONY : run_unittest/fast
 
 # Convenience name for target.
 test/CMakeFiles/unittest.dir/rule:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/unittest.dir/rule
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/unittest.dir/rule
 .PHONY : test/CMakeFiles/unittest.dir/rule
 
 # Convenience name for target.
@@ -194,7 +194,7 @@ unittest: test/CMakeFiles/unittest.dir/rule
 
 # fast build rule for target.
 unittest/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/build
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/build
 .PHONY : unittest/fast
 
 tests/demo_api_fixture.o: tests/demo_api_fixture.cpp.o
@@ -203,7 +203,7 @@ tests/demo_api_fixture.o: tests/demo_api_fixture.cpp.o
 
 # target to build an object file
 tests/demo_api_fixture.cpp.o:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o
 .PHONY : tests/demo_api_fixture.cpp.o
 
 tests/demo_api_fixture.i: tests/demo_api_fixture.cpp.i
@@ -212,7 +212,7 @@ tests/demo_api_fixture.i: tests/demo_api_fixture.cpp.i
 
 # target to preprocess a source file
 tests/demo_api_fixture.cpp.i:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i
 .PHONY : tests/demo_api_fixture.cpp.i
 
 tests/demo_api_fixture.s: tests/demo_api_fixture.cpp.s
@@ -221,7 +221,7 @@ tests/demo_api_fixture.s: tests/demo_api_fixture.cpp.s
 
 # target to generate assembly for a file
 tests/demo_api_fixture.cpp.s:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s
 .PHONY : tests/demo_api_fixture.cpp.s
 
 tests/demo_api_simple.o: tests/demo_api_simple.cpp.o
@@ -230,7 +230,7 @@ tests/demo_api_simple.o: tests/demo_api_simple.cpp.o
 
 # target to build an object file
 tests/demo_api_simple.cpp.o:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o
 .PHONY : tests/demo_api_simple.cpp.o
 
 tests/demo_api_simple.i: tests/demo_api_simple.cpp.i
@@ -239,7 +239,7 @@ tests/demo_api_simple.i: tests/demo_api_simple.cpp.i
 
 # target to preprocess a source file
 tests/demo_api_simple.cpp.i:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i
 .PHONY : tests/demo_api_simple.cpp.i
 
 tests/demo_api_simple.s: tests/demo_api_simple.cpp.s
@@ -248,7 +248,7 @@ tests/demo_api_simple.s: tests/demo_api_simple.cpp.s
 
 # target to generate assembly for a file
 tests/demo_api_simple.cpp.s:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s
 .PHONY : tests/demo_api_simple.cpp.s
 
 unittest_main.o: unittest_main.cpp.o
@@ -257,7 +257,7 @@ unittest_main.o: unittest_main.cpp.o
 
 # target to build an object file
 unittest_main.cpp.o:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.o
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.o
 .PHONY : unittest_main.cpp.o
 
 unittest_main.i: unittest_main.cpp.i
@@ -266,7 +266,7 @@ unittest_main.i: unittest_main.cpp.i
 
 # target to preprocess a source file
 unittest_main.cpp.i:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.i
 .PHONY : unittest_main.cpp.i
 
 unittest_main.s: unittest_main.cpp.s
@@ -275,7 +275,7 @@ unittest_main.s: unittest_main.cpp.s
 
 # target to generate assembly for a file
 unittest_main.cpp.s:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/CMakeFiles/unittest.dir/build.make test/CMakeFiles/unittest.dir/unittest_main.cpp.s
 .PHONY : unittest_main.cpp.s
 
 # Help Target
@@ -313,6 +313,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

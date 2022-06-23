@@ -1,4 +1,4 @@
-# Install script for directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src
+# Install script for directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/cmake_install.cmake")
+  include("/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/cmake_install.cmake")
 
 endif()
 

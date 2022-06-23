@@ -1,4 +1,4 @@
-# Install script for directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest
+# Install script for directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -41,7 +41,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake"
-         "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+         "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -50,36 +50,36 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-release.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES
-    "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/GTestConfigVersion.cmake"
-    "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/GTestConfig.cmake"
+    "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/GTestConfigVersion.cmake"
+    "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/GTestConfig.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/lib/libgtest.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/lib/libgtest.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/lib/libgtest_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/lib/libgtest_main.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/gtest.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/gtest.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/gtest_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/googletest/generated/gtest_main.pc")
 endif()
 

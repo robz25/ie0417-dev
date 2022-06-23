@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 # Utility rule file for run_unittest.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/la
 include test/CMakeFiles/run_unittest.dir/progress.make
 
 test/CMakeFiles/run_unittest: test/unittest
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && ./unittest $(GTEST_ARGS)
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && ./unittest $(GTEST_ARGS)
 
 run_unittest: test/CMakeFiles/run_unittest
 run_unittest: test/CMakeFiles/run_unittest.dir/build.make
@@ -67,10 +67,10 @@ test/CMakeFiles/run_unittest.dir/build: run_unittest
 .PHONY : test/CMakeFiles/run_unittest.dir/build
 
 test/CMakeFiles/run_unittest.dir/clean:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -P CMakeFiles/run_unittest.dir/cmake_clean.cmake
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -P CMakeFiles/run_unittest.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/run_unittest.dir/clean
 
 test/CMakeFiles/run_unittest.dir/depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/CMakeFiles/run_unittest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/ws/labs/lab4/c/gtest_demo /home/dev/ws/labs/lab4/c/gtest_demo/test /home/dev/ws/labs/lab4/c/gtest_demo/build /home/dev/ws/labs/lab4/c/gtest_demo/build/test /home/dev/ws/labs/lab4/c/gtest_demo/build/test/CMakeFiles/run_unittest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/run_unittest.dir/depend
 

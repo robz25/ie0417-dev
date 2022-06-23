@@ -1,6 +1,11 @@
 #ifndef COMMAND_RUNNER_H_
 #define COMMAND_RUNNER_H_
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Structure with the CommandRunner configuration */
 struct CommandRunnerConfig {
     /** Maximum size of the command queue */
@@ -52,7 +57,14 @@ int command_runner_send(struct CommandRunner *cmd_runner,
  * Destroys the command runner
  *
  * @param cmd_runner command runner structure.
+ *
+ * @return 0 on success, negative number on error
  */
-void command_runner_destroy(struct CommandRunner *cmd_runner);
+int command_runner_destroy(struct CommandRunner *cmd_runner);
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // COMMAND_RUNNER_H_

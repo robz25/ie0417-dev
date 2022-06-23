@@ -14,23 +14,23 @@ cstdlib
 random
 -
 
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
+/home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
 gtest/gtest.h
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/gtest/gtest.h
+/home/dev/ws/labs/lab4/c/gtest_demo/test/tests/gtest/gtest.h
 demo_api.h
 -
 testutil/rand_gen.hpp
 -
 
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
+/home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
 gtest/gtest.h
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/gtest/gtest.h
+/home/dev/ws/labs/lab4/c/gtest_demo/test/tests/gtest/gtest.h
 demo_api.h
 -
 
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/unittest_main.cpp
+/home/dev/ws/labs/lab4/c/gtest_demo/test/unittest_main.cpp
 gtest/gtest.h
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/gtest/gtest.h
+/home/dev/ws/labs/lab4/c/gtest_demo/test/gtest/gtest.h
 
 _deps/googletest-src/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h

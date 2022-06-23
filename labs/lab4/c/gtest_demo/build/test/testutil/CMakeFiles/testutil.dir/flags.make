@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=gnu++11 -Wall -Wshadow -Werror -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/include -I/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/testutil/include 
+CXX_INCLUDES = -I/home/dev/ws/labs/lab4/c/gtest_demo/include -I/home/dev/ws/labs/lab4/c/gtest_demo/test/testutil/include 
 

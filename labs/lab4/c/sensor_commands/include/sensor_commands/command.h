@@ -1,8 +1,13 @@
 #ifndef COMMAND_H_
 #define COMMAND_H_
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Type of the function that a command can execute */
-typedef void (*cmd_exec_fn)(void *data);
+typedef int (*cmd_exec_fn)(void *data);
 
 /** Command structure definition */
 struct Command {
@@ -29,15 +34,19 @@ struct Command *command_create(void *data, cmd_exec_fn execute);
  * Executes the command function
  *
  * @param cmd command structure.
+ *
+ * @return 0 on success, negative number on error
  */
-void command_execute(struct Command *cmd);
+int command_execute(struct Command *cmd);
 
 /**
  * Destroys the command
  *
  * @param cmd command structure.
+ *
+ * @return 0 on success, negative number on error
  */
-void command_destroy(struct Command *cmd);
+int command_destroy(struct Command *cmd);
 
 /**
  * Creates a message command
@@ -50,5 +59,11 @@ void command_destroy(struct Command *cmd);
  * @return Pointer to a command structure.
  */
 struct Command *msg_command_create(const char *msg);
+
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // COMMAND_H_

@@ -6,5 +6,5 @@ C_FLAGS =  -std=gnu11 -Wall -Wstrict-prototypes -Wshadow -Werror -O3 -DNDEBUG -f
 
 C_DEFINES = -Ddemo_api_EXPORTS
 
-C_INCLUDES = -I/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/include 
+C_INCLUDES = -I/home/dev/ws/labs/lab4/c/gtest_demo/include 
 

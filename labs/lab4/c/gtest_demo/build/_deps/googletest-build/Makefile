@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-build/CMakeFiles/progress.marks
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles /home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-build/CMakeFiles/progress.marks
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/clean
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,17 +154,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -191,6 +191,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

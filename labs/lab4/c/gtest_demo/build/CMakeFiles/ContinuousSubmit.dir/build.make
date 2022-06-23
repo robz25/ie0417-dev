@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 # Utility rule file for ContinuousSubmit.
 
@@ -71,6 +71,6 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 .PHONY : CMakeFiles/ContinuousSubmit.dir/clean
 
 CMakeFiles/ContinuousSubmit.dir/depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/ws/labs/lab4/c/gtest_demo /home/dev/ws/labs/lab4/c/gtest_demo /home/dev/ws/labs/lab4/c/gtest_demo/build /home/dev/ws/labs/lab4/c/gtest_demo/build /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousSubmit.dir/depend
 
