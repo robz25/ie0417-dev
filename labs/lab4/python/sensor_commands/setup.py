@@ -79,8 +79,8 @@ def find_requirements(filename):
 
 
 setup(
-    name='demo_api',
-    version=find_version('lib/demo_api/__init__.py'),
+    name='sensor_commands',
+    version=find_version('lib/sensor_commands/__init__.py'),
     package_dir={'': 'lib'},
     packages=find_packages('lib'),
     include_package_data=True,
@@ -92,7 +92,7 @@ setup(
     author='Esteban Zamora Alvarado',
     author_email='esteban.zamora.al@gmail.com',
     description=(
-        'demo_api is an example python package for the '
+        'sensor_commands is an example python package for the '
         'IE0417 course @ EIE, UCR'
     ),
     long_description=read('README.md'),
@@ -108,5 +108,9 @@ setup(
     ],
 
     # Entry points
-    entry_points={}
+    entry_points={
+        'console_scripts': [
+            'sensor_cmds=sensor_commands.main:main',
+        ],
+    }
 )
