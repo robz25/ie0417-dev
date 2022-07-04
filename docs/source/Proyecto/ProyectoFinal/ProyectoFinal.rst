@@ -87,9 +87,15 @@ Requerimientos funcionales del eie-manager-config
 Diseño de API
 ============
 
+Lista de funciones que implementen el ``API`` de la biblioteca:
 
+- ``publish_messages``: 
 
+- ``create``
 
+- ``destroy``
+
+- ``handler``
 
 Diagramas
 ============
