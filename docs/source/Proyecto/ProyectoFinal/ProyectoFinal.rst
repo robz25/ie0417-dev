@@ -115,13 +115,15 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
   entity MQTT Broker as mqtt
   entity eie-device as dev '/
 
-  cli -> ditt: Send command to request modify the "configuration" property of a device group eie-manager 2.0 
+  cli -> ditt: Send command to request modify the "configuration" property of a device 
+  group eie-manager 2.0 
   ditt -> mqtt: Generate an event and routes the command to be sent to a topic in MQTT
   mqtt -> mqtt: Locates the required device and performs the modification on the device
   mqtt -> dev: Set the new configuration 
   dev -> dev: Update the configuration feature
   mqtt <- dev : Return OK response 
-  ditt <- mqtt: Return OK response end
+  ditt <- mqtt: Return OK response 
+  end
   cli <- ditt: Return response to the client
 
   @enduml
