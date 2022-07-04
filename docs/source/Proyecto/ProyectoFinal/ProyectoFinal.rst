@@ -87,15 +87,16 @@ Requerimientos funcionales del eie-manager-config
 Diseño de API
 ============
 
-Lista de funciones que implementen el ``API`` de la biblioteca:
+Lista de funciones que implementan el ``API`` de la biblioteca:
 
-- ``publish_messages``: 
+- ``publish_messages``: Se encarga de publicar los mensajes que exiten en ditto.
 
-- ``create``
+- ``create``: esta función es la encargada de crear el mensaje o comando que se quiere transmitir.
 
-- ``destroy``
+- ``destroy``: esta función es la encargada de eliminar el mensaje o comando que se quiere transmitir.
 
-- ``handler``
+- ``eie_device_feature_property_update_handler_register(eie_device, feature_name, prop_name, handler)``: esta función permite registrar otras funciones que se encargarán de manipular propiedades y features de cada device.
+
 
 Diagramas
 ============
@@ -105,6 +106,7 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 1. El ``client`` modifica la propiedad ``configuration`` en un feature del `twin` de un dispositivo.
 
 .. uml::
+    
 
    @startuml
 
@@ -129,7 +131,37 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
 2. El ``eie-device`` actualiza la propiedad ``status`` en un feature de su twin correspondiente publicando a un topic de MQTT.
 
+.. uml::
 
+   @startuml
 
-3. El ``eie-device`` publica su configuración inicial y es registrado por ``eie-manager-config`` en DItto. 
+   entity eie-device as dev
+   entity Topic as top
+   entity MQTT Broker as mqtt
+   entity Ditto as ditt
+   
+   dev -> top: Publish a change to the "status" property on the topic
+   top -> mqtt: Generates a change to be read by MQTT
+   mqtt -> ditt: Notifies the change in the status property of the device
 
+   @enduml
+
+3. El ``eie-device`` publica su configuración inicial y es registrado por ``eie-manager-config`` en Ditto. 
+
+.. uml::
+
+   @startuml
+
+   entity eie-device as dev
+   entity Topic as top
+   entity MQTT Broker as mqtt
+   entity eie-manager-config as man
+   entity Ditto as ditt
+   
+   dev -> top: Publishes its initial configuration to be added to the network of registered devices
+   top -> mqtt: Generates a change to be read by MQTT
+   mqtt -> man: Warns that a new device has been read with its respective configuration
+   man -> man: Register the new device and its settings
+   man -> ditt: Notifies of the change in the list of devices
+   
+   @enduml
