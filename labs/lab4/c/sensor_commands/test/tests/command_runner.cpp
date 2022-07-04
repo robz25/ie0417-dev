@@ -83,7 +83,7 @@ TEST_F(command_runner_fixture, start_stop)
     ret2 = command_runner_stop(commandRunner);
     ASSERT_EQ(ret2, 0);
 }
-
+/** Test command_send_single using a fixture */
 TEST_F(command_runner_fixture, command_send_single)
 {
     Command* msgCmd = msg_command_create("Test message command");

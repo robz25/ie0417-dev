@@ -45,6 +45,10 @@ class MockSensor(sensor.Sensor):
         print("Sensor was read in read function")
 
 
+def test_sensor_manager_supported_types():
+    pass
+
+
 def test_sensor_manager_supported_types(sensor_mgr):
     sensor_list = sensor_mgr.get_supported_sensor_types()
     print("Supported sensor types:", sensor_mgr.get_supported_sensor_types())
