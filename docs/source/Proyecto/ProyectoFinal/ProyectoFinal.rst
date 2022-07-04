@@ -110,20 +110,18 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
   @startuml
 
-  actor Client as cli
+  /'actor Client as cli
   entity Ditto as ditt
   entity MQTT Broker as mqtt
-  entity eie-device as dev
+  entity eie-device as dev '/
 
-  cli -> ditt: Send command to request modify the "configuration" property of a device
-  group eie-manager 2.0 
+  cli -> ditt: Send command to request modify the "configuration" property of a device group eie-manager 2.0 
   ditt -> mqtt: Generate an event and routes the command to be sent to a topic in MQTT
   mqtt -> mqtt: Locates the required device and performs the modification on the device
   mqtt -> dev: Set the new configuration 
   dev -> dev: Update the configuration feature
   mqtt <- dev : Return OK response 
-  ditt <- mqtt: Return OK response 
-  end
+  ditt <- mqtt: Return OK response end
   cli <- ditt: Return response to the client
 
   @enduml
@@ -133,35 +131,37 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
 .. uml::
 
-   @startuml
 
-   entity eie-device as dev
-   entity Topic as top
-   entity MQTT Broker as mqtt
-   entity Ditto as ditt
+  @startuml
+
+  /'entity eie-device as dev
+  entity Topic as top
+  entity MQTT Broker as mqtt
+  entity Ditto as ditt'/
    
-   dev -> top: Publish a change to the "status" property on the topic
-   top -> mqtt: Generates a change to be read by MQTT
-   mqtt -> ditt: Notifies the change in the status property of the device
+  dev -> top: Publish a change to the "status" property on the topic
+  top -> mqtt: Generates a change to be read by MQTT
+  mqtt -> ditt: Notifies the change in the status property of the device
 
-   @enduml
+  @enduml
 
 3. El ``eie-device`` publica su configuración inicial y es registrado por ``eie-manager-config`` en Ditto. 
 
 .. uml::
 
+
    @startuml
 
-   entity eie-device as dev
-   entity Topic as top
-   entity MQTT Broker as mqtt
-   entity eie-manager-config as man
-   entity Ditto as ditt
+  /'entity eie-device as dev
+  entity Topic as top
+  entity MQTT Broker as mqtt
+  entity eie-manager-config as man
+  entity Ditto as ditt'/
    
-   dev -> top: Publishes its initial configuration to be added to the network of registered devices
-   top -> mqtt: Generates a change to be read by MQTT
-   mqtt -> man: Warns that a new device has been read with its respective configuration
-   man -> man: Register the new device and its settings
-   man -> ditt: Notifies of the change in the list of devices
+  dev -> top: Publishes its initial configuration to be added to the network of registered devices
+  top -> mqtt: Generates a change to be read by MQTT
+  mqtt -> man: Warns that a new device has been read with its respective configuration
+  man -> man: Register the new device and its settings
+  man -> ditt: Notifies of the change in the list of devices
    
-   @enduml
+  @enduml
