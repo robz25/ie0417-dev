@@ -4,6 +4,7 @@ import pytest
 from utils import rand_gen
 import logging
 from sensor_commands.sensor.manager import SensorManager
+# if doesn't run rebuild: tox -re test
 
 
 class FixtureContext:
@@ -21,7 +22,7 @@ def rnd_gen():
 
 @fixture
 def sensor_mgr():
-    config_name = "/home/dev/ws/labs/lab4/python/sr_cmds/config/sensors_cfg.json"
+    config_name = "/home/dev/ws/labs/lab4/python/sensor_commands/config/sensors_cfg.json"
     sensor_man = SensorManager(config_name)
     logging.info("\nCreated Sensor Manager")
     return sensor_man
