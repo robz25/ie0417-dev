@@ -116,7 +116,7 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
    mqtt <- dev : Return OK response 
    ditt <- mqtt: Return OK response 
    end
-   tpc <- tps: Return response to the client
+   cli <- ditt: Return response to the client
 
    @enduml
 
