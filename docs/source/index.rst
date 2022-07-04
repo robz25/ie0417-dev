@@ -13,6 +13,7 @@ En esta documentaciòn se explican las entregas de diversos laboratorios y tarea
 
    getting-started
    labs/labs
+   Proyecto/Proyecto
 
 
 Indices y tablas
