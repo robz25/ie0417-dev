@@ -31,7 +31,7 @@ class MockSensor(sensor.Sensor):  # no tengo que instanciarla
 
 
 def test_sensor_manager_supported_types():
-    assert len("holi") > 0, "List of sensor types is empty"
+    pass
 
 
 def test_sensor_manager_single_sensor_create_destroy():
