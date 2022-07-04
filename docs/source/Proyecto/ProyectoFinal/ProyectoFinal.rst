@@ -123,7 +123,37 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
 2. El ``eie-device`` actualiza la propiedad ``status`` en un feature de su twin correspondiente publicando a un topic de MQTT.
 
+.. uml::
 
+   @startuml
+
+   entity eie-device as dev
+   entity Topic as top
+   entity MQTT Broker as mqtt
+   entity Ditto as ditt
+   
+   dev -> top: Publish a change to the "status" property on the topic
+   top -> mqtt: Generates a change to be read by MQTT
+   mqtt -> ditt: Notifies the change in the status property of the device
+
+   @enduml
 
 3. El ``eie-device`` publica su configuración inicial y es registrado por ``eie-manager-config`` en DItto. 
 
+.. uml::
+
+   @startuml
+
+   entity eie-device as dev
+   entity Topic as top
+   entity MQTT Broker as mqtt
+   entity eie-manager-config as man
+   entity Ditto as ditt
+   
+   dev -> top: Publishes its initial configuration to be added to the network of registered devices
+   top -> mqtt: Generates a change to be read by MQTT
+   mqtt -> man: Warns that a new device has been read with its respective configuration
+   man -> man: Register the new device and its settings
+   man -> ditt: Notifies of the change in the list of devices
+   
+   @enduml
