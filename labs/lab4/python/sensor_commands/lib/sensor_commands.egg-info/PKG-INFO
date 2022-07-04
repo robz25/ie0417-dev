@@ -5,6 +5,8 @@ Summary: sensor_commands is an example python package for the IE0417 course @ EI
 Home-page: http://ie0417.rtfd.org/
 Author: Esteban Zamora Alvarado
 Author-email: esteban.zamora.al@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Natural Language :: English
@@ -42,3 +44,5 @@ $ sensor_cmds
 
 ## Diagrama de secuencia
 ![scmds_uml_seq](../../python/sensor_commands/uml/sensor_commands_seq.png)
+
+
