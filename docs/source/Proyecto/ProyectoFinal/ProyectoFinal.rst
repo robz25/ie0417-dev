@@ -97,6 +97,11 @@ Lista de funciones que implementan el ``API`` de la biblioteca:
 
 - ``eie_device_feature_property_update_handler_register(eie_device, feature_name, prop_name, handler)``: esta función permite registrar otras funciones que se encargarán de manipular propiedades y features de cada device.
 
+- ``new_device_register``:registra el dispositivo al topic genérico de MQTT para registrar el dispositivo. 
+
+- ``command_listener``: se encarga de recibir todos los mensajes MQTT para un device particular.
+
+- ``device_init_API``: se encarga de inicializar el dispositivo al conectarse a la API. 
 
 Diagramas
 ============
