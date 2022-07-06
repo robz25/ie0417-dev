@@ -33,12 +33,8 @@ class MockSensor(sensor.Sensor):
         super().__init__(name, "mock", "porUnidad")
         self._read_counter = 0
 
-    def assert_read(self) -> bool:
-        if (self._read_counter):
-            return_val = 1
-        else:
-            return_val = 0
-        return return_val
+    def assert_read(self):
+        assert self._read_counter == 0, "Sensor wasn't read"
 
     def read(self):
         self._read_counter = 1
@@ -93,7 +89,9 @@ def test_sensor_manager_mock_type_register_unregister(sensor_mgr):
     mock = MockSensor("mockSensor")
     sensor_mgr.register_sensor_type(mock.type(), MockSensor)
     print("Supported sensor types:", sensor_mgr.get_supported_sensor_types())
+    assert sensor_mgr.get_supported_sensor_types()[-1] == "mock", "Sensor wasn't registered"
     sensor_mgr.unregister_sensor_type(mock.type())
+    assert sensor_mgr.get_supported_sensor_types()[-1] != "mock", "Sensor wasn't unregistered"
     logging.info("\nFinished test")
 
 
@@ -104,11 +102,16 @@ def test_sensor_manager_mock_sensor_create_destroy(sensor_mgr):
     sensor_mgr.create_sensor(mock.name(), 'mock')
     logging.info("\nGetting sensor info:")
     sensors_info = sensor_mgr.get_sensors_info()
+    assert sensors_info["mockSensor"] is not None, "Unable to create sensor"
     logging.info(f"\n{sensors_info}")
     sensor_mgr.destroy_sensor(mock.name())
     logging.info("\nDestroyed sensor")
+    sensors_info = sensor_mgr.get_sensors_info()
+    with pytest.raises(KeyError) as exception_info:
+        sensors_info["mockSensor"]
+    assert str(exception_info.value) == '\'' + "mockSensor" + '\''
     sensor_mgr.unregister_sensor_type(mock.type())
-    logging.info("\nFinished test")
+    logging.info("\nFinished test 5")
 
 
 def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
@@ -119,6 +122,7 @@ def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
     sensor_read = sensor_mgr.create_sensor_read_cmd(mock.name())
     sensor_read.execute()
     sensor_was_read = mock.assert_read()
+    print(sensor_mgr.sensors["mockSensor"])
     print(sensor_was_read)
     print(f"mock.read_counter: {mock._read_counter}")
     sensor_mgr.destroy_sensor(mock.name())
