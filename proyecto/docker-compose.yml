@@ -252,7 +252,8 @@ services:
 
   mosquitto:
     image: docker.io/eclipse-mosquitto:2.0-openssl
-
+    volumes:
+      - ./mosquitto-no-auth.conf:/mosquitto/config/mosquitto.conf:ro
 
 volumes:
   ditto_log_files:
