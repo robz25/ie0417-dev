@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/testutil/CMakeFiles/progress.marks
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles /home/dev/ws/labs/lab4/c/gtest_demo/build/test/testutil/CMakeFiles/progress.marks
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/clean
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/preinstall
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/testutil/CMakeFiles/testutil.dir/rule:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/CMakeFiles/testutil.dir/rule
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f CMakeFiles/Makefile2 test/testutil/CMakeFiles/testutil.dir/rule
 .PHONY : test/testutil/CMakeFiles/testutil.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ testutil: test/testutil/CMakeFiles/testutil.dir/rule
 
 # fast build rule for target.
 testutil/fast:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/build
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/build
 .PHONY : testutil/fast
 
 rand_gen.o: rand_gen.cpp.o
@@ -188,7 +188,7 @@ rand_gen.o: rand_gen.cpp.o
 
 # target to build an object file
 rand_gen.cpp.o:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.o
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.o
 .PHONY : rand_gen.cpp.o
 
 rand_gen.i: rand_gen.cpp.i
@@ -197,7 +197,7 @@ rand_gen.i: rand_gen.cpp.i
 
 # target to preprocess a source file
 rand_gen.cpp.i:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.i
 .PHONY : rand_gen.cpp.i
 
 rand_gen.s: rand_gen.cpp.s
@@ -206,7 +206,7 @@ rand_gen.s: rand_gen.cpp.s
 
 # target to generate assembly for a file
 rand_gen.cpp.s:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(MAKE) -f test/testutil/CMakeFiles/testutil.dir/build.make test/testutil/CMakeFiles/testutil.dir/rand_gen.cpp.s
 .PHONY : rand_gen.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

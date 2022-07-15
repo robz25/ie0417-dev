@@ -4,7 +4,7 @@
 test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o
  ../include/demo_api.h
  ../test/testutil/include/testutil/rand_gen.hpp
- /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
+ /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
  _deps/googletest-src/googletest/include/gtest/gtest-death-test.h
  _deps/googletest-src/googletest/include/gtest/gtest-matchers.h
  _deps/googletest-src/googletest/include/gtest/gtest-message.h
@@ -27,7 +27,7 @@ test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o
  _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h
 test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o
  ../include/demo_api.h
- /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
+ /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
  _deps/googletest-src/googletest/include/gtest/gtest-death-test.h
  _deps/googletest-src/googletest/include/gtest/gtest-matchers.h
  _deps/googletest-src/googletest/include/gtest/gtest-message.h
@@ -49,7 +49,7 @@ test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o
  _deps/googletest-src/googletest/include/gtest/internal/gtest-string.h
  _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h
 test/CMakeFiles/unittest.dir/unittest_main.cpp.o
- /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/unittest_main.cpp
+ /home/dev/ws/labs/lab4/c/gtest_demo/test/unittest_main.cpp
  _deps/googletest-src/googletest/include/gtest/gtest-death-test.h
  _deps/googletest-src/googletest/include/gtest/gtest-matchers.h
  _deps/googletest-src/googletest/include/gtest/gtest-message.h

@@ -6,25 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/gtest-all.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/gtest-all.cc
 gtest/gtest.h
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/gtest/gtest.h
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/gtest/gtest.h
 src/gtest.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest.cc
 src/gtest-death-test.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-death-test.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-death-test.cc
 src/gtest-filepath.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-filepath.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-filepath.cc
 src/gtest-matchers.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-matchers.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-matchers.cc
 src/gtest-port.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-port.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-port.cc
 src/gtest-printers.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-printers.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-printers.cc
 src/gtest-test-part.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-test-part.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-test-part.cc
 src/gtest-typed-test.cc
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-typed-test.cc
+/home/dev/ws/labs/lab4/c/gtest_demo/build/_deps/googletest-src/googletest/src/src/gtest-typed-test.cc
 
 _deps/googletest-src/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h

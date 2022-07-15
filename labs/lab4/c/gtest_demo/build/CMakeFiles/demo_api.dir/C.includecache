@@ -8,7 +8,7 @@
 
 ../include/demo_api.h
 
-/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/src/demo_api.c
+/home/dev/ws/labs/lab4/c/gtest_demo/src/demo_api.c
 stdio.h
 -
 stdbool.h

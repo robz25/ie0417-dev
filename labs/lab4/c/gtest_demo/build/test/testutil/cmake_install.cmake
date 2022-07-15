@@ -1,4 +1,4 @@
-# Install script for directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/testutil
+# Install script for directory: /home/dev/ws/labs/lab4/c/gtest_demo/test/testutil
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

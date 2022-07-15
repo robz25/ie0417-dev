@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-#include <demo_api.h>
 #include <testutil/rand_gen.hpp>
 
 int main(int argc, char *argv[]) {

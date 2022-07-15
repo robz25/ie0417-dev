@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo
+CMAKE_SOURCE_DIR = /home/dev/ws/labs/lab4/c/gtest_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build
+CMAKE_BINARY_DIR = /home/dev/ws/labs/lab4/c/gtest_demo/build
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/unittest.dir/depend.make
@@ -59,42 +59,42 @@ include test/CMakeFiles/unittest.dir/flags.make
 
 test/CMakeFiles/unittest.dir/unittest_main.cpp.o: test/CMakeFiles/unittest.dir/flags.make
 test/CMakeFiles/unittest.dir/unittest_main.cpp.o: ../test/unittest_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/unittest.dir/unittest_main.cpp.o"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/unittest_main.cpp.o -c /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/unittest_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/unittest.dir/unittest_main.cpp.o"
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/unittest_main.cpp.o -c /home/dev/ws/labs/lab4/c/gtest_demo/test/unittest_main.cpp
 
 test/CMakeFiles/unittest.dir/unittest_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unittest.dir/unittest_main.cpp.i"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/unittest_main.cpp > CMakeFiles/unittest.dir/unittest_main.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/ws/labs/lab4/c/gtest_demo/test/unittest_main.cpp > CMakeFiles/unittest.dir/unittest_main.cpp.i
 
 test/CMakeFiles/unittest.dir/unittest_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/unittest_main.cpp.s"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/unittest_main.cpp -o CMakeFiles/unittest.dir/unittest_main.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/ws/labs/lab4/c/gtest_demo/test/unittest_main.cpp -o CMakeFiles/unittest.dir/unittest_main.cpp.s
 
 test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o: test/CMakeFiles/unittest.dir/flags.make
 test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o: ../test/tests/demo_api_fixture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o -c /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o"
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.o -c /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp
 
 test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp > CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp > CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.i
 
 test/CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp -o CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_fixture.cpp -o CMakeFiles/unittest.dir/tests/demo_api_fixture.cpp.s
 
 test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o: test/CMakeFiles/unittest.dir/flags.make
 test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o: ../test/tests/demo_api_simple.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o -c /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o"
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.o -c /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp
 
 test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp > CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp > CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.i
 
 test/CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp -o CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/ws/labs/lab4/c/gtest_demo/test/tests/demo_api_simple.cpp -o CMakeFiles/unittest.dir/tests/demo_api_simple.cpp.s
 
 # Object files for target unittest
 unittest_OBJECTS = \
@@ -113,9 +113,9 @@ test/unittest: libdemo_api.so
 test/unittest: lib/libgtest.a
 test/unittest: test/testutil/libtestutil.a
 test/unittest: test/CMakeFiles/unittest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable unittest"
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && /usr/bin/cmake -D TEST_TARGET=unittest -D TEST_EXECUTABLE=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=unittest_TESTS -D CTEST_FILE=/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -P /usr/share/cmake-3.16/Modules/GoogleTestAddTests.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable unittest"
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && /usr/bin/cmake -D TEST_TARGET=unittest -D TEST_EXECUTABLE=/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/dev/ws/labs/lab4/c/gtest_demo/build/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=unittest_TESTS -D CTEST_FILE=/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -P /usr/share/cmake-3.16/Modules/GoogleTestAddTests.cmake
 
 # Rule to build all files generated by this target.
 test/CMakeFiles/unittest.dir/build: test/unittest
@@ -123,10 +123,10 @@ test/CMakeFiles/unittest.dir/build: test/unittest
 .PHONY : test/CMakeFiles/unittest.dir/build
 
 test/CMakeFiles/unittest.dir/clean:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -P CMakeFiles/unittest.dir/cmake_clean.cmake
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build/test && $(CMAKE_COMMAND) -P CMakeFiles/unittest.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/unittest.dir/clean
 
 test/CMakeFiles/unittest.dir/depend:
-	cd /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/test /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/CMakeFiles/unittest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dev/ws/labs/lab4/c/gtest_demo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/ws/labs/lab4/c/gtest_demo /home/dev/ws/labs/lab4/c/gtest_demo/test /home/dev/ws/labs/lab4/c/gtest_demo/build /home/dev/ws/labs/lab4/c/gtest_demo/build/test /home/dev/ws/labs/lab4/c/gtest_demo/build/test/CMakeFiles/unittest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/unittest.dir/depend
 

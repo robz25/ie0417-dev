@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/src/demo_api.c" "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/CMakeFiles/demo_api.dir/src/demo_api.c.o"
+  "/home/dev/ws/labs/lab4/c/gtest_demo/src/demo_api.c" "/home/dev/ws/labs/lab4/c/gtest_demo/build/CMakeFiles/demo_api.dir/src/demo_api.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
