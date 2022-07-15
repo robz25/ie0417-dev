@@ -73,3 +73,7 @@ RUN rm /etc/update-motd.d/10-help-text /etc/update-motd.d/50-motd-news /etc/upda
 COPY version /etc/env_version
 COPY files/motd/static /etc/update-motd.d/static
 COPY files/motd/version /etc/update-motd.d/10-version
+
+# Install cJSON and install cmake
+COPY files/instalacionCJSON.sh instalacionCJSON.sh
+RUN bash instalacionCJSON.sh

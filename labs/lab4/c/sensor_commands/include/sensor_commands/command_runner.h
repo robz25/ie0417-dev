@@ -61,13 +61,9 @@ int command_runner_send(struct CommandRunner *cmd_runner,
  * @return 0 on success, negative number on error
  */
 int command_runner_destroy(struct CommandRunner *cmd_runner);
-<<<<<<< HEAD
-=======
-
 
 #ifdef __cplusplus
 }
 #endif
->>>>>>> origin/robin_personal
 
 #endif // COMMAND_RUNNER_H_

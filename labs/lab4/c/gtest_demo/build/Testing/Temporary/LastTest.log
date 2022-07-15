@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Start testing: Jun 20 17:44 CST
 ----------------------------------------------------------
 1/9 Testing: demo_api_fixture.add_random
@@ -9,7 +9,7 @@ Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gte
 Output:
 ----------------------------------------------------------
 Random seed: 1655768669
-=======
+
 Start testing: Jun 21 02:20 UTC
 ----------------------------------------------------------
 1/9 Testing: demo_api_fixture.add_random
@@ -20,14 +20,14 @@ Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
 Output:
 ----------------------------------------------------------
 Random seed: 1655778050
->>>>>>> origin/robin_personal
+
 Note: Google Test filter = demo_api_fixture.add_random
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 1 test from demo_api_fixture
 [ RUN      ] demo_api_fixture.add_random
 Test fixture constructor! 
-<<<<<<< HEAD
+
   RNG seed 1053282525
 Test fixture SetUp! 
   Num A: 1980707591
@@ -44,7 +44,6 @@ Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_fixture.add_random" end time: Jun 20 17:44 CST
-=======
   RNG seed 961292381
 Test fixture SetUp! 
   Num A: -1405897103
@@ -61,44 +60,42 @@ Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_fixture.add_random" end time: Jun 21 02:20 UTC
->>>>>>> origin/robin_personal
+
 "demo_api_fixture.add_random" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 2/9 Testing: demo_api_fixture.mult_random
 2/9 Test: demo_api_fixture.mult_random
-<<<<<<< HEAD
+
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_fixture.mult_random" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_fixture.mult_random" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768669
-=======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_fixture.mult_random" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
 "demo_api_fixture.mult_random" start time: Jun 21 02:20 UTC
 Output:
 ----------------------------------------------------------
 Random seed: 1655778050
->>>>>>> origin/robin_personal
+
 Note: Google Test filter = demo_api_fixture.mult_random
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 1 test from demo_api_fixture
 [ RUN      ] demo_api_fixture.mult_random
 Test fixture constructor! 
-<<<<<<< HEAD
+
   RNG seed 1053282525
 Test fixture SetUp! 
   Num A: 1980707591
   Num B: -1648376608
-=======
   RNG seed 961292381
 Test fixture SetUp! 
   Num A: -1405897103
   Num B: -245452896
->>>>>>> origin/robin_personal
+
 Test fixture TearDown! 
 [       OK ] demo_api_fixture.mult_random (0 ms)
 [----------] 1 test from demo_api_fixture (0 ms total)
@@ -107,37 +104,36 @@ Test fixture TearDown!
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-<<<<<<< HEAD
+
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_fixture.mult_random" end time: Jun 20 17:44 CST
-=======
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_fixture.mult_random" end time: Jun 21 02:20 UTC
->>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 "demo_api_fixture.mult_random" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 3/9 Testing: demo_api_simple.add_op
 3/9 Test: demo_api_simple.add_op
-<<<<<<< HEAD
+
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_op" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.add_op" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768669
-=======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_op" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.add_op" start time: Jun 21 02:20 UTC
 Output:
 ----------------------------------------------------------
 Random seed: 1655778050
->>>>>>> origin/robin_personal
+
 Note: Google Test filter = demo_api_simple.add_op
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -154,22 +150,30 @@ Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 <<<<<<< HEAD
+<<<<<<< HEAD
 "demo_api_simple.add_op" end time: Jun 20 17:44 CST
 =======
 "demo_api_simple.add_op" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+"demo_api_simple.add_op" end time: Jun 20 17:44 CST
+>>>>>>> Kathy
 "demo_api_simple.add_op" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 4/9 Testing: demo_api_simple.add_sanity
 4/9 Test: demo_api_simple.add_sanity
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.add_sanity" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768669
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -178,6 +182,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.add_sanity
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -195,22 +201,30 @@ Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 <<<<<<< HEAD
+<<<<<<< HEAD
 "demo_api_simple.add_sanity" end time: Jun 20 17:44 CST
 =======
 "demo_api_simple.add_sanity" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+"demo_api_simple.add_sanity" end time: Jun 20 17:44 CST
+>>>>>>> Kathy
 "demo_api_simple.add_sanity" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 5/9 Testing: demo_api_simple.mult_op
 5/9 Test: demo_api_simple.mult_op
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.mult_op" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.mult_op" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768670
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.mult_op" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -219,6 +233,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.mult_op
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -235,22 +251,30 @@ Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 <<<<<<< HEAD
+<<<<<<< HEAD
 "demo_api_simple.mult_op" end time: Jun 20 17:44 CST
 =======
 "demo_api_simple.mult_op" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+"demo_api_simple.mult_op" end time: Jun 20 17:44 CST
+>>>>>>> Kathy
 "demo_api_simple.mult_op" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 6/9 Testing: demo_api_simple.mult_sanity
 6/9 Test: demo_api_simple.mult_sanity
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.mult_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.mult_sanity" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768670
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.mult_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -259,6 +283,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.mult_sanity
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -273,28 +299,38 @@ Out param is NULL
 [  PASSED  ] 1 test.
 <end of output>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_simple.mult_sanity" end time: Jun 20 17:44 CST
+<<<<<<< HEAD
 =======
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_simple.mult_sanity" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 "demo_api_simple.mult_sanity" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 7/9 Testing: demo_api_simple.add_mult_expect
 7/9 Test: demo_api_simple.add_mult_expect
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_mult_expect" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.add_mult_expect" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768670
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.add_mult_expect" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -303,6 +339,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.add_mult_expect
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -320,22 +358,30 @@ Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 <<<<<<< HEAD
+<<<<<<< HEAD
 "demo_api_simple.add_mult_expect" end time: Jun 20 17:44 CST
 =======
 "demo_api_simple.add_mult_expect" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+"demo_api_simple.add_mult_expect" end time: Jun 20 17:44 CST
+>>>>>>> Kathy
 "demo_api_simple.add_mult_expect" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 8/9 Testing: demo_api_simple.double_if_pos_op
 8/9 Test: demo_api_simple.double_if_pos_op
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.double_if_pos_op" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.double_if_pos_op" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768670
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.double_if_pos_op" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -344,6 +390,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.double_if_pos_op
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -357,28 +405,38 @@ Note: Google Test filter = demo_api_simple.double_if_pos_op
 [  PASSED  ] 1 test.
 <end of output>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_simple.double_if_pos_op" end time: Jun 20 17:44 CST
+<<<<<<< HEAD
 =======
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
 "demo_api_simple.double_if_pos_op" end time: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 "demo_api_simple.double_if_pos_op" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 9/9 Testing: demo_api_simple.double_if_pos_sanity
 9/9 Test: demo_api_simple.double_if_pos_sanity
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Command: "/home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.double_if_pos_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/katharina/Documentos/DiseñoSoftware/ie0417-dev/labs/lab4/c/gtest_demo/build/test
 "demo_api_simple.double_if_pos_sanity" start time: Jun 20 17:44 CST
 Output:
 ----------------------------------------------------------
 Random seed: 1655768670
+<<<<<<< HEAD
 =======
 Command: "/home/dev/ws/labs/lab4/c/gtest_demo/build/test/unittest" "--gtest_filter=demo_api_simple.double_if_pos_sanity" "--gtest_also_run_disabled_tests"
 Directory: /home/dev/ws/labs/lab4/c/gtest_demo/build/test
@@ -387,6 +445,8 @@ Output:
 ----------------------------------------------------------
 Random seed: 1655778050
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy
 Note: Google Test filter = demo_api_simple.double_if_pos_sanity
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -402,6 +462,9 @@ a is negative, cannot proceed
 [  PASSED  ] 1 test.
 <end of output>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Kathy
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
@@ -410,6 +473,7 @@ Test Passed.
 ----------------------------------------------------------
 
 End testing: Jun 20 17:44 CST
+<<<<<<< HEAD
 =======
 Test time =   0.02 sec
 ----------------------------------------------------------
@@ -420,3 +484,5 @@ Test Passed.
 
 End testing: Jun 21 02:20 UTC
 >>>>>>> origin/robin_personal
+=======
+>>>>>>> Kathy

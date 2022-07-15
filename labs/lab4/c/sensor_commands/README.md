@@ -21,13 +21,13 @@ $ cmake ..
 $ make install
 ```
 
-<<<<<<< HEAD
+
 Desde el contenedor de desarrollo en el directorio base del ejemplo (`examples/c/sensor_commands/`) ejecute los siguiente comandos:
-=======
 
 Desde el contenedor de desarrollo en el directorio base del ejemplo (`c/sensor_commands/`) ejecute los siguiente comandos:
 
->>>>>>> origin/robin_personal
+
+Desde el contenedor de desarrollo en el directorio base del ejemplo (`c/sensor_commands/`) ejecute los siguiente comandos:
 
 ```console
 $ mkdir build

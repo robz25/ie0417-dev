@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 from distutils.command.config import config
 import pytest
@@ -25,7 +25,7 @@ def test_demo_api_mult_op():
     r = demo_api.mult(5, 4)
     logging.info(f"Mult result: {r}")
     assert r == 20, "Multiplication failed!"
-=======
+
 from sensor_commands.sensor import sensor
 from pytest import fixture
 import pytest
@@ -157,4 +157,4 @@ def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
     logging.info("\nDestroyed sensor")
     sensor_mgr.unregister_sensor_type(mock.type())
     logging.info("\nFinished test 6")
->>>>>>> origin/robin_personal
+

@@ -15,7 +15,6 @@ En esta documentaciòn se explican las entregas de diversos laboratorios y tarea
    labs/labs
    Proyecto/Proyecto
 
-
 Indices y tablas
 ================
 

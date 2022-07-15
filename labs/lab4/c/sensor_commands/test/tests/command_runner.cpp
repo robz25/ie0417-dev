@@ -1,10 +1,13 @@
 #include "gtest/gtest.h"
-<<<<<<< HEAD
+
 #include <demo_api.h>
-=======
+
 #include <sensor_commands/command_runner.h>
 #include <sensor_commands/command.h>
->>>>>>> origin/robin_personal
+
+#include <sensor_commands/command_runner.h>
+#include <sensor_commands/command.h>
+
 #include <testutil/rand_gen.hpp>
 
 /** Example fixture class for command_runner tests */
@@ -87,7 +90,7 @@ TEST_F(command_runner_fixture, start_stop)
     ret2 = command_runner_stop(commandRunner);
     ASSERT_EQ(ret2, 0);
 }
-
+/** Test command_send_single using a fixture */
 TEST_F(command_runner_fixture, command_send_single)
 {
     Command* msgCmd = msg_command_create("Test message command");

@@ -39,6 +39,9 @@
 #Python binaries
 *.pyc
 
+#Other binaries
+*.swp
+
 # Debug files
 *.dSYM/
 *.su
