@@ -1,0 +1,166 @@
+curl -X POST 'http://localhost:8080/devops/piggyback/connectivity?timeout=10' -u 'devops:foobar' -H 'Content-Type: application/json' -d '{
+    "targetActorSelection": "/system/sharding/connection",
+    "headers": {
+    	"aggregate": false
+    },
+    "piggybackCommand": {
+        "type": "connectivity.commands:createConnection",
+        "connection": {
+            "id": "mqtt-example-connection-123",
+            "connectionType": "mqtt",
+            "connectionStatus": "open",
+            "failoverEnabled": true,
+            "uri": "tcp://test.mosquitto.org:1883",
+            "sources": [{
+                "addresses": ["ditto-tutorial/#"],
+                "authorizationContext": ["nginx:ditto"],
+                "qos": 0,
+                "filters": []
+            }],
+            "targets": [{
+                "address": "ditto-tutorial/{{ thing:id }}",
+                "topics": [
+                "_/_/things/twin/events",
+                "_/_/things/live/messages"
+                ],
+                "authorizationContext": ["nginx:ditto"],
+                "qos": 0
+            }]
+        }
+    }
+}'
+
+#revisar el comando
+
+curl -X POST 'http://localhost:8080/api/2/things/my.test:octopus/outbox/messages/body/connectivity?timeout=10' -u 'ditto:ditto' -H 'Content-Type: application/json' -d '{
+    "targetActorSelection": "/system/sharding/connection",
+    "headers": {
+    	"aggregate": false
+    },
+    "body": {
+        "thingId": "my.test:octopus",
+        "policyId": "my.test:policy",
+        "features": {
+            "temp_sensor": {
+                "properties": {
+                    "value": 30.67
+                }
+            },
+            "altitude": {
+                "properties": {
+                    "value": 360.341
+                }
+            }
+        }
+    }
+}'
+
+en uri puedo poner nombre de servicio de mosquitto
+
+curl -X POST 'http://localhost:8080/devops/piggyback/connectivity?timeout=10' -u 'devops:foobar' -H 'Content-Type: application/json' -d '{
+    "targetActorSelection": "/system/sharding/connection",
+    "headers": {
+    	"aggregate": false
+    },
+    "piggybackCommand": {
+        "type": "connectivity.commands:createConnection",
+        "connection": {
+            "id": "mqtt-example-connection-12345",
+            "connectionType": "mqtt",
+            "connectionStatus": "open",
+            "failoverEnabled": true,
+            "uri": "tcp://mosquitto:1883",
+            "sources": [{
+                "addresses": ["ditto-tutorial/#"],
+                "authorizationContext": ["nginx:ditto"],
+                "qos": 0,
+                "filters": []
+            }],
+            "targets": [{
+                "address": "ditto-tutorial/{{ thing:id }}",
+                "topics": [
+                "_/_/things/twin/events",
+                "_/_/things/live/messages"
+                ],
+                "authorizationContext": ["nginx:ditto"],
+                "qos": 0
+            }]
+        }
+    }
+}'
+
+
+mosquitto_sub -h 172.17.0.1 -t ditto-tutorial/my.test:octopus
+
+
+curl -X PUT 'http://localhost:8080/api/2/things/my.test:octopus' -u 'ditto:ditto' -H 'Content-Type: application/json' -d '{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "Katha de la suerte",
+        "type": "octopus board"
+    },
+    "features": {
+        "temp_sensor": {
+            "properties": {
+                "value": 444
+            }
+        },
+        "altitude": {
+            "properties": {
+                "value": 111
+            }
+        }
+    }
+}'
+
+    curl -X POST 'http://localhost:8080/devops/piggyback/connectivity?timeout=10' -u 'devops:foobar' -H 'Content-Type: application/json' -d '{
+        "targetActorSelection": "/system/sharding/connection",
+        "headers": {
+            "aggregate": false
+        },
+        "piggybackCommand": {
+            "type": "connectivity.commands:createConnection",
+            "connection": {
+                "id": "mqtt-example-connection-1234",
+                "connectionType": "mqtt",
+                "connectionStatus": "open",
+                "failoverEnabled": true,
+                "uri": "tcp://mosquitto:1883",
+                "sources": [{
+                    "addresses": ["ditto-tutorial/#"],
+                    "authorizationContext": ["nginx:ditto"],
+                    "qos": 0,
+                    "filters": []
+                }],
+                "targets": [{
+                    "address": "ditto-tutorial/{{ thing:id }}",
+                    "topics": [
+                    "_/_/things/twin/events",
+                    "_/_/things/live/messages"
+                    ],
+                    "authorizationContext": ["nginx:ditto"],
+                    "qos": 0
+                }]
+            }
+        }
+    }'
+
+curl -X PUT 'http://localhost:8080/api/2/things/my.test:octopi' -u 'ditto:ditto' -H 'Content-Type: application/json' -d '{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "octopi1",
+        "type": "octopus board"
+    },
+    "features": {
+        "temp_sensor": {
+            "properties": {
+                "value": 110
+            }
+        },
+        "altitude": {
+            "properties": {
+                "value": 101
+            }
+        }
+    }
+}'
