@@ -239,7 +239,11 @@ services:
       - swagger-ui
 
   eie-manager-config:
-    image: docker.io/robz25/eie-manager-config:latest
+    image: docker.io/robz25/eie-manager-config:script
+    networks:
+      default:
+        aliases:
+          - eieconfig
 
   mosquitto:
     image: docker.io/eclipse-mosquitto:2.0-openssl
