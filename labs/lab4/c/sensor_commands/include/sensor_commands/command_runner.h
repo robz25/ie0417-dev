@@ -62,7 +62,6 @@ int command_runner_send(struct CommandRunner *cmd_runner,
  */
 int command_runner_destroy(struct CommandRunner *cmd_runner);
 
-
 #ifdef __cplusplus
 }
 #endif
