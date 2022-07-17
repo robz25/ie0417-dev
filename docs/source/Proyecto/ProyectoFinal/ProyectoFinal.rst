@@ -84,21 +84,19 @@ Requerimientos funcionales del eie-manager-config
 Diseño de API
 ============
 
-Lista de funciones que implementan el ``API`` de la biblioteca:
+Lista de funciones que implementan el ``API`` de la biblioteca, estas son las funciones que se exponen al usuario:
 
-- ``publish_messages``: Se encarga de publicar los mensajes que exiten en ditto.
+- ``eie_device_start``: Se encarga de empezar la comunicación, suscribe el topic.
 
-- ``create``: esta función es la encargada de crear el mensaje o comando que se quiere transmitir.
+- ``eie_device_stop``: Se encarga de desuscribir el topic. 
 
-- ``destroy``: esta función es la encargada de eliminar el mensaje o comando que se quiere transmitir.
+- ``eie_device_create``: Esta función es la encargada de crear el struct eieDevice.
 
-- ``eie_device_feature_property_update_handler_register(eie_device, feature_name, prop_name, handler)``: esta función permite registrar otras funciones que se encargarán de manipular propiedades y features de cada device.
+- ``eie_device_destroy``: Esta función es la encargada de eliminar el struct eieDevice.
 
-- ``new_device_register``:registra el dispositivo al topic genérico de MQTT para registrar el dispositivo. 
+- ``eie_device_config_handler_register``: Se encarga registrar otras funciones que se encargarán de manipular propiedades y features de cada device en una tabla hash.
 
-- ``command_listener``: se encarga de recibir todos los mensajes MQTT para un device particular.
-
-- ``device_init_API``: se encarga de inicializar el dispositivo al conectarse a la API. 
+- ``new_device_status_publish``: Se encarga de generar un cJSON final que se envía a comunicarse con Ditto.
 
 Diagramas
 ============
