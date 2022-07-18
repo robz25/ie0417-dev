@@ -4,15 +4,16 @@
 
 #include <eieDevice/external/uthash.h>
 #include "eieDevice.h"
+#define QOS 1
+#define STR_MAX_SIZE 100
 
-
-typedef struct eieDevice * (*eie_device_create_fn)(const char *name);
+typedef struct eieDevice * (*eie_device_create)(const char *name);
 
 /** EieDevice constructor information structure */
 struct eieDeviceCtorInfo
 {
     const char *type;
-    eie_device_create_fn create_fn;
+    eie_device_create create_fn;
 };
 
 
@@ -85,16 +86,36 @@ static void ctor_ht_destroy(struct eieDevice *eD){
     }
 };
 
-void eie_device_start(){};
 
-void eie_device_stop(){};
 
-void eie_device_status_publish(struct eieDevice *eD, const char *message){};
+void eie_device_start(struct eieDevice *eD){
+    int ret = 0;
+    const char topic[STR_MAX_SIZE] ="EJEMPLO";
+    char msg[STR_MAX_SIZE];
 
-void eie_device_config_handler_register(void *function, const char *name_feature){};
+    ret = MQTTClient_subscribe(eD, topic, QOS);
+};
 
-struct eieDevice *eie_device_create(void){
+void eie_device_stop(struct eieDevice *eD){
+    int ret = 0;
+    ret = MQTTClient_disconnect(eD, 10000);
+};
 
+void eie_device_status_publish(struct eieDevice *eD, char message){
+    
+};
+
+typedef struct function *Function;
+
+void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature){
+    
+    malloc(sizeof(fun));
+    if (fun == NULL){
+        fprintf(stderr, "Failed to allocate function for type:%s \n", name_feature);
+        return -ENOMEM;
+    }
+    HASH_ADD_KEYPTR(hh,eD->Funtion_fun, name_feature->type, strlen(name_feature->type), Function);
+    return 0;
     
 };
 
