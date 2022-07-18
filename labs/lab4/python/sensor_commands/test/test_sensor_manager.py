@@ -1,3 +1,31 @@
+
+
+from distutils.command.config import config
+import pytest
+
+from sensor_commands.sensor.manager import SensorManager
+import demo_api
+
+@fixture
+def sensor_mgr():
+    config_name = "../config/sensors_cfg.json" # Definir path absoluto con respecto al contenedor
+    return sensor_man
+
+def test_sensor_manager_supported_types(sensor_mgr):
+
+    pass
+
+
+
+def test_sensor_manager_supported_types(sensor_mgr):
+
+    pass
+
+def test_demo_api_mult_op():
+    r = demo_api.mult(5, 4)
+    logging.info(f"Mult result: {r}")
+    assert r == 20, "Multiplication failed!"
+
 from sensor_commands.sensor import sensor
 from pytest import fixture
 import pytest
@@ -39,10 +67,6 @@ class MockSensor(sensor.Sensor):
     def read(self):
         self._read_counter = 1
         print("Sensor was read in read function")
-
-
-def test_sensor_manager_supported_types():
-    pass
 
 
 def test_sensor_manager_supported_types(sensor_mgr):
@@ -133,3 +157,4 @@ def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
     logging.info("\nDestroyed sensor")
     sensor_mgr.unregister_sensor_type(mock.type())
     logging.info("\nFinished test 6")
+

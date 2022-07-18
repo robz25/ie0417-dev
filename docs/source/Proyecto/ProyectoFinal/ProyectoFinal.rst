@@ -63,45 +63,40 @@ Requerimientos funcionales y no funcionales
 
 Requerimientos funcionales del eie-device
 --------------------------
- - ``REQ-001``  Para la implementación de la biblioteca eie-device se utilizará un proyecto de Cmake, el Cmake construirá una biblioteca dinámica llamada eie-device.
+ 
+ - ``REQ-001``  Debe sorportar una estructura de Thing, en la cual se representan features con propiedades estándar de configuration y status.
 
- - ``REQ-002`` La biblioteca eie-device se comunicará con Mosquito empleando el cliente Paho MQTT C.
+ - ``REQ-002``  La biblioteca eie-device soporta el envio y recepción de mensajes a Ditto mediante MQTT para leer y actualizar el dispositivo según corresponda.     
 
- - ``REQ-003`` Para facilitar la integración de los dispositivos con el sistema, eieDevice debe implementar una biblioteca en C, la cual debe abstraer los detalles de ditto protocol y del cliente MQTT.
-
- - ``REQ-004``  La biblioteca eie-device soporta el envio y recepción de mensajes a Ditto mediante MQTT para leer y actualizar el dispositivo según corresponda.     
-
- - ``REQ-005``   La biblioteca eie-device implementa un microservicio llamado Device Discovery que notifica la creación de un nuevo dispositivo con un identificador único para ser registrado en Ditto.
+ - ``REQ-003``   La biblioteca eie-device implementa el feature Device Discovery que notifica la creación de un nuevo dispositivo con un identificador único para ser registrado en Ditto.
 
 
 Requerimientos funcionales del eie-manager-config
 --------------------------
  
- - ``REQ-006`` Debe implementarse un microservicio en python para facilitar la configuración y el despliegue del sistema. Por lo que se debe configurar políticas, las conexiones MQTT y los dispositivos en Ditto.
+ - ``REQ-004`` Debe implementarse un microservicio en python para facilitar la configuración y el despliegue del sistema. Por lo que se debe configurar políticas, las conexiones MQTT y los dispositivos en Ditto.
 
- - ``REQ-007`` El microservicio eie-manager-config obtiene de un archivo Json, las políticas de acceso entre dispositivos y el broker MQTT y luego las registra en el microservicio Ditto.
+ - ``REQ-005`` El microservicio eie-manager-config obtiene de un archivo Json, las políticas de acceso entre dispositivos y el broker MQTT y luego las registra en el microservicio Ditto.
 
- - ``REQ-008`` El microservicio eie-manager-config implementa un handshake para comunicarse con la biblioteca eie-device mediante MQTT.
+ - ``REQ-006`` El microservicio eie-manager-config implementa un handshake para comunicarse con la biblioteca eie-device mediante MQTT.
 
 
 Diseño de API
 ============
 
-Lista de funciones que implementan el ``API`` de la biblioteca:
+Lista de funciones que implementan el ``API`` de la biblioteca, estas son las funciones que se exponen al usuario:
 
-- ``publish_messages``: Se encarga de publicar los mensajes que exiten en ditto.
+- ``eie_device_start``: Se encarga de empezar la comunicación, suscribe el topic.
 
-- ``create``: esta función es la encargada de crear el mensaje o comando que se quiere transmitir.
+- ``eie_device_stop``: Se encarga de desuscribir el topic. 
 
-- ``destroy``: esta función es la encargada de eliminar el mensaje o comando que se quiere transmitir.
+- ``eie_device_create``: Esta función es la encargada de crear el struct eieDevice.
 
-- ``eie_device_feature_property_update_handler_register(eie_device, feature_name, prop_name, handler)``: esta función permite registrar otras funciones que se encargarán de manipular propiedades y features de cada device.
+- ``eie_device_destroy``: Esta función es la encargada de eliminar el struct eieDevice.
 
-- ``new_device_register``:registra el dispositivo al topic genérico de MQTT para registrar el dispositivo. 
+- ``eie_device_config_handler_register``: Se encarga registrar otras funciones que se encargarán de manipular propiedades y features de cada device en una tabla hash.
 
-- ``command_listener``: se encarga de recibir todos los mensajes MQTT para un device particular.
-
-- ``device_init_API``: se encarga de inicializar el dispositivo al conectarse a la API. 
+- ``new_device_status_publish``: Se encarga de generar un cJSON final que se envía a comunicarse con Ditto.
 
 Diagramas
 ============
@@ -115,21 +110,20 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
   @startuml
 
-  /'actor Client as cli
-  entity Ditto as ditt
-  entity MQTT Broker as mqtt
-  entity eie-device as dev '/
+  /'actor Client as client
+  entity Ditto as ditto
+  entity MQTT Broker as mqtt_broker
+  entity eie-device as eie_dev '/
 
-  cli -> ditt: Send command to request modify the "configuration" property of a device 
+  client -> ditto: Send command to request modify the "configuration" property of a eie_device 
   group eie-manager 2.0 
-  ditt -> mqtt: Generate an event and routes the command to be sent to a topic in MQTT
-  mqtt -> mqtt: Locates the required device and performs the modification on the device
-  mqtt -> dev: Set the new configuration 
-  dev -> dev: Update the configuration feature
-  mqtt <- dev : Return OK response 
-  ditt <- mqtt: Return OK response 
+  ditto -> mqtt_broker: Generate an event and routes the command to be sent to a topic in mqtt_broker
+  mqtt_broker -> mqtt_broker: Locates the required eie_device and performs the modification on the eie_device
+  mqtt_broker -> eie_dev: Set the new configuration 
+  eie_dev -> eie_dev: Update the configuration feature
+
   end
-  cli <- ditt: Return response to the client
+  client <- ditto: Return response to the client
 
   @enduml
 
@@ -141,14 +135,13 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
   @startuml
 
-  /'entity eie-device as dev
-  entity Topic as top
-  entity MQTT Broker as mqtt
-  entity Ditto as ditt'/
+  /'entity eie-device as eie_device
+  entity MQTT Broker as mqtt_broker
+  entity Ditto as ditto'/
    
-  dev -> top: Publish a change to the "status" property on the topic
-  top -> mqtt: Generates a change to be read by MQTT
-  mqtt -> ditt: Notifies the change in the status property of the device
+  eie_device -> mqtt_broker: Publish a change to the "status" property on the topic and Generates a change to be read by mqtt_broker
+
+  mqtt_broker -> ditto: Notifies the change in the status property of the device
 
   @enduml
 
@@ -159,16 +152,14 @@ Se implementaron los diagramas de secuencia sobre los siguientes escenarios de u
 
    @startuml
 
-  /'entity eie-device as dev
-  entity Topic as top
-  entity MQTT Broker as mqtt
-  entity eie-manager-config as man
-  entity Ditto as ditt'/
+  /'entity eie-device as eie_device
+  entity MQTT Broker as mqtt_broker
+  entity eie-manager-config as eie_man_config
+  entity Ditto as ditto'/
    
-  dev -> top: Publishes its initial configuration to be added to the network of registered devices
-  top -> mqtt: Generates a change to be read by MQTT
-  mqtt -> man: Warns that a new device has been read with its respective configuration
-  man -> man: Register the new device and its settings
-  man -> ditt: Notifies of the change in the list of devices
+  eie_device -> mqtt_broker: Publishes its initial configuration to be added to the network of registered devices and Generates a change to be read by mqtt_broker
+  mqtt -> eie_man_config: Warns that a new device has been read with its respective configuration
+  eie_man_config -> eie_man_config: Register the new device and its settings
+  eie_man_config -> ditto: Notifies of the change in the list of devices
    
   @enduml
