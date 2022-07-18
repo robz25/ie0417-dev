@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # -e to consider \n char
 
