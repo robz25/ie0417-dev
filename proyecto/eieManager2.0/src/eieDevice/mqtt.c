@@ -1,12 +1,8 @@
-#include "MQTTClient.h"
+#include "mqtt.h"
 
 #include <testutil/rand_gen.hpp>
 
-#define ADDRESS "tcp://localhost:1883"
-#define CLIENTID "EJEMPLO"
-#define QOS 1
-#define TIMEOUT 10000L
-#define STR_MAX_SIZE 100
+
 
 int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
     char* payload;

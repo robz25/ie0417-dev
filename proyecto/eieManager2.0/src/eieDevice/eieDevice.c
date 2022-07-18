@@ -101,6 +101,8 @@ void eie_device_stop(struct eieDevice *eD){
     ret = MQTTClient_disconnect(eD, 10000);
 };
 
+
+// Se encarga de generar un cJSON para enviarlo a Ditto
 void eie_device_status_publish(struct eieDevice *eD, char message){
     
 };
