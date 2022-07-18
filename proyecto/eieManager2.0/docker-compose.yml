@@ -240,10 +240,16 @@ services:
 
   eie-manager-config:
     image: docker.io/robz25/eie-manager-config:script
-    networks:
-      default:
-        aliases:
-          - eieconfig
+      #    networks:
+      #      default:
+        #        aliases:
+          #          - eieconfig
+            #    ports:
+            #      - "8020:8020"
+    network_mode: "host"
+    environment:
+      - TZ=Europe/Berlin
+      - BIND_HOSTNAME=0.0.0.0
 
   mosquitto:
     image: docker.io/eclipse-mosquitto:2.0-openssl
