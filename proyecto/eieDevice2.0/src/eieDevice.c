@@ -86,7 +86,22 @@ static void ctor_ht_destroy(struct eieDevice *eD){
     }
 };
 
+int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
+    char* payload;
+    fprintf("Message arrived\n");
+    fprintf(" topic: %s/n",topicName);
+    fprintf("message:");
+    payload =(char *)message->payload;
+    for(int i=0; i < message ->payloadlen; i++){
+        putchar(*payload++);
+    }
+    putchar('\n');
+    MQTTCLient_freeMessage(&message);
+    MQTTClient_free(topicName);
+    return 1;
+};
 
+int msg_publish(){};
 
 void eie_device_start(struct eieDevice *eD){
     int ret = 0;
