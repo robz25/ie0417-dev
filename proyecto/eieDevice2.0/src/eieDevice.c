@@ -86,7 +86,7 @@ static void ctor_ht_destroy(struct eieDevice *eD){
     }
 };
 
-int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
+static int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
     char* payload;
     fprintf("Message arrived\n");
     fprintf(" topic: %s/n",topicName);
@@ -101,9 +101,8 @@ int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_mess
     return 1;
 };
 
-int msg_publish(){};
 
-void eie_device_start(struct eieDevice *eD){
+int eie_device_start(struct eieDevice *eD){
     int ret = 0;
     const char topic[STR_MAX_SIZE] ="EJEMPLO";
     char msg[STR_MAX_SIZE];
@@ -111,22 +110,22 @@ void eie_device_start(struct eieDevice *eD){
     ret = MQTTClient_subscribe(eD, topic, QOS);
 };
 
-void eie_device_stop(struct eieDevice *eD){
+int eie_device_stop(struct eieDevice *eD){
     int ret = 0;
     ret = MQTTClient_disconnect(eD, 10000);
 };
 
 
 // Se encarga de generar un cJSON para enviarlo a Ditto
-void eie_device_status_publish(struct eieDevice *eD, char message){
+int eie_device_status_publish(struct eieDevice *eD, char message){
     
 };
 
-typedef struct function *Function;
+typedef int (*eie_config_handler_fn)(void *data);
 
-void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature){
+int eie_device_config_handler_register(struct eieDevice *eD, eie_config_handler_fn func, const char *name_feature){
     
-    malloc(sizeof(fun));
+    malloc(sizeof(func));
     if (fun == NULL){
         fprintf(stderr, "Failed to allocate function for type:%s \n", name_feature);
         return -ENOMEM;
@@ -136,7 +135,7 @@ void eie_device_config_handler_register(struct eieDevice *eD, Function fun, cons
     
 };
 
-void eie_device_destroy(struct eieDevice *eD){
+int eie_device_destroy(struct eieDevice *eD){
     ctor_ht_destroy(eD);
     free(eD);
 };
