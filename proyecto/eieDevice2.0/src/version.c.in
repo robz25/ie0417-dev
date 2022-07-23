@@ -1,0 +1,8 @@
+#include <eieDevice/version.h>
+
+static const char * LIB_VERSION = "@VERSION@";
+
+int eieDevice_version(const char **version) {
+    *version = LIB_VERSION;
+    return 0;
+}

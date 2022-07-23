@@ -86,6 +86,20 @@ static void ctor_ht_destroy(struct eieDevice *eD){
     }
 };
 
+static int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
+    char* payload;
+    fprintf("Message arrived\n");
+    fprintf(" topic: %s/n",topicName);
+    fprintf("message:");
+    payload =(char *)message->payload;
+    for(int i=0; i < message ->payloadlen; i++){
+        putchar(*payload++);
+    }
+    putchar('\n');
+    MQTTCLient_freeMessage(&message);
+    MQTTClient_free(topicName);
+    return 1;
+};
 
 
 void eie_device_start(struct eieDevice *eD){
@@ -107,11 +121,11 @@ void eie_device_status_publish(struct eieDevice *eD, char message){
     
 };
 
-typedef struct function *Function;
 
-void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature){
+
+void eie_device_config_handler_register(struct eieDevice *eD, eie_config_handler_fn func, const char *name_feature){
     
-    malloc(sizeof(fun));
+    malloc(sizeof(data));
     if (fun == NULL){
         fprintf(stderr, "Failed to allocate function for type:%s \n", name_feature);
         return -ENOMEM;
