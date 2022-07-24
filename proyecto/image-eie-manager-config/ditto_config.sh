@@ -29,3 +29,16 @@ then
 fi
 
 echo -e "\n Configuration done, ready to use Ditto with Mosquitto!"
+
+
+echo -e "\nCreating devices for demonstration purposes"
+bash create_devices.sh
+
+if [ $? -gt 0 ]
+then
+	echo ***Error while creating things***
+fi
+
+echo -e "\n Things were created, ready to use them with eieManager2.0"
+
+

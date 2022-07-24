@@ -164,3 +164,25 @@ curl -X PUT 'http://localhost:8080/api/2/things/my.test:octopi' -u 'ditto:ditto'
         }
     }
 }'
+
+#crear device de prueba
+
+curl -X PUT 'http://localhost:8080/api/2/things/my.test:octopi' -u 'ditto:ditto' -H 'Content-Type: application/json' -d '{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "octopi1",
+        "type": "octopus board"
+    },
+    "features": {
+        "temp_sensor": {
+            "properties": {
+                "value": 110
+            }
+        },
+        "altitude": {
+            "properties": {
+                "value": 101
+            }
+        }
+    }
+}'
