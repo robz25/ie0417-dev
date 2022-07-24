@@ -35,6 +35,17 @@ set_target_properties(paho-mqtt3c PROPERTIES COMPILE_FLAGS "")
 
 include(GoogleTest)
 
+# Fetch CJSON 
+set(CJSON_RELEASE)
+FetchContent_Declare(
+  cJSON
+  GIT_REPOSITORY https://github.com/DaveGamble/cJSON.git
+  GIT_TAG        ${CJSON_RELEASE}
+  GIT_PROGRESS   TRUE
+)
+FetchContent_MakeAvailable(cJSON)
+
+
 # Unittest executable
 
 # NOTE: CMake discourages file globbing as it collects the files
