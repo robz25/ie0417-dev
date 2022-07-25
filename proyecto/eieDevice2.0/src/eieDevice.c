@@ -1,9 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+
+#include "uthash.h"
+
 #include "MQTTClient.h"
 #include "eieDevice.h"
-
 #include <testutil/rand_gen.hpp>
 #include <../include/eieDevice/external/uthash.h>
 
@@ -45,7 +47,7 @@ static struct eieDeviceCtorInfo ctors_info[] ={
 };
 
 
-/** Add constructor to the factory's hash table*/
+/** Add constructor to the factory's hash table*|/
 static int ctor_ht_add(struct eieDevice *eD, struct eieDeviceCtorInfo *info){
     struct eieDeviceConstructor *ctor =
         malloc(sizeof(struct eieDeviceConstructor));
