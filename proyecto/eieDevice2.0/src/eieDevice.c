@@ -131,7 +131,7 @@ int eie_device_status_publish(struct eieDevice *eD, char message){
     int num_b = (int)rng.get_rnd_u64();
 
     ret = snprintf(msg, STR_MAX_SIZE, "Hello!: Num A: %d, Num B: %d", num_a, num_b);
-    
+    ASSERT_GT(ret, 0);
 
     pubmsg.payload = msg;
     pubmsg.payloadlen = strlen(msg);
@@ -139,12 +139,14 @@ int eie_device_status_publish(struct eieDevice *eD, char message){
     pubmsg.retained = 0;
 
     ret = MQTTClient_publishMessage(client, topic, &pubmsg, &token);
+    ASSERT_EQ(ret, MQTTCLIENT_SUCCESS) << "Failed to publish, ret: " << ret << std::endl;
 
     printf("Waiting for up to %d seconds for publication of message\n"
             "on topic %s for client with ClientID: %s\n",
             (int)(TIMEOUT/1000), topic, CLIENTID);
 
     ret = MQTTClient_waitForCompletion(client, token, TIMEOUT);
+    ASSERT_EQ(ret, MQTTCLIENT_SUCCESS);
 
     printf("Message with delivery token %d delivered\n", token);
 };
