@@ -101,7 +101,6 @@ int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_mess
     return 1;
 };
 
-int msg_publish(){};
 
 void eie_device_start(struct eieDevice *eD){
     int ret = 0;
