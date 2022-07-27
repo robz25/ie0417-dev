@@ -13,6 +13,7 @@ include(FindPkgConfig)
 include(utils.cmake)
 include(CTest)
 
+
 # Dependencies
 pkg_check_modules(CJSON REQUIRED libcjson>=1.7.15)
 add_definitions(${CJSON_CFLAGS})
@@ -38,6 +39,7 @@ set(CXX_WARNINGS "-Wall -Wshadow")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11 ${C_WARNINGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 ${CXX_WARNINGS}")
 
+
 # Shared library
 ADD_LIB_DIRS(src)
 
@@ -51,16 +53,17 @@ list(APPEND LIB_SOURCES ${VERSION_SOURCE})
 
 add_library(${LIB_NAME} SHARED ${LIB_SOURCES})
 
-
-
 install(
   TARGETS ${LIB_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
 )
 
+
 # Testing
 add_subdirectory(test EXCLUDE_FROM_ALL)
 
 add_subdirectory(tools)
+
+
 
