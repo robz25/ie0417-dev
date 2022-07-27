@@ -19,8 +19,6 @@ include(GoogleTest)
 # Testing utilities
 include_directories(testutil/include)
 
-add_subdirectory(testutil)
-
 # Fetch Paho MQTT C client
 set(PAHO_MQTT_RELEASE v1.3.10)
 FetchContent_Declare(
@@ -34,6 +32,17 @@ FetchContent_MakeAvailable(paho_mqtt_c)
 set_target_properties(paho-mqtt3c PROPERTIES COMPILE_FLAGS "")
 
 include(GoogleTest)
+
+# Fetch CJSON 
+set(CJSON_RELEASE)
+FetchContent_Declare(
+  cjson
+  GIT_REPOSITORY https://github.com/DaveGamble/cJSON.git
+  GIT_TAG        ${CJSON_RELEASE}
+  GIT_PROGRESS   TRUE
+)
+FetchContent_MakeAvailable(cjson)
+
 
 # Unittest executable
 
