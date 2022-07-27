@@ -64,20 +64,59 @@ static int ctor_ht_add(struct eieDevice *eD, struct eieDeviceCtorInfo *info){
 /**Creates the hash table and populates it with the info of the funtions */
 static int ctor_ht_create(struct eieDevice *eD)
 {
-    int data;
-    eD -> ctor_ht = NULL;
 
-    // Create ctors from info array and add them to de Hash Table
-    for(int i = 0; ; i++){
-        struct eieDeviceCtorInfo *info = &ctors_info[i];
-        
-        if((strlen(info->type)==0) || (info->create_fn == NULL)) break;
-        data = ctor_ht_add(eD, info);
-        if (data){
-            fprintf(stderr, "Failed to add function ctor fr type: %s\n", info->type);
-            return data;
+   int ret;
+    cJSON *devices = NULL;
+    int num_devices = 0;
+
+    devices = cJSON_GetObjectItem(smgr->cfg_cjson, "devices");
+    if (devices == NULL) {
+        fprintf(stderr, "Failed to read devices array: %s\n", cJSON_GetErrorPtr());
+        return -1;
+    }
+
+    // Init head entry for sensor hash table
+    smgr->sensor_ht = NULL;
+
+    // Iterate over config array to create devices
+    num_devices = cJSON_GetArraySize(devices);
+    for(int i = 0; i < num_devices; i++)
+    {
+        struct Sensor *ssr = NULL;
+        cJSON *sensor, *obj;
+        char *name, *type;
+        sensor = cJSON_GetArrayItem(devices, i);
+
+        // Read type and name from JSON
+        obj = cJSON_GetObjectItem(sensor, "type");
+        if (obj == NULL) {
+            fprintf(stderr, "Failed to read sensor type: %s\n", cJSON_GetErrorPtr());
+            return -1;
+        }
+        type = cJSON_GetStringValue(obj);
+
+        obj = cJSON_GetObjectItem(sensor, "name");
+        if (obj == NULL) {
+            fprintf(stderr, "Failed to read sensor name: %s\n", cJSON_GetErrorPtr());
+            return -1;
+        }
+        name = cJSON_GetStringValue(obj);
+
+        // Create sensor and add it to hash table
+        ssr = sensor_factory_sensor_create(smgr->sf, type, name);
+        if (ssr == NULL) {
+            fprintf(stderr, "Failed to create sensor with type: %s, name: %s\n",
+                    type, name);
+            return -1;
+        }
+        ret = sensor_ht_add(smgr, ssr);
+        if (ret) {
+            fprintf(stderr, "Failed to add sensor with type: %s, name: %s\n",
+                    ssr->info.type, ssr->info.name);
+            return ret;
         }
     }
+
     return 0;
 
 };
