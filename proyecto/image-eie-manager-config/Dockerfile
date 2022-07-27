@@ -10,6 +10,7 @@ COPY requirements.txt /
 COPY ditto_config.sh /scripts/
 COPY create_mqtt_connection.sh /scripts/
 COPY create_policy.sh /scripts/
+COPY create_devices.sh /scripts/
 RUN pip install -r ../requirements.txt --cache-dir /opt/app/pip_cache
 RUN chmod +x ditto_config.sh
 
