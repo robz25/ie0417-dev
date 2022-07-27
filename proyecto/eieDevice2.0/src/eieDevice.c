@@ -1,9 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+
+#include "uthash.h"
+
 #include "MQTTClient.h"
 #include "eieDevice.h"
-
 #include <testutil/rand_gen.hpp>
 #include <../include/eieDevice/external/uthash.h>
 
@@ -39,18 +41,19 @@ struct eieDevice
  * el eie_Device_handler_register */
 /** Global array with the info of the eieDevice constructors*/
 static struct eieDeviceCtorInfo ctors_info[] ={
-    {"on", on_eieDevice_create},
+
+    /*{"on", on_eieDevice_create},
     {"off", off_eieDevice_create},
-    {"", NULL}
+    {"", NULL}*/
+
 };
 
 
-/** Add constructor to the factory's hash table*/
 static int ctor_ht_add(struct eieDevice *eD, struct eieDeviceCtorInfo *info){
     struct eieDeviceConstructor *ctor =
         malloc(sizeof(struct eieDeviceConstructor));
     if (ctor == NULL){
-        fprintf(stderr, "Failed to allocate eieDevice ctor for type: %s\n", info->type);
+        fprintf(stderr, "Failed to allo te eieDevice ctor for type: %s\n", info->type);
         return -ENOMEM;
     }
     ctor->info = *info;
@@ -61,6 +64,8 @@ static int ctor_ht_add(struct eieDevice *eD, struct eieDeviceCtorInfo *info){
 /**Creates the hash table and populates it with the info of the funtions */
 static int ctor_ht_create(struct eieDevice *eD)
 {
+
+
     int data;
     eD -> ctor_ht = NULL;
 
@@ -76,9 +81,8 @@ static int ctor_ht_create(struct eieDevice *eD)
         }
     }
     return 0;
+
 };
-
-
 
 /**Destroys the eieDevice constructor hash table*/
 static void ctor_ht_destroy(struct eieDevice *eD){
@@ -90,6 +94,7 @@ static void ctor_ht_destroy(struct eieDevice *eD){
 };
 
 static int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
+    
     char* payload;
     fprintf("Message arrived\n");
     fprintf(" topic: %s/n",topicName);
@@ -102,6 +107,7 @@ static int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLie
     MQTTCLient_freeMessage(&message);
     MQTTClient_free(topicName);
     return 1;
+
 };
 
 
