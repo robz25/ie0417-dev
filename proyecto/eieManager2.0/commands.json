@@ -164,3 +164,62 @@ curl -X PUT 'http://localhost:8080/api/2/things/my.test:octopi' -u 'ditto:ditto'
         }
     }
 }'
+
+#crear device de prueba, ese put solo sirve para crear, si lo vuelvo a mandar con solo configuration, me borra lo demás
+#debe haber otro tipo de request al API para poder modificar solo configurations desde el REST API
+
+curl -X PUT 'http://localhost:8080/api/2/things/my.test:Sensor3' -u 'ditto:ditto' -H 'Content-Type: application/json' -d '{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "Sensor bla",
+        "type": "Sensor de sensado"
+    },
+    "features": {
+        "configuration": {
+            "properties": {
+                "temporizador": 88
+            }
+        },
+        "status": {
+            "properties": {
+                "minutos": 11,
+                "bateria": 111,
+                "ppm": 700
+            }
+        }
+    }
+}'
+
+
+Modificar valores desde device, no sirve
+
+mosquitto_pub -h 172.17.0.1 -t eielabs -m "
+{
+    "topic": "localhost:8080/eielabs/things/twin/events/modified",
+    "headers": {
+      "correlation-id": "1234567890"
+    },
+    "path": "/features/configuration/properties/power",
+    "value": "off",
+    "revision": 1
+  }"
+
+
+  Estudiar el API
+  https://www.eclipse.org/ditto/http-api-doc.html#/
+
+  curl http://localhost:8080/api/2/search/things?fields=thingId -u ditto:ditto
+
+  curl http://localhost:8080/api/2/search/things -u ditto:ditto
+
+  curl http://localhost:8080/api/2/things/search/things/count -u ditto:ditto
+
+  curl http://localhost:8080/api/2/things/eielabs:AirQualitySensor/features -u ditto:ditto
+
+  curl http://localhost:8080/api/2/things/eielabs:AirQualitySensor/features/configuration -u ditto:ditto
+
+  #mejor para obtener de un solo los valores de configuración
+  curl http://localhost:8080/api/2/things/eielabs:AirQualitySensor/features/configuration/properties -u ditto:ditto
+
+#ponerle %20 cuando tengo espacios
+  curl "http://ditto:ditto@localhost:8080/api/2/things/eielabs:AirQualitySensor/features/configuration/properties/fan%20speed"

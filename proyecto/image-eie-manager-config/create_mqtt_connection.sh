@@ -6,19 +6,19 @@ curl -X POST 'http://localhost:8080/devops/piggyback/connectivity?timeout=10' -u
     "piggybackCommand": {
         "type": "connectivity.commands:createConnection",
         "connection": {
-            "id": "mqtt-example-connection-12345",
+            "id": "eielabs-mqtt-open-connection",
             "connectionType": "mqtt",
             "connectionStatus": "open",
             "failoverEnabled": true,
             "uri": "tcp://mosquitto:1883",
             "sources": [{
-                "addresses": ["ditto-tutorial/#"],
+                "addresses": ["eielabs/#"],
                 "authorizationContext": ["nginx:ditto"],
                 "qos": 0,
                 "filters": []
             }],
             "targets": [{
-                "address": "ditto-tutorial/{{ thing:id }}",
+                "address": "eielabs/{{ thing:id }}",
                 "topics": [
                 "_/_/things/twin/events",
                 "_/_/things/live/messages"

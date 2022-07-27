@@ -239,7 +239,7 @@ services:
       - swagger-ui
 
   eie-manager-config:
-    image: docker.io/robz25/eie-manager-config:script
+    image: docker.io/robz25/eie-manager-config:scripts
       #    networks:
       #      default:
         #        aliases:
