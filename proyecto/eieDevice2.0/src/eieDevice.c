@@ -64,8 +64,6 @@ static int ctor_ht_add(struct eieDevice *eD, struct eieDeviceCtorInfo *info){
 /**Creates the hash table and populates it with the info of the funtions */
 static int ctor_ht_create(struct eieDevice *eD)
 {
-
-
     int data;
     eD -> ctor_ht = NULL;
 

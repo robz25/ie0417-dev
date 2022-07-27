@@ -59,7 +59,6 @@ void eie_device_status_publish(struct eieDevice *eD, char message);
  */
 void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature);
 
-/
 /**
  * eie_device_destroy is in charge of destroying the struct
  * of eieDevice when is not longer needed.
