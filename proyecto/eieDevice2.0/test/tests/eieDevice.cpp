@@ -71,7 +71,7 @@ TEST_F(eie_device_fixture, start_stop)
     ASSERT_EQ(ret, -1);
 
     // Verify the right way to call the eie_device_start
-    ret = eie_device_start(commandRunner);
+    ret = eie_device_start(eieDevice);
     ASSERT_EQ(ret, 0);
 
     // Verify wrong way to call the stop eieDevice
@@ -79,31 +79,31 @@ TEST_F(eie_device_fixture, start_stop)
     ASSERT_EQ(ret2, -1);
 
     // Verify the right way to call the eie_device_stop
-    ret2 = eie_device_stop(commandRunner);
+    ret2 = eie_device_stop(eieDevice);
     ASSERT_EQ(ret2, 0);
 }
 /** Test command_send_single using a fixture */
 TEST_F(eie_device_fixture, command_send_single)
 {
-    Command* msgCmd = msg_command_create("Test message command");
+    //eieDevice* msgCmd = eie_device_create("Test message command");
 
-    // verify right way to start the CommandRunner
-    int ret = command_runner_start(commandRunner);
+    // verify right way to start the eieDevice
+    int ret = eie_device_start(eieDevice);
     ASSERT_EQ(ret, 0);
 
-    // Wrong way to send command to CommandRunner
-    int ret1 = command_runner_send(NULL, msgCmd);
+    // Wrong way to send command to eieDevice
+    int ret1 = eie_device_config_handler_register(NULL, msgCmd);
     ASSERT_EQ(ret1, -1);
     
-    int ret2 = command_runner_send(commandRunner, NULL);
+    int ret2 = eie_device_status_publish(eieDevice, NULL);
     ASSERT_EQ(ret2, -1);
 
     // Right way to call the command_runner_send
-    int ret3 = command_runner_send(commandRunner, msgCmd);
+    int ret3 = eie_device_config_handler_register(eieDevice, msgCmd);
     ASSERT_EQ(ret3, 0);
 
     // Verify the right way to call the command_runner_stop
-    int ret4 = command_runner_stop(commandRunner);
+    int ret4 = eie_device_stop(eieDevice);
     ASSERT_EQ(ret4, 0);
 }
 

@@ -32,14 +32,14 @@ struct eieDevice * eie_device_create(struct eieDeviceCtorInfo *cfg);
  * 
  * @return Pointer to the topic 
  */
-void eie_device_start(struct eieDevice *eD);
+int eie_device_start(struct eieDevice *eD);
 
 /**
  * Stop the comunication
  * 
  * eie_device_stop is in charge of unsubcribe the topic.
  */
-void eie_device_stop(struct eieDevice *eD);
+int eie_device_stop(struct eieDevice *eD);
 
 /**
  * eie_device_status_publish is in charge of generating a CJSON 
@@ -48,7 +48,7 @@ void eie_device_stop(struct eieDevice *eD);
  * @param eD EieDevice structure 
  * @param message Message that wants to be send
  */
-void eie_device_status_publish(struct eieDevice *eD, char message);
+int eie_device_status_publish(struct eieDevice *eD, char message);
 
 /**
  * eie_device_config_handler_register save the function in
@@ -57,7 +57,7 @@ void eie_device_status_publish(struct eieDevice *eD, char message);
  * @param function pointer to function
  * @param name_feature name of the feature associated
  */
-void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature);
+int eie_device_config_handler_register(struct eieDevice *eD, eie_config_handler_fn func, const char *name_feature);
 
 /**
  * eie_device_destroy is in charge of destroying the struct
@@ -65,6 +65,6 @@ void eie_device_config_handler_register(struct eieDevice *eD, Function fun, cons
  * 
  * @param eD struct of eieDevice
  */
-void eie_device_destroy(struct eieDevice *eD);
+int eie_device_destroy(struct eieDevice *eD);
 
 #endif // eieDevice_H_
