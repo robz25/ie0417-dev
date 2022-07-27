@@ -19,6 +19,19 @@ add_definitions(${CJSON_CFLAGS})
 link_directories(${CJSON_LIBRARY_DIRS})
 include_directories(${CJSON_INCLUDE_DIRS})
 
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(CONFIG_DIR ${CMAKE_SOURCE_DIR}/config)
+
+include_directories(${INCLUDE_DIR})
+
+install(
+  DIRECTORY ${INCLUDE_DIR}/${LIB_NAME}
+  DESTINATION include
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN "_*" EXCLUDE
+  PATTERN "external" EXCLUDE
+)
+
 # Build flags
 set(C_WARNINGS "-Wall -Wstrict-prototypes -Wshadow")
 set(CXX_WARNINGS "-Wall -Wshadow")

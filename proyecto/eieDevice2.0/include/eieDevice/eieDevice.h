@@ -1,6 +1,29 @@
 #ifndef eieDevice_H_
 #define eieDevice_H_
 
+
+/**
+ * EieDevice constructor information structure
+ * 
+ */
+struct eieDeviceCtorInfo
+{
+    const char *type;
+};
+
+/**
+ * eie_device_create is in charge of generate the struct of eieDevice.
+ *
+ * Creates hash table
+ *
+ * @param cfg  Command runner configuration
+ *
+ * @return Pointer to a command runner structure.
+ */
+struct eieDevice * eie_device_create(struct eieDeviceCtorInfo *cfg);
+
+
+
 /**
  * Starts the comunication client - eieDevice
  * 
@@ -36,14 +59,7 @@ void eie_device_status_publish(struct eieDevice *eD, char message);
  */
 void eie_device_config_handler_register(struct eieDevice *eD, Function fun, const char *name_feature);
 
-/**
- * eie_device_create is in charge of generate the struct of eieDevice.
- * 
- * @return struct eieDevice* 
- */
-struct eieDevice *eie_device_create(void);
-
-
+/
 /**
  * eie_device_destroy is in charge of destroying the struct
  * of eieDevice when is not longer needed.

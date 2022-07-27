@@ -1,7 +1,5 @@
 #include "gtest/gtest.h"
 
-#include <demo_api.h>
-
 #include <eieDevice/eieDevice.h>
 #include <testutil/rand_gen.hpp>
 
@@ -11,7 +9,7 @@ class eie_device_fixture : public testing::Test
  protected:
     /* Fixture class members, accesible from test functions */
     testutil::rand_gen rng;
-    EieDevice* eieDevice;
+    eieDevice* eieDevice;
 
     /* Fixture class constructor */
     /* NOTE: Using reproducible random value for seed, check
@@ -27,7 +25,7 @@ class eie_device_fixture : public testing::Test
         std::cout << "eieDevice fixture SetUp! "<< std::endl;
 
         /*Create eieDevice in SetUp*/
-        EieDeviceConfig cnf;  /* Calling struct from command_runner.h*/
+        eieDeviceConfig cnf;  /* Calling struct from command_runner.h*/
         cnf.q_max_size = rng.get_rnd_u64_range(1,1000); /*Randomize the q_max_size configuration parameter between 1 and 1000*/
 
         eieDevice = eie_device_create(&cnf);
