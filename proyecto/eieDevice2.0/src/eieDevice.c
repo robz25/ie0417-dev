@@ -9,8 +9,8 @@
 #include <testutil/rand_gen.hpp>
 #include <../include/eieDevice/external/uthash.h>
 
-//#define QOS 1
-//#define STR_MAX_SIZE 100
+#define QOS 1
+#define STR_MAX_SIZE 100
 
 typedef struct eieDevice * (*eie_device_create)(const char *name);
 
