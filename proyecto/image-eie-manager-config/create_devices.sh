@@ -5,20 +5,28 @@ curl -X PUT 'http://localhost:8080/api/2/things/eielabs:AirQualitySensor' -u 'di
         "type": "Air Quality Sensor"
     },
     "features": {
-        "configuration": {
+        "air_sensor_ppm": {
             "properties": {
-                "sample frequency minutes": 5,
-		"fan speed": 2,
-		"power": "on"
+                "configuration": 0,
+                "status": 105
             }
         },
-        "status": {
+        "air_sensor_sample_freq_minutes": {
             "properties": {
-                "ppm": 101,
-		"battery": 85,
-		"time on minutes": 30,
-	        "maximum read": 460,
-		"minumum read": 85	
+                "configuration": 5,
+                "status": 5
+            }
+        },
+        "fan_speed": {
+            "properties": {
+                "configuration": 2,
+                "status": 2
+            }
+        },
+        "power":{
+            "properties": {
+                "configuration": "on",
+                "status": "on"
             }
         }
     }
@@ -31,21 +39,29 @@ curl -X PUT 'http://localhost:8080/api/2/things/eielabs:lightingSystem' -u 'ditt
         "type": "Lamp"
     },
     "features": {
-        "configuration": {
+        "light_intensity": {
             "properties": {
-                "intensity": 85,
-		"timer minutes": 25,
-		"color": "bright white",
-		"power": "on"
+                "configuration": 85,
+                "status": 85
             }
         },
-        "status": {
+        "light_color": {
             "properties": {
-		"timer left timer": 0,
-		"time on minutes": 30
+                "configuration": "bright white",
+                "status": "bright white"
+            }
+        },
+        "timer_minutes": {
+            "properties": {
+                "configuration": 15,
+                "status": 14
+            }
+        },
+        "power":{
+            "properties": {
+                "configuration": "on",
+                "status": "on"
             }
         }
     }
 }'
-
-
