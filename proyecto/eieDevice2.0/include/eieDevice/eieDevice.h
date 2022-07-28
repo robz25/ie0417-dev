@@ -23,7 +23,6 @@ struct eieDeviceCtorInfo
 struct eieDevice * eie_device_create(struct eieDeviceCtorInfo *cfg);
 
 
-
 /**
  * Starts the comunication client - eieDevice
  * 
@@ -51,6 +50,7 @@ int eie_device_stop(struct eieDevice *eD);
 int eie_device_status_publish(struct eieDevice *eD, char message);
 
 /**
+
  * eie_device_config_handler_register save the function in
  * a Hash table.
  * 
@@ -58,6 +58,13 @@ int eie_device_status_publish(struct eieDevice *eD, char message);
  * @param name_feature name of the feature associated
  */
 int eie_device_config_handler_register(struct eieDevice *eD, eie_config_handler_fn func, const char *name_feature);
+
+/**
+ * eie_device_create is in charge of generate the struct of eieDevice.
+ * 
+ * @return struct eieDevice* 
+ */
+struct eieDevice *eie_device_create(void);
 
 /**
  * eie_device_destroy is in charge of destroying the struct

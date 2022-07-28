@@ -131,7 +131,7 @@ static void ctor_ht_destroy(struct eieDevice *eD){
 };
 
 static int msg_arrived_cb(void *context, char *topicName, int topicLen, MQTTCLient_message *message){
-    
+
     char* payload;
     fprintf("Message arrived\n");
     fprintf(" topic: %s/n",topicName);
@@ -193,6 +193,7 @@ int eie_device_status_publish(struct eieDevice *eD, char message){
 
     printf("Message with delivery token %d delivered\n", token);
 };
+
 
 typedef int (*eie_config_handler_fn)(void *data);
 
